@@ -8,8 +8,8 @@
 	http://www.springframework.org/schema/security/spring-security.xsd">
 	<!-- 시큐리티 설정 파일 -->
 	
-	<!-- 접근 제한시 처리할 핸들러 빈으로 등록  
-	<bean id="customAccessDenied" class="com.member.service.CustomAccessDeniedHandler" />-->
+	<!-- 접근 제한시 처리할 핸들러 빈으로 등록  -->
+	<bean id="customAccessDenied" class="com.project.service.CustomAccessDeniedHandler" />
 	
 	<!-- 비밀번호 보호를 위함 암호화 클래스 빈으로 등록  
 	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />-->
