@@ -16,7 +16,7 @@
     <link rel="icon" href="resources/bueno-master/img/core-img/favicon.ico">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/resources/bueno-master/style.css">
 </head>
 <body id="page-top">
 	<!-- Preloader -->
@@ -45,7 +45,7 @@
     <header class="header-area">
 
         <!-- Top Header Area -->
-        <div class="top-header-area bg-img bg-overlay" style="background-image: url(img/bg-img/header.jpg);">
+        <div class="top-header-area bg-img bg-overlay" style="background-image: url(/resources/bueno-master/img/bg-img/header.jpg);">
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-between">
                     <div class="col-12 col-sm-6">
@@ -74,7 +74,7 @@
 
         <!-- Logo Area -->
         <div class="logo-area">
-            <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+            <a href="index.html"><img src="resources/bueno-master/img/core-img/logo.png" alt=""></a>
         </div>
 
         <!-- Navbar Area -->
@@ -85,7 +85,7 @@
                     <nav class="classy-navbar justify-content-between" id="buenoNav">
 
                         <!-- Toggler -->
-                        <div id="toggler"><img src="img/core-img/toggler.png" alt=""></div>
+                        <div id="toggler"><img src="/resources/bueno-master/img/core-img/toggler.png" alt=""></div>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -173,11 +173,3 @@
         </div>
     </header>
     <!-- ##### Header Area End ##### -->
-
-    <!-- ##### Treading Post Area Start ##### -->
-    <div class="treading-post-area" id="treadingPost">
-        <div class="close-icon">
-            <i class="fa fa-times"></i>
-        </div>
-
-        <h4>Treading Post</h4>
