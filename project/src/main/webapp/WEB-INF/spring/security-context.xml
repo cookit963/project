@@ -11,14 +11,14 @@
 	<!-- 접근 제한시 처리할 핸들러 빈으로 등록  -->
 	<bean id="customAccessDenied" class="com.project.service.CustomAccessDeniedHandler" />
 	
-	<!-- 비밀번호 보호를 위함 암호화 클래스 빈으로 등록  
-	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />-->
-	<!-- 시큐리티에서 우리가 원하는 형태의 회원테이블로 처리되기 위한 클래스 빈으로 등록 
-	<bean id="customUserDetailsService" class="com.member.service.CustomUserDetailsService" /> -->
-	<!-- 로그인 성공시 처리 핸들러 등록 
-	<bean id="loginSuccessHandler" class="com.member.service.CustomLoginSuccessHandler" />-->
-	<!-- 로그아웃 성공 처리 핸들러 
-	<bean id="logoutSeccessHandler" class="com.member.service.CustomLogoutSeccessHandler" />-->
+	<!-- 비밀번호 보호를 위함 암호화 클래스 빈으로 등록  -->
+	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+	<!-- 시큐리티에서 우리가 원하는 형태의 회원테이블로 처리되기 위한 클래스 빈으로 등록 -->
+	<bean id="customUserDetailsService" class="com.project.service.CustomUserDetailsService" /> 
+	<!-- 로그인 성공시 처리 핸들러 등록 -->
+	<bean id="loginSuccessHandler" class="com.project.service.CustomLoginSuccessHandler" />
+	<!-- 로그아웃 성공 처리 핸들러 -->
+	<bean id="logoutSeccessHandler" class="com.project.service.CustomLogoutSeccessHandler" />
 	
 	<!-- 접근 제한 설정 -->
 	<security:http>
