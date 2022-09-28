@@ -1,6 +1,7 @@
 package com.project.domain;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import lombok.Data;
 
@@ -15,4 +16,5 @@ public class UserListVO {
 	private Timestamp user_deletereg;
 	private int user_reviewon;
 	private int user_admincheck;
+	private List<AuthVO> authList;
 }
