@@ -3,5 +3,17 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.persistence.UserMapper">
-
+	<select id="getUser" resultType="com.project.domain.UserListVO">
+		select m.*, a.auth 
+		from UserList m, UserListAuth a 
+		where m.user_id = a.user_id
+		and m.user_id = #{user_id}
+	</select>
+	<insert id="addUser">
+		insert into UserList(user_id, user_pw, user_nicname, user_email, user_deletereg)
+		values(#{user_id}, #{user_pw}, #{user_nicname}, #{user_email}, null)
+	</insert>
+	<insert id="addAuth">
+		insert into UserListAuth values(#{user_id}, #{auth})
+	</insert>
 </mapper>

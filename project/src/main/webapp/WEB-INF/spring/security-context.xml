@@ -24,7 +24,7 @@
 	<security:http>
 		<!-- 특정 URI에 접근 제한 설정 -->
 		<security:intercept-url pattern="/common/*" access="permitAll" />
-		<security:intercept-url pattern="/member/*" access="hasRole('ROLE_MEMBER')" />
+		<security:intercept-url pattern="/member/*" access="hasRole('ROLE_USER')" />
 		
 		
 		<!-- 접근 제한시 403 페이지 대신 보여줄 페이지 세팅 
@@ -33,7 +33,7 @@
 		<security:access-denied-handler ref="customAccessDenied" />
 	
 		<!-- 시큐리티 로그인페이지를 커스텀 경로로 변경(우리가만든 로그인폼 경로) -->
-		<security:form-login login-page="/common/login" authentication-success-handler-ref="loginSuccessHandler" />
+		<security:form-login login-page="/user/login" authentication-success-handler-ref="loginSuccessHandler" />
 		
 		<!-- 시큐리티로 로그아웃 처리 -->
 		<security:logout logout-url="/logout" invalidate-session="true" delete-cookies="JSESSION_ID,remember-me" success-handler-ref="logoutSeccessHandler"/>
@@ -44,8 +44,8 @@
 		-->
 		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800"/>
 		
-		<!-- csrf 비활성화
-		<security:csrf disabled="true"/> -->
+		<!-- csrf 비활성화 -->
+		<security:csrf disabled="true"/>
 		
 		
 	</security:http>

@@ -15,6 +15,5 @@ public class UserListVO {
 	private int user_delete;
 	private Timestamp user_deletereg;
 	private int user_reviewon;
-	private int user_admincheck;
 	private List<AuthVO> authList;
 }

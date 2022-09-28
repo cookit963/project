@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 	<!-- header 복붙 -->
-	<%@ include file="includes/header.jsp" %>
+	<%@ include file="../includes/header.jsp" %>
 	
 	    <!-- ##### Treading Post Area Start ##### -->
     <div class="treading-post-area" id="treadingPost">
@@ -538,4 +538,4 @@
     </div>
     <!-- ##### Instagram Area End ##### -->
 		<!-- footer 복붙 -->        
-	<%@ include file="includes/footer.jsp" %>
+	<%@ include file="../includes/footer.jsp" %>

@@ -10,7 +10,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Bueno - Food Blog HTML Template</title>
+    <title>범수의 뭔가 뭔가임</title>
 
     <!-- Favicon -->
     <link rel="icon" href="resources/bueno-master/img/core-img/favicon.ico">
