@@ -20,7 +20,8 @@ public class CustomLogoutSeccessHandler implements LogoutSuccessHandler {
 		
 		log.info("logout handler");
 		
-		response.sendRedirect(request.getHeader("referer"));
+		//response.sendRedirect(request.getHeader("referer"));
+		response.sendRedirect("/content/main");
 		
 	}
 

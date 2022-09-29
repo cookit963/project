@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.domain.UserListVO;
 import com.project.service.UserService;
+import com.project.service.domain.CustomUser;
 
 import lombok.extern.log4j.Log4j;
 
@@ -32,8 +34,8 @@ public class UserController {
 		log.info("error : " + error);
 		
 		// 접근제한때문에 로그인폼으로 강제 이동되었다면 직전 url 뽑아서 session 임시저장 
-		String referrer = request.getHeader("Referer");
-		request.getSession().setAttribute("prevPage", referrer);
+//		String referrer = request.getHeader("Referer");
+//		request.getSession().setAttribute("prevPage", referrer);
 		
 	}
 	
@@ -55,7 +57,7 @@ public class UserController {
 			rttr.addFlashAttribute("msg", "success");
 		}
 		
-		return "redirect:/board/main";
+		return "redirect:/content/main";
 	}
 	
 	@PostMapping("idAvail")
@@ -71,4 +73,53 @@ public class UserController {
 		
 		return result;
 	}
+	
+	@GetMapping("customLogout")
+	public String customLogout() {
+		log.info("로그아웃....");
+		
+		//TODO 0901 페이지 만들어주기... view...없이...
+		return "user/logout";
+	}
+	
+	@GetMapping("mypage")
+	public void mypage() {
+		
+	}
+	
+	@GetMapping("modify")
+	public void modify(Authentication auth, Model model) {
+		CustomUser cUser = (CustomUser)auth.getPrincipal();
+		UserListVO user = service.getUser(cUser.getUsername());
+		model.addAttribute("user", user);
+	}
+	@PostMapping("modify")
+	public String modifyPro(UserListVO vo, Model model, Authentication auth) {
+		vo.setUser_id(((CustomUser)auth.getPrincipal()).getUsername());
+		int result = service.modifyUser(vo);
+		model.addAttribute("result", result);
+		
+		return "user/modifyPro";
+	}
+	
+	@GetMapping("delete")
+	public void delete(Authentication auth, Model model) {
+		CustomUser cUser = (CustomUser)auth.getPrincipal();
+		UserListVO user = service.getUser(cUser.getUsername());
+		model.addAttribute("user", user);
+	}
+	
+	// 회원 삭제 처리 
+	@PostMapping("delete")
+	public String deletePro(UserListVO vo, Authentication auth, Model model, HttpServletRequest request) {
+		vo.setUser_id(((CustomUser)auth.getPrincipal()).getUsername());
+		
+		
+		String userPass = request.getParameter("user_pawd");
+		
+		int result = service.deleteUser(vo, userPass);
+		model.addAttribute("result", result);
+		return "user/deletePro"; 
+	}
+	
 }

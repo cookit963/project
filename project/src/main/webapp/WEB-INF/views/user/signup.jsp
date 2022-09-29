@@ -44,7 +44,7 @@
 				<td colspan="2">
 					<input type="submit" value="회원 가입" />
 					<input type="reset" value="재작성" />
-					<input type="button" value="취소" onclick="window.location='../board/main'" />
+					<input type="button" value="취소" onclick="window.location='../content/main'" />
 				</td>
 			</tr>
 		</table>

@@ -3,9 +3,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+
 	<!-- header 복붙 -->
 	<%@ include file="../includes/header.jsp" %>
-	
+	<div>
+		<sec:authorize access="isAnonymous()">
+			<p>로그인 안함</p>
+		</sec:authorize>
+		<sec:authorize access="isAuthenticated()">
+			<form action="/logout" method="post">
+				<input type="hidden" name="${_csrf.parameterName}"
+					value="${_csrf.token}">
+				<button>로그아웃</button>
+			</form>
+			<p>로그인 함</p>
+			
+		</sec:authorize>
+	</div>
 	    <!-- ##### Treading Post Area Start ##### -->
     <div class="treading-post-area" id="treadingPost">
         <div class="close-icon">
@@ -13,7 +27,7 @@
         </div>
 
         <h4>Treading Post</h4>
-
+       
         <!-- Single Blog Post -->
         <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
             <!-- Blog Thumbnail -->
@@ -342,6 +356,7 @@
                                 <a href="#" class="post-author">By Julia Stiles</a>
                             </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus.</p>
+                             
                         </div>
                     </div>
 

@@ -139,7 +139,6 @@
 		    <artifactId>aspectjweaver</artifactId>
 		    <version>${org.aspectj-version}</version>
 		</dependency>
-		
 		<!-- 스프링 시큐리티 관련 -->
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
 		<dependency>
@@ -165,6 +164,7 @@
 		    <artifactId>spring-security-taglibs</artifactId>
 		    <version>${org.springframework-version}</version>
 		</dependency>
+		
 		
 		
 		

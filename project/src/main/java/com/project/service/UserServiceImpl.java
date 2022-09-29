@@ -30,16 +30,27 @@ public class UserServiceImpl implements UserService{
 		return mapper.getUser(user_id);
 	}
 
-	@Override
-	public int modifyUser(UserListVO user) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 	@Override
-	public int deleteUser(UserListVO user) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteUser(UserListVO user, String userPass) {
+		int result = 0;
+		log.info(userPass);
+		log.info(user.getUser_pw());
+		if(bcryptPasswordEncoder.matches(userPass,user.getUser_pw())) {
+			result = mapper.deleteUser(user.getUser_id());
+			if(result == 1) {
+				result = mapper.deleteAuth(user.getUser_id());
+				mapper.deleteReview(user.getUser_id());
+				mapper.deleteReply(user.getUser_id());
+				mapper.deleteHearts(user.getUser_id());
+				mapper.deleteWishRest(user.getUser_id());
+			}
+		} else {
+			result = 0;
+        }
+		log.info(result);
+		return result;
 	}
 
 	@Override
@@ -59,5 +70,18 @@ public class UserServiceImpl implements UserService{
 		return result;
 	}
 	
-
+	
+	@Override
+	public int modifyUser(UserListVO user) {
+		log.info("nicname : " + user.getUser_nicname());
+		log.info("pw : " + user.getUser_pw());
+		if(user.getUser_pw() != "" || user.getUser_nicname() != "") {
+			if(user.getUser_pw() != "") {
+				user.setUser_pw(bcryptPasswordEncoder.encode(user.getUser_pw()));
+			}
+			return mapper.updateUser(user);
+		}else {
+			return -1;
+		}
+	}
 }

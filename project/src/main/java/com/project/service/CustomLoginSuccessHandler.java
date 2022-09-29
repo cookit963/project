@@ -49,18 +49,7 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 	 	*/
 	 	
 	 	// 로그인폼으로 강제 이동되어, 로그인처리 성공후 보던곳으로 가기위한 처리 
-	 	HttpSession session = request.getSession(); 
-	 	if(session != null) {
-	 		String redirectURL = (String)session.getAttribute("prevPage");
-	 		if(redirectURL != null) {
-	 			session.removeAttribute("prevPage");
-	 			response.sendRedirect(redirectURL);
-	 		}else {
-	 			response.sendRedirect("/board/main");
-	 		}
-	 	}else {
-	 		response.sendRedirect("/board/main");
-	 	}
+	    	response.sendRedirect("/content/main");
 	 	
 	}
 

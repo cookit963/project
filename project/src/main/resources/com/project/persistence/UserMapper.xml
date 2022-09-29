@@ -3,7 +3,24 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.persistence.UserMapper">
-	<select id="getUser" resultType="com.project.domain.UserListVO">
+	<resultMap type="com.project.domain.UserListVO" id="userMap">
+		<id property="user_id" column="user_id"/>
+		<result property="user_id" column="user_id" />
+		<result property="user_pw" column="user_pw" />
+		<result property="user_nicname" column="user_nicname" />
+		<result property="user_email" column="user_email" />
+		<result property="reg" column="reg" />
+		<result property="user_delete" column="user_delete" />
+		<result property="user_deletereg" column="user_deletereg" />
+		<result property="user_reviewon" column="user_reviewon" />
+		<collection property="authList" resultMap="authMap"></collection>
+	</resultMap>
+	<!-- 권한 테이블 값을 AuthVO 클래스에 대입하는것 명확히 정의 -->
+	<resultMap type="com.project.domain.AuthVO" id="authMap">
+		<result property="id" column="id" />
+		<result property="auth" column="auth" />
+	</resultMap>
+	<select id="getUser" resultMap="userMap">
 		select m.*, a.auth 
 		from UserList m, UserListAuth a 
 		where m.user_id = a.user_id
@@ -16,4 +33,40 @@
 	<insert id="addAuth">
 		insert into UserListAuth values(#{user_id}, #{auth})
 	</insert>
+	<update id="updateUser">
+		update UserList set 
+		<trim  suffixOverrides=",">
+			<if test="user_pw != ''">
+				user_pw=#{user_pw},
+			</if>
+			<if test="user_nicname != ''">
+				user_nicname=#{user_nicname}
+			</if>
+		</trim>
+		where user_id=#{user_id}
+	</update>
+	<select id="idPwCheck" resultType="int">
+		select count(*) from UserList where user_id=#{user_id} 
+		<if test="user_pw != null">
+			and user_pw = #{user_pw}
+		</if>
+	</select>
+	<delete id="deleteUser">
+		delete from UserList where user_id=#{user_id}
+	</delete>
+	<delete id="deleteAuth">
+		delete from UserListAuth where user_id=#{user_id}
+	</delete>
+	<delete id="deleteReview">
+		delete from Review where user_id=#{user_id}
+	</delete>
+	<delete id="deleteReply">
+		delete from Reply where user_id=#{user_id}
+	</delete>
+	<delete id="deleteHearts">
+		delete from Hearts where user_id=#{user_id}
+	</delete>
+	<delete id="deleteWishRest">
+		delete from WishRest where user_id=#{user_id}
+	</delete>
 </mapper>

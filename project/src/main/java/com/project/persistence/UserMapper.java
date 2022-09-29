@@ -14,9 +14,13 @@ public interface UserMapper {
 	public int updateUser(UserListVO user);
 	
 	// 회원 삭제
-	public int deleteUser(String id, String pw);
+	public int deleteUser(String id);
 	// 권한 삭제 
 	public int deleteAuth(String id);
+	public int deleteReview(String id);
+	public int deleteReply(String id);
+	public int deleteHearts(String id);
+	public int deleteWishRest(String id);
 	
 	// 아이디 비번 확인 
 	public int idPwCheck(UserListVO user);

@@ -15,5 +15,5 @@ public interface UserService {
 		public int modifyUser(UserListVO user);
 		
 		// 회원 탈퇴 처리
-		public int deleteUser(UserListVO user);
+		public int deleteUser(UserListVO user, String userPass);
 }
