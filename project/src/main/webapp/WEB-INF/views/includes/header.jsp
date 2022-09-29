@@ -74,7 +74,7 @@
 
         <!-- Logo Area -->
         <div class="logo-area">
-            <a href="index.html"><img src="resources/bueno-master/img/core-img/logo.png" alt=""></a>
+            <a href="index.html"><img src="/resources/bueno-master/img/core-img/logo.png" alt=""></a>
         </div>
 
         <!-- Navbar Area -->

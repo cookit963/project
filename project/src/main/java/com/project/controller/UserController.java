@@ -27,7 +27,7 @@ public class UserController {
 	private UserService service;
 	
 	@GetMapping("login")
-	public void login(String error, HttpServletRequest request) {
+	public void loginPro(String error, HttpServletRequest request) {
 		log.info("************** login!!!! *************");
 		log.info("error : " + error);
 		
@@ -55,7 +55,7 @@ public class UserController {
 			rttr.addFlashAttribute("msg", "success");
 		}
 		
-		return "redirect:../board/main";
+		return "redirect:/board/main";
 	}
 	
 	@PostMapping("idAvail")

@@ -7,19 +7,18 @@
 	<%@ include file="../includes/header.jsp" %>
 	
 	<h1 align="center">login</h1>
-	
-	<form action="login-check" method="post" align="center">
-		<c:if test="${param.ng!=null}">
-			<p>error : <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.massage}"/></p>
-		</c:if>
-		<input type="text" name="user_id" placeholder="ID" /><br/>
-		<br/>
-		<input type="password" name="user_pw" placeholder="PW" /><br/>
-		<br/>
-		<input type="button" value="SignUp" onclick="window.location='/user/signup'" />
-		<input type="submit" value="login" />
-	
-	</form>
-	
+	<div align="center">
+		<form action="/login" method="post">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			<input type="text" name="username" placeholder="ID"><br/>
+			<br/>
+			<input type="password" name="password" placeholder="PW"><br/>
+			<br/>
+			<input type="checkbox" name="remember-me">자동로그인<br/>
+			<br/>
+			<input type="button" value="SignUp" onclick="window.location='/user/signup'" />
+			<input type="submit" value="login" />
+		</form>
+	</div>
 	<!-- footer 복붙 -->        
 	<%@ include file="../includes/footer.jsp" %>

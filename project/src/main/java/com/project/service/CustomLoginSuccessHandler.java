@@ -25,13 +25,20 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 	
 		log.info("************* Login Success ***********");
 		
-		List<String> roleNames = new ArrayList<String>();
-		// 로그인한 사람의 권한 목록 얻어오기 
-	 	authentication.getAuthorities()
-	 	.forEach(authority -> roleNames.add(authority.getAuthority()));
-		
-	 	log.info("******** ROLE NAMES : " + roleNames);
-		
+		 log.info("======================================");
+	        log.info("CustomLoginSuccessHandler. Login Success");
+
+	        List<String> roleNames = new ArrayList<String>();
+
+	        //collection 타입 리턴
+	        //CustomUser 보면 collection타입을 볼 수 있음
+	        //로그인한 사람의 권한 목록 얻어오기
+	        authentication.getAuthorities().forEach(authority -> roleNames.add(authority.getAuthority()));
+
+	        log.info("======================================");
+	        log.info("CustomLoginSuccessHandler");
+	        log.info("Role Names : " + roleNames);
+	 	
 	 	/* 권한에 따른 페이지 이동 처리
 	 	if(roleNames.contains("ROLE_ADMIN")) { // 어드민 권한이 있으면 
 	 		response.sendRedirect("/admin/main"); // 어드민 메인페이지로 이동 
