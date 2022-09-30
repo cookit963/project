@@ -28,7 +28,7 @@ public class UserController {
 	@Autowired
 	private UserService service;
 	
-	@GetMapping("login")
+	@RequestMapping("login")
 	public void loginPro(String error, HttpServletRequest request) {
 		log.info("************** login!!!! *************");
 		log.info("error : " + error);

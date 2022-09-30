@@ -6,20 +6,9 @@
 
 	<!-- header 복붙 -->
 	<%@ include file="../includes/header.jsp" %>
-	<div>
-		<sec:authorize access="isAnonymous()">
-			<p>로그인 안함</p>
-		</sec:authorize>
-		<sec:authorize access="isAuthenticated()">
-			<form action="/logout" method="post">
-				<input type="hidden" name="${_csrf.parameterName}"
-					value="${_csrf.token}">
-				<button>로그아웃</button>
-			</form>
-			<p>로그인 함</p>
-			
-		</sec:authorize>
-	</div>
+	<div align="center">
+        <a href="/content/main"><img src="/resources/bueno-master/img/core-img/logo.png" alt=""></a>
+    </div>
 	    <!-- ##### Treading Post Area Start ##### -->
     <div class="treading-post-area" id="treadingPost">
         <div class="close-icon">
@@ -479,78 +468,5 @@
     </div>
     <!-- ##### Posts Area End ##### -->
 
-    <!-- ##### Instagram Area Start ##### -->
-    <div class="instagram-feed-area d-flex flex-wrap">
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="/resources/bueno-master/img/bg-img/insta1.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="/resources/bueno-master/img/bg-img/insta1.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
-
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="/resources/bueno-master/img/bg-img/insta2.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="/resources/bueno-master/img/bg-img/insta2.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
-
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="/resources/bueno-master/img/bg-img/insta3.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="/resources/bueno-master/img/bg-img/insta3.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
-
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="/resources/bueno-master/img/bg-img/insta4.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="/resources/bueno-master/img/bg-img/insta4.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
-
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="/resources/bueno-master/img/bg-img/insta5.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="/resources/bueno-master/img/bg-img/insta5.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
-
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="/resources/bueno-master/img/bg-img/insta6.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="/resources/bueno-master/img/bg-img/insta6.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
-
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="/resources/bueno-master/img/bg-img/insta7.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="/resources/bueno-master/img/bg-img/insta7.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
-
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="/resources/bueno-master/img/bg-img/insta8.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="/resources/bueno-master/img/bg-img/insta8.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
-
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="/resources/bueno-master/img/bg-img/insta9.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="/resources/bueno-master/img/bg-img/insta9.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
-
-        <!-- Single Instagram -->
-        <div class="single-instagram">
-            <img src="/resources/bueno-master/img/bg-img/insta10.jpg" alt="">
-            <!-- Image Zoom -->
-            <a href="/resources/bueno-master/img/bg-img/insta10.jpg" class="img-zoom" title="Instagram Image">+</a>
-        </div>
-    </div>
-    <!-- ##### Instagram Area End ##### -->
 		<!-- footer 복붙 -->        
 	<%@ include file="../includes/footer.jsp" %>

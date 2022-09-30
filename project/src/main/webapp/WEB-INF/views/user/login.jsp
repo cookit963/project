@@ -9,6 +9,9 @@
 	<h1 align="center">login</h1>
 	<div align="center">
 		<form action="/login" method="post">
+			<c:if test="${LoginFailMessage!=null}">
+				<p><c:out value="${LoginFailMessage}"/> </p>
+			</c:if>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<input type="text" name="username" placeholder="ID"><br/>
 			<br/>
@@ -19,6 +22,7 @@
 			<input type="button" value="SignUp" onclick="window.location='/user/signup'" />
 			<input type="submit" value="login" />
 		</form>
+	
 	</div>
 	<!-- footer 복붙 -->        
 	<%@ include file="../includes/footer.jsp" %>

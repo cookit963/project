@@ -3,5 +3,14 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.persistence.AdminMapper">
-
+	<insert id="restaurantAdd">
+		insert into Restaurant(res_no, res_name, res_call, res_address,
+		res_content, res_menu, res_img1, res_img2, res_img3, res_genre,
+		res_colCon, res_colGlass, res_colSer, res_colOpen, res_amenPrivate,
+		res_amenPaking, res_amenParty, res_amenValet, res_amenRental, res_amenSoml) 
+		values(Restaurant_seq.nextval, #{res_no}, #{res_name}, #{res_call}, #{res_address},
+		#{res_content}, #{res_menu}, #{res_img1}, #{res_img2}, #{res_img3}, #{res_genre},
+		#{res_colCon}, #{res_colGlass}, #{res_colSer}, #{res_colOpen}, #{res_amenPrivate},
+		#{res_amen}, #{res_amenPaking}, #{res_amenParty}, #{res_amenValet}, #{res_amenRental}, #{res_amenSoml}) 
+	</insert>
 </mapper>

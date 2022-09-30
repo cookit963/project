@@ -17,6 +17,7 @@
 	<bean id="customUserDetailsService" class="com.project.service.CustomUserDetailsService" /> 
 	<!-- 로그인 성공시 처리 핸들러 등록 -->
 	<bean id="loginSuccessHandler" class="com.project.service.CustomLoginSuccessHandler" />
+	<bean id="loginFailHandler" class="com.project.service.CustomLoginFailHandler" />
 	<!-- 로그아웃 성공 처리 핸들러 -->
 	<bean id="logoutSeccessHandler" class="com.project.service.CustomLogoutSeccessHandler" />
 	
@@ -26,15 +27,13 @@
 		<security:intercept-url pattern="/user/*" access="permitAll" />
 		<!-- <security:intercept-url pattern="//*" access="hasRole('ROLE_USER')" /> -->
 		
-		
 		<!-- 접근 제한시 403 페이지 대신 보여줄 페이지 세팅 
 		<security:access-denied-handler error-page="/common/accessError" />
 			아래 bean 적용하면, 접근 제한시 처리해야하는 핸들러가 자동으로 실행 됨.-->
 		<security:access-denied-handler ref="customAccessDenied" />
 	
 		<!-- 시큐리티 로그인페이지를 커스텀 경로로 변경(우리가만든 로그인폼 경로) -->
-		<security:form-login login-page="/user/login" authentication-success-handler-ref="loginSuccessHandler" />
-		
+		<security:form-login login-page="/user/login" authentication-success-handler-ref="loginSuccessHandler" authentication-failure-handler-ref="loginFailHandler"/>
 		<!-- 시큐리티로 로그아웃 처리 -->
 		<security:logout logout-url="/logout" invalidate-session="true" delete-cookies="JSESSION_ID,remember-me" success-handler-ref="logoutSeccessHandler"/>
 		

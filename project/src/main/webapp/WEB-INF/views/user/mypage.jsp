@@ -15,6 +15,7 @@
 		</sec:authorize>
 		<sec:authorize access="isAuthenticated()">
 			<div align="center">
+				<h1>MyPage</h1>
 				<form action="/logout" method="post">
 					<input type="hidden" name="${_csrf.parameterName}"
 						value="${_csrf.token}">

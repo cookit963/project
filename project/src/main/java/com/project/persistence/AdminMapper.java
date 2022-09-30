@@ -1,5 +1,8 @@
 package com.project.persistence;
 
-public interface AdminMapper {
+import com.project.domain.RestaurantVO;
 
+public interface AdminMapper {
+	
+	public int restaurantAdd(RestaurantVO rest);
 }
