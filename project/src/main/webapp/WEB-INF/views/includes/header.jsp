@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +24,7 @@
 	<!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-content">
-            <h3>Cooking in progress..</h3>
+            <h3>Corkage loding..</h3>
             <div id="cooking">
                 <div class="bubble"></div>
                 <div class="bubble"></div>
@@ -69,23 +70,26 @@
                             </div>
 
                             <!-- Nav Start -->
+                            
                             <div class="classynav">
+                            <a href="/content/main"><img src="/resources/bueno-master/img/core-img/logo3.png" alt=""></a>
                                 <ul>
-                                	<li><a href="/content/main"><img src="/resources/bueno-master/img/core-img/logo2.png" alt=""></a></li>
-                                    <li><a href="/content/main" style="color:white">MAIN</a></li>
-                                    <li><a href="/user/mypage" style="color:white">MyPage</a></li>
-                                    <li><a href="#" style="color:white">CorkageMap</a></li>
-                                    <li><a href="#" style="color:white">Category</a>
-                                        <ul class="dropdown" style="color:white">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="catagory.html">Catagory</a></li>
-                                            <li><a href="catagory-post.html">Catagory Post</a></li>
-                                            <li><a href="single-post.html">Single Post</a></li>
-                                            <li><a href="receipe.html">Recipe</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                	
+                                    <li><a href="/content/main" style="color:gold">MAIN</a></li>
+                                    <li><a href="/user/mypage" style="color:gold">MyPage</a></li>
+                                    <li><a href="/content/colkageMap" style="color:gold">CorkageMap</a></li>
+                                    <li><a href="contact.html" style="color:gold">Timeline</a></li>
+                                    <li><a href="#" style="color:gold">Category</a>
+                                        <ul class="dropdown" style="color:gold">
+                                            <li><a href="/content/restaurantList?res_ca=all">All Dining</a></li>
+                                            <li><a href="/content/restaurantList?res_ca=고기">Beef</a></li>
+                                            <li><a href="/content/restaurantList?res_ca=오마카세">Omakase</a></li>
+                                            <li><a href="/content/restaurantList?res_ca=회">Sushi</a></li>
+                                            <li><a href="/content/restaurantList?res_ca=레스토랑">Restaurant</a></li>
+                                            <li><a href="/content/restaurantList?res_ca=뷔페">Buffet</a></li>
+                                            <li><a href="/content/restaurantList?res_ca=기타">Different Order</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html" style="color:white">Contact</a></li>
                                     <li class="top-search-area">
 			                            <form action="#" method="post">
 			                                <input type="search" name="top-search" id="topSearch" placeholder="Search">
@@ -98,7 +102,7 @@
                                 <div>
 									<sec:authorize access="isAnonymous()">
 										<div class="login-area">
-		                                    <a href="/user/login"  style="color:white">Login / Register</a>
+		                                    <a href="/user/login"  style="color:gold">Login / Register</a>
 		                                </div>
 									</sec:authorize>
 									<sec:authorize access="isAuthenticated()">	

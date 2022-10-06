@@ -49,19 +49,9 @@ public class AdminController {
 			File copyFile = new File(imgPath);
 			mf.transferTo(copyFile);
 			rest.setRes_menu(newFileName);
-			log.info(rest.getRes_name());
-			log.info(rest.getRes_img1());
-			log.info(rest.getRes_img2());
-			log.info("!!!!!!!!!!!!!!img1!!!!!!!!!!"+(request.getFile("res_img01")).toString());
-			log.info("!!!!!!!!!!!!!!img2!!!!!!!!!!"+(request.getFile("res_img02")).toString());
 			for(int i = 1; i <=3; i++) {
-				mf = request.getFile("res_img0"+i);
-				log.info("!!!!!!!!!mf = "+mf.getName());
-				boolean a = request.getFile("res_img0"+i) == null;
-				boolean b = request.getFile("res_img0"+i).equals("");
-				log.info("!!!!!!!!!a = "+a);
-				log.info(b);
-				if(mf != null) {
+				
+				if(!((request.getFile("res_img0"+i)).isEmpty())) {
 					mf = null; path=null; uuid=null; orgName=null; ext=null; newFileName=null; imgPath=null; copyFile=null;
 					mf = request.getFile("res_img0"+i);
 					request.getFiles("res_img0"+i);
@@ -81,7 +71,14 @@ public class AdminController {
 					}else if(i == 3) {
 						rest.setRes_img3(newFileName);
 					}
+				}else if((request.getFile("res_img0"+i)).isEmpty()) {
+					if(i == 2) {
+						rest.setRes_img2("default");
+					}else if(i == 3) {
+						rest.setRes_img3("default");
+					}
 				}
+				
 			}
 			
 			
@@ -96,6 +93,11 @@ public class AdminController {
 		
 		rttr.addFlashAttribute("result", rest.getRes_no());
 		
-		return "redirect:/content/restaurantAdd";
+		return "redirect:/admin/restaurantAdd";
+	}
+	
+	@GetMapping("main")
+	public void main() {
+		
 	}
 }

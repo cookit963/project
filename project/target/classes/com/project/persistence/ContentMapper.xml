@@ -3,7 +3,28 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.persistence.ContentMapper">
-	<select id="getRestList" resultType="com.project.domain.RestaurantVO">
-		select * from springBoard
+	<select id="getResList" resultType="com.project.domain.RestaurantVO">
+		select * from Restaurant
+	</select>
+	<select id="getResView" resultType="com.project.domain.RestaurantVO">
+		select * from Restaurant where res_no=#{res_no} 
+	</select>
+	<select id="stars" resultType="com.project.domain.ReviewVO">
+		select re_stars from Review where res_no=#{res_no}
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from Restaurant where
+
+		res_no > 0
+	</select>
+	<insert id="wishRestAdd">
+		insert into WishRest(user_id, res_no) values(#{user_id}, #{res_no})
+	</insert>
+	<delete id="wishRestDel">
+		delete from WishRest where user_id=#{user_id} and res_no=#{res_no}
+	</delete>
+	<select id="getWishRest" resultType="com.project.domain.WishRestVO">
+		select * from WishRest where user_id=#{user_id} and res_no=#{res_no}
 	</select>
 </mapper>

@@ -167,6 +167,17 @@ h3 {
   color: #ffffff;
   opacity: 0.75;
   animation: pulse 2.5s linear infinite; }
+  
+  #slideShow{
+  width: 500px;
+  height: 300px;
+  position: relative;
+  margin: 50px auto;
+  overflow: hidden;   
+  /*리스트 형식으로 이미지를 일렬로 
+  정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
+  hidden으로 숨겨줘야됨*/
+}
 
 #cooking {
   position: relative;

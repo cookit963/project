@@ -14,14 +14,14 @@ public class RestaurantVO {
 	private String res_img2;
 	private String res_img3;
 	private String res_genre;
-	private String res_colcon;
-	private int res_colglass;
-	private int res_colser;
-	private int res_colopen;
-	private int res_amenprivate;
-	private int res_amenpaking;
-	private int res_amenparty;
-	private int res_amenvalet;
-	private int res_amenrental;
-	private int res_amensoml;
+	private String res_colCon;
+	private int res_colGlass;
+	private int res_colSer;
+	private int res_colOpen;
+	private int res_amenPrivate;
+	private int res_amenPaking;
+	private int res_amenParty;
+	private int res_amenValet;
+	private int res_amenRental;
+	private int res_amenSoml;
 }

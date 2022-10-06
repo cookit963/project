@@ -6,7 +6,7 @@
 
 	<!-- header 복붙 -->
 	<%@ include file="../includes/header.jsp" %>
-	
+
 	<div align="center">
 		
 		<form action="/admin/restaurantAdd" method="post" enctype="multipart/form-data">
@@ -52,6 +52,25 @@
 									<td>
 										<div>
 											<input type="text" name="res_content" placeholder="식당 설명 입력" />
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div>
+											<table border="1">
+												<tr>
+													<td>
+														식당 종류 선택<br/>
+														<input type="radio" name="res_genre" value="고기" />고기
+														<input type="radio" name="res_genre" value="오마카세" />오마카세
+														<input type="radio" name="res_genre" value="회" />회<br/>
+														<input type="radio" name="res_genre" value="레스토랑" />레스토랑
+														<input type="radio" name="res_genre" value="뷔페" />뷔페
+														<input type="radio" name="res_genre" value="기타" checked="checked"/>기타
+													</td>
+												</tr>
+											</table>
 										</div>
 									</td>
 								</tr>
@@ -106,9 +125,12 @@
 		$(document).ready(function(){
 			$("#back1").click(function(){
 				history.go(-1);
-			
-			
-		
+			});
+			var result = '<c:out value="${result}"/>';
+	        if(!(result=='')){
+	            alert("게시물이 등록되었습니다!");
+				window.location="/admin/main";
+	        }
 		});	
 	</script>
 	<script>

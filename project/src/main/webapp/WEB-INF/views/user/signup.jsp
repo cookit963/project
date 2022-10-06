@@ -5,7 +5,7 @@
 
 	<!-- header 복붙 -->
 	<%@ include file="../includes/header.jsp" %>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
 	<br />
 	<h1 align="center"> 회원가입 </h1>
 	<div align="center">
@@ -51,6 +51,11 @@
 	</form>
 	</div>
 	
+	
+	 
+	<!-- footer 복붙 -->        
+	<%@ include file="../includes/footer.jsp" %>
+	
 	<script>
 	
 	$(document).ready(function(){
@@ -84,6 +89,3 @@
 		}); 
 	});
 	</script>
-	 
-	<!-- footer 복붙 -->        
-	<%@ include file="../includes/footer.jsp" %>
