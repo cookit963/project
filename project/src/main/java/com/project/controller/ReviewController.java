@@ -1,5 +1,106 @@
 package com.project.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
+import java.io.File;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.project.domain.ReviewVO;
+import com.project.service.ReviewService;
+import com.project.service.domain.CustomUser;
+
+import lombok.extern.log4j.Log4j;
+
+@Controller
+@RequestMapping("/review/*")
+@Log4j
 public class ReviewController {
+	
+	@Autowired
+	private ReviewService service;
+	
+	@GetMapping("reviewList")
+	public void reviewList(Model model, int res_no) {
+		model.addAttribute("reviewList", service.getReviewList());
+		model.addAttribute("res_no", res_no);
+	}
+	
+	@GetMapping("reviewAdd")
+	@PreAuthorize("isAuthenticated()")
+	public void reviewAdd(int res_no, Model model, Authentication auth) {
+		
+		model.addAttribute("res_no", res_no);
+		model.addAttribute("restarauntVO", service.getResName(res_no));
+		if(auth != null) {
+			CustomUser cUser = (CustomUser)auth.getPrincipal();
+			String user = cUser.getUsername();
+			log.info("!!!!!!!!!!user : "+user);
+			log.info("!!!!!!!!!!res_no : "+res_no);
+			model.addAttribute("user", user);
+		}
+	}
+	
+	@PostMapping("reviewAdd")
+	@PreAuthorize("isAuthenticated()")
+	public String reviewAddPro(ReviewVO review, RedirectAttributes rttr, MultipartHttpServletRequest request, Model model) {
+		
+		try {
+
+			for(int i = 1; i <=3; i++) {
+				
+				if(!((request.getFile("re_img0"+i)).isEmpty())) {
+					MultipartFile mf = request.getFile("re_img0"+i);
+					request.getFiles("re_img0"+i);
+					String path = request.getRealPath("/resources/save");
+					String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+					String orgName = mf.getOriginalFilename();
+					String ext = orgName.substring(orgName.lastIndexOf("."));
+					String newFileName = uuid + ext;
+					String imgPath = path + "\\" + newFileName;
+					
+					File copyFile = new File(imgPath);
+					mf.transferTo(copyFile);
+					if(i == 1) {
+						review.setRe_img1(newFileName);
+					}else if(i == 2) {
+						review.setRe_img2(newFileName);
+					}else if(i == 3) {
+						review.setRe_img3(newFileName);
+					}
+				}else if((request.getFile("re_img0"+i)).isEmpty()) {
+					if(i == 2) {
+						review.setRe_img2("default");
+					}if(i == 3) {
+						review.setRe_img3("default");
+					}
+				}
+				
+			}
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		int result = service.reviewAdd(review);
+		
+		rttr.addFlashAttribute("result", result);
+		rttr.addFlashAttribute("reviewReturn", service.reviewGet(review.getRe_img1()));
+		
+		
+		return "redirect:/review/reviewAdd?res_no="+review.getRes_no();
+	}
 
 }

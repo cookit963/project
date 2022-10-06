@@ -13,12 +13,42 @@
 				<td align="laft">&nbsp;&nbsp;<a href="#" onclick="history.go(-1)">뒤</a></td>
 			</tr>
 			<tr>
-				<td>
-					<div id="slideShow" align="center">
-						<img src="/resources/save/${restaurantVO.res_img1}" id="mainImage" alt="slide"
-							width="500px" height="300px"/><br/>
+				<td>		
+					<div class="slideshow-container">
+	
+						<div class="mySlides fade2">
+						  <img src="/resources/save/${restaurantVO.res_img1}" style="width:500px; height:300px;">
+						  <div class="text">Caption Text</div>
+						</div>
+						<c:if test="${restaurantVO.res_img2 != 'default'}">
+							<div class="mySlides fade2">
+							  <img src="/resources/save/${restaurantVO.res_img2}" style="width:500px; height:300px;">
+							</div>
+						
+							<c:if test="${restaurantVO.res_img3 != 'default'}">
+								<div class="mySlides fade2">
+								  <img src="/resources/save/${restaurantVO.res_img3}" style="width:500px; height:300px;">
+								</div>
+							</c:if>
+						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+						<a class="next" onclick="plusSlides(1)">&#10095;</a>
+							
+						</c:if>
 					</div>
-					<div>
+						<br/>
+						
+					<div style="text-align:center">
+					
+					  <span class="dot" onclick="currentSlide(1)"></span> 
+					  <c:if test="${restaurantVO.res_img2 != 'default'}">
+					  <span class="dot" onclick="currentSlide(2)"></span>
+					  <c:if test="${restaurantVO.res_img3 != 'default'}"> 
+					  <span class="dot" onclick="currentSlide(3)"></span>
+					  </c:if>
+					  </c:if> 
+					</div>
+					
+					
 						식당 이름 : <input type="text" value="${restaurantVO.res_name}" readonly="readonly" style="border:none"/>
 						별점 : <input type="number" value="0.0" id="rest_stars" readonly="readonly" style="border:none"/><br/>
 						식당 주소 : <input type="text" value="${restaurantVO.res_address}" readonly="readonly" style="border:none"/>
@@ -121,42 +151,35 @@
 	<%@ include file="../includes/footer.jsp" %>
 	
 	<script>
-		$(document).ready(function(){
-			//var result = '<c:out value="${result}"/>';
-	        //if((result=='')){
-	        //  alert("잘못된 접근입니다");
-			//	window.location="/content/main";
-	        //}
-	        var myImage = document.getElementById("mainImage");
-	    	var imageArray = [ "/resources/save/${restaurantVO.res_img1}",
-	    		"/resources/save/${restaurantVO.res_img2}", "/resources/save/${restaurantVO.res_img3}" ];
-	    	var imageIndex = 0;
-			var img2 = "${restaurantVO.res_img2}";
-	    	function changeImage() {
-	    		myImage.setAttribute("src", imageArray[imageIndex]);
-	    		if(!(img2 == "default")){
-		    		imageIndex++;
-		    		if (imageIndex >= imageArray.length) {
-		    			imageIndex = 0;
-		    		}
-	    		}
-	    	}
-    		setInterval(changeImage, 3000);
+		
+	        var slideIndex = 1;showSlides(slideIndex);
+			function plusSlides(n) {  
+				showSlides(slideIndex += n);
+			}
+			function currentSlide(n) {
+				showSlides(slideIndex = n);
+			}
+			function showSlides(n) {
+				var i;  
+				var slides = document.getElementsByClassName("mySlides");  
+				var dots = document.getElementsByClassName("dot");  
+				if (n > slides.length) {
+					slideIndex = 1;
+				}  
+				if (n < 1) {
+					slideIndex = slides.length;
+				}  
+				for (i = 0; i < slides.length; i++) {      
+					slides[i].style.display = "none";  
+				}  
+				for (i = 0; i < dots.length; i++) {      
+					dots[i].className = dots[i].className.replace("active", "");  
+				}  
+				slides[slideIndex-1].style.display = "block";dots[slideIndex-1].className += " active";
+			}
+
     		
-    		if(${stars} != ""){
-    			let stars = ${stars.re_stars};
-    			let star = 0;
-    			let num = 0;
-    			stars.forEach(function(number, index) {
-    			   star += number;
-    			   num = index;
-    			});
-    			let res = star / num;
-    			document.setElementbyId("rest_stars").value=res;
-    		}
-    		
-    		
-		});
+
 	</script>
 	<script>
 		$(document).ready(function(){

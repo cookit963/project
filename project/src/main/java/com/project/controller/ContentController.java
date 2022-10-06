@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -48,8 +49,9 @@ public class ContentController {
 //		model.addAttribute("paper", new PageDTO(cri, total));
 	}
 	@GetMapping("restaurantView")
-	public void restaruantView(Model model, int res_no, RedirectAttributes rttr, Authentication auth) {
+	public void restaruantView(Model model,@RequestParam int res_no, RedirectAttributes rttr, Authentication auth) {
 		model.addAttribute("restaurantVO", service.getResView(res_no));
+		
 		log.info("stars : "+service.stars(res_no));
 		if(!(service.stars(res_no).isEmpty())) {
 			model.addAttribute("stars", service.stars(res_no));
@@ -69,6 +71,7 @@ public class ContentController {
 		
 		int result = 1;
 		rttr.addAttribute("result", result);
+		
 	}
 	@RequestMapping(value = "wishRestAdd", method = RequestMethod.POST)
 	@ResponseBody

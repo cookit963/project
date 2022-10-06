@@ -3,5 +3,18 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.persistence.ReviewMapper">
-
+	<select id="getReviewList" resultType="com.project.domain.ReviewVO">
+		select * from Review
+	</select>
+	<insert id="reviewAdd">
+		insert into Review(re_no, re_img1, re_img2, re_img3, re_content, re_hashtag,
+		user_id, re_stars, res_no) values(Review_seq.nextval, #{re_img1}, #{re_img2},
+		#{re_img3}, #{re_content}, #{re_hashtag}, #{user_id}, #{re_stars}, #{res_no})
+	</insert>
+	<select id="getResName" resultType="com.project.domain.RestaurantVO">
+		select * from Restaurant where res_no=#{res_no}
+	</select>
+	<select id="reviewGet" resultType="com.project.domain.ReviewVO">
+		select * from Review where re_img1=#{key}
+	</select>
 </mapper>
