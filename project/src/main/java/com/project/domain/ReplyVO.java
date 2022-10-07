@@ -10,6 +10,6 @@ public class ReplyVO {
 	private String user_id;
 	private String user_nicname;
 	private int re_no;
-	private String re_content;
-	private Timestamp re_reg;
+	private String r_content;
+	private Timestamp r_reg;
 }

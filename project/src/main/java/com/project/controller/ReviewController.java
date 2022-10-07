@@ -43,6 +43,7 @@ public class ReviewController {
 	public void reviewList(Model model, int res_no) {
 		model.addAttribute("reviewList", service.getReviewList());
 		model.addAttribute("res_no", res_no);
+		
 	}
 	
 	@GetMapping("reviewAdd")
@@ -54,9 +55,7 @@ public class ReviewController {
 		if(auth != null) {
 			CustomUser cUser = (CustomUser)auth.getPrincipal();
 			String user = cUser.getUsername();
-			log.info("!!!!!!!!!!user : "+user);
-			log.info("!!!!!!!!!!res_no : "+res_no);
-			model.addAttribute("user", user);
+			model.addAttribute("user", service.addUserGet(user));
 		}
 	}
 	

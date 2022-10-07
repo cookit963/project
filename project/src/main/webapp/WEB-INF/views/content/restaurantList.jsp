@@ -84,8 +84,3 @@
 	<!-- footer 복붙 -->        
 	<%@ include file="../includes/footer.jsp" %>
 	
-	<script>
-		$(document).ready(function(){
-			
-		});
-	</script>

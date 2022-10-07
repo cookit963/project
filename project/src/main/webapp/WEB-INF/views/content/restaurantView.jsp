@@ -52,7 +52,7 @@
 						식당 이름 : <input type="text" value="${restaurantVO.res_name}" readonly="readonly" style="border:none"/>
 						별점 : <input type="number" value="0.0" id="rest_stars" readonly="readonly" style="border:none"/><br/>
 						식당 주소 : <input type="text" value="${restaurantVO.res_address}" readonly="readonly" style="border:none"/>
-						<button onclick="window.location='/review/reviewView?res_no=${restaurantVO.res_no}'">리뷰 보러 가기</button>
+						<button onclick="window.location='/review/reviewList?res_no=${restaurantVO.res_no}'">리뷰 보러 가기</button>
 						<sec:authorize access="isAnonymous()">
 						</sec:authorize>
 						<sec:authorize access="isAuthenticated()">

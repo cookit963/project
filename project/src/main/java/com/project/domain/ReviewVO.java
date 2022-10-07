@@ -14,6 +14,7 @@ public class ReviewVO {
 	private String re_content;
 	private String re_hashtag;
 	private String user_id;
+	private String user_nicname;
 	private Timestamp re_reg;
 	private int re_stars;
 }

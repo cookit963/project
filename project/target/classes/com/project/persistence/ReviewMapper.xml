@@ -8,8 +8,8 @@
 	</select>
 	<insert id="reviewAdd">
 		insert into Review(re_no, re_img1, re_img2, re_img3, re_content, re_hashtag,
-		user_id, re_stars, res_no) values(Review_seq.nextval, #{re_img1}, #{re_img2},
-		#{re_img3}, #{re_content}, #{re_hashtag}, #{user_id}, #{re_stars}, #{res_no})
+		user_id, re_stars, res_no, user_nicname) values(Review_seq.nextval, #{re_img1}, #{re_img2},
+		#{re_img3}, #{re_content}, #{re_hashtag}, #{user_id}, #{re_stars}, #{res_no}, #{user_nicname})
 	</insert>
 	<select id="getResName" resultType="com.project.domain.RestaurantVO">
 		select * from Restaurant where res_no=#{res_no}

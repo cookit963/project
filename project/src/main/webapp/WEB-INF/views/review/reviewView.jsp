@@ -13,11 +13,11 @@
 			<tr style="border: 1px solid black;">
 				<td>&nbsp;&nbsp;<a href="#" onclick="history.go(-1)" style="border:1px solid black;">뒤</a>
 				</td>
-				<td align="right"><a href="/content/restaurantView?=${reviewVO.res_no}" style="border:1px solid black;">식당보러가기</a>&nbsp;&nbsp;</td>
+				<td align="right"><a href="/content/restaurantView?res_no=${reviewVO.res_no}" style="border:1px solid black;">식당보러가기</a>&nbsp;&nbsp;</td>
 			</tr>
 			<tr style="border: 1px solid black;">
 				<td colspan="2">
-					&nbsp;&nbsp;&nbsp;&nbsp;작성자 : <a href="/content/restaurantView?=${reviewVO.res_no}" style="text-align:left; border:1px;">${addUser.user_nicname}</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;작성자 : <a href="/Review/ReviewUserList?user_nicname=${reviewVO.user_nicname}" style="text-align:left; border:1px;">${addUser.user_nicname}</a>
 				</td>
 			</tr>
 			<tr>
@@ -26,7 +26,6 @@
 	
 						<div class="mySlides fade2">
 						  <img src="/resources/save/${reviewVO.re_img1}" style="width:500px; height:300px;">
-						  <div class="text">Caption Text</div>
 						</div>
 						<c:if test="${reviewVO.re_img2 != 'default'}">
 							<div class="mySlides fade2">
@@ -60,11 +59,11 @@
 					</div>
 					<br/>
 					<div>
-						&nbsp;&nbsp;&nbsp;&nbsp;<textarea rows="8" cols="60" style="border:none; background-color:Snow;" readonly="readonly">${review.re_content}</textarea>
+						&nbsp;&nbsp;&nbsp;&nbsp;<textarea rows="8" cols="60" style="border:none; background-color:Snow;" readonly="readonly" >${reviewVO.re_content}</textarea>
 					</div>
-					<br/>
-					<div>
-						&nbsp;&nbsp;&nbsp;&nbsp;<textarea rows="1" cols="60" style="border:none; background-color:Snow;" readonly="readonly">${review.re_hashtag}</textarea>
+					
+					<div>&nbsp;&nbsp;&nbsp;&nbsp;#Hash Tag<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;<textarea rows="1" cols="60" style="border:none; background-color:Snow;" readonly="readonly">${reviewVO.re_hashtag}</textarea>
 					</div>
 					<br/>
 					<div>
@@ -86,7 +85,7 @@
 							<tr>
 								<td align="center" style="width: 500px">
 									댓글 작성<br/>
-									<textarea rows="3" cols="50" id="r_content" placeholder="댓글을 입력하세요!"></textarea>
+									<textarea rows="3" cols="50" id="r_content2"  placeholder="댓글을 입력하세요!"></textarea>
 									<button id="r_comBtn">작성 완료!</button>
 								</td>
 							</tr>
@@ -150,6 +149,7 @@
 			
 			$(document).on('click','#r_comBtn', function(){
 				console.log("ajax3!!!!!!!");
+
 				$.ajax({
 					url: "/reply/replyAdd",
 					type: "POST",
@@ -157,7 +157,7 @@
 						user_id: '${user_id}',
 						user_nicname: '${user.user_nicname}',
 						re_no: ${reviewVO.re_no},
-						re_content: $('#r_content').var()
+						r_content: $('#r_content2').val()
 					},
 					success: function(data){
 						if(data != 1){

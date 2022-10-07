@@ -27,7 +27,7 @@ public class ReplyController {
 	@ResponseBody
 	public int replyAdd(ReplyVO replyVO, HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
 		int result3 = 0;
-		result3 = service.replyAdd(null);
+		result3 = service.replyAdd(replyVO);
 		return result3;
 	}
 }

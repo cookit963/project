@@ -11,7 +11,8 @@
 		
 		<form action="/review/reviewAdd" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="res_no" value="${res_no}" />
-			<input type="hidden" name="user_id" value="${user}" />
+			<input type="hidden" name="user_id" value="${user.user_id}" />
+			<input type="hidden" name="user_nicname" value="${user.user_nicname}" />
 			<table style="border: 1px solid #444444;">
 				<tr>
 					<td>
