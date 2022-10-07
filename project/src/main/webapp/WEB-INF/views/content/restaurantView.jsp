@@ -66,7 +66,7 @@
 						<br/>
 						식당 기본 정보<br/>
 						<input type="text" value="${restaurantVO.res_content}" readonly="readonly" width="10" />
-					</div>
+					
 					<div style="border:1px solid black;">
 						<h6 align="center">콜키지 정보</h6>
 						<input type="text" value="${restaurantVO.res_colCon}" readonly="readonly" /><br/>

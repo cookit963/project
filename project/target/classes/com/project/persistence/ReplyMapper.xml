@@ -3,5 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.persistence.ReplyMapper">
-
+	<insert id="replyAdd">
+		insert into Reply(r_no, user_id, re_no, re_content, user_nicname) values(
+		reply_seq.nextval #{user_id}, #{re_no}, #{re_content}, #{user_nicname})
+	</insert>
 </mapper>

@@ -5,6 +5,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.io.File;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -13,11 +17,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.project.domain.HeartsVO;
 import com.project.domain.ReviewVO;
+import com.project.domain.WishRestVO;
 import com.project.service.ReviewService;
 import com.project.service.domain.CustomUser;
 
@@ -101,6 +109,49 @@ public class ReviewController {
 		
 		
 		return "redirect:/review/reviewAdd?res_no="+review.getRes_no();
+	}
+	
+	@GetMapping("reviewView")
+	public void reviewView(int re_no, Model model, Authentication auth, RedirectAttributes rttr) {
+		ReviewVO reviewVO2 = service.reviewView(re_no);
+		model.addAttribute("reviewVO", service.reviewView(re_no));
+		model.addAttribute("replyList", service.replyGet(re_no));
+		model.addAttribute("replyCount", service.replyCountGet(re_no));
+		model.addAttribute("addUser", service.addUserGet(reviewVO2.getUser_id()));
+		log.info("!!!!!!!!!!!heartsCount : "+service.heartsCountGet(re_no));
+		model.addAttribute("heartsCount", service.heartsCountGet(re_no));
+		if(auth != null) {
+			CustomUser cUser = (CustomUser)auth.getPrincipal();
+			String user = cUser.getUsername();
+			model.addAttribute("user", service.addUserGet(user));
+			model.addAttribute("user_id", user);
+			HeartsVO heartVO = new HeartsVO();
+			heartVO.setRe_no(re_no);
+			heartVO.setUser_id(user);
+			model.addAttribute("getHeart", service.getHeart(heartVO));
+		}
+		
+	}
+	@RequestMapping(value = "heartAdd", method = RequestMethod.POST)
+	@ResponseBody
+	@PreAuthorize("isAuthenticated()")
+	public int heartAdd(HeartsVO heartVO, HttpServletRequest req, HttpServletResponse resp, HttpSession session, Model model) {
+		log.info("asdasda");
+		int result2 = 0;
+		result2 = service.heartAdd(heartVO);
+		
+		log.info("result2 : "+result2);
+		return result2;
+	}
+	@RequestMapping(value = "heartDel", method = RequestMethod.POST)
+	@ResponseBody
+	@PreAuthorize("isAuthenticated()")
+	public int heartDel(HeartsVO heartVO, HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
+		log.info("asdasda2");
+		int result2 = 0;
+		result2 = service.heartDel(heartVO);
+		log.info("result2 : "+result2);
+		return result2;
 	}
 
 }

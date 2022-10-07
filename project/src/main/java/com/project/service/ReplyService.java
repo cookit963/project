@@ -1,5 +1,8 @@
 package com.project.service;
 
-public interface ReplyService {
+import com.project.domain.ReplyVO;
 
+public interface ReplyService {
+	
+	public int replyAdd(ReplyVO reply);
 }

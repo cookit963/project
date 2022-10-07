@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.persistence.ReviewMapper">
 	<select id="getReviewList" resultType="com.project.domain.ReviewVO">
-		select * from Review
+		select * from Review order by re_reg desc
 	</select>
 	<insert id="reviewAdd">
 		insert into Review(re_no, re_img1, re_img2, re_img3, re_content, re_hashtag,
@@ -16,5 +16,29 @@
 	</select>
 	<select id="reviewGet" resultType="com.project.domain.ReviewVO">
 		select * from Review where re_img1=#{key}
+	</select>
+	<select id="reviewView" resultType="com.project.domain.ReviewVO">
+		select * from Review where re_no=#{re_no}
+	</select>
+	<select id="replyGet" resultType="com.project.domain.ReplyVO">
+		select * from Reply where re_no=#{re_no} order by r_reg asc
+	</select>
+	<select id="replyCountGet" resultType="int">
+		select count(*) from Reply where re_no=#{re_no}
+	</select>
+	<select id="addUserGet" resultType="com.project.domain.UserListVO">
+		select * from UserList where user_id=#{user_id}
+	</select>
+	<select id="getHeart" resultType="com.project.domain.HeartsVO">
+		select * from Hearts where user_id=#{user_id} and re_no=#{re_no}
+	</select>
+	<insert id="heartAdd">
+		insert into Hearts(re_no, user_id) values(#{re_no}, #{user_id})
+	</insert>
+	<delete id="heartDel">
+		delete from Hearts where user_id=#{user_id} and re_no=#{re_no} 
+	</delete>
+	<select id="heartsCountGet" resultType="int">
+		select count(*) from Hearts where re_no=#{re_no}
 	</select>
 </mapper>
