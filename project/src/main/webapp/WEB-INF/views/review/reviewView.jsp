@@ -66,7 +66,7 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;<textarea rows="1" cols="60" style="border:none; background-color:Snow;" readonly="readonly">${reviewVO.re_hashtag}</textarea>
 					</div>
 					<br/>
-					<div>
+					<div id="heartsRelord">
 						<sec:authorize access="isAnonymous()">
 							&nbsp;&nbsp;&nbsp;&nbsp;<button id="heartAddBtn" >좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
 						</sec:authorize>
@@ -80,7 +80,7 @@
 						</sec:authorize>
 						&nbsp;&nbsp;&nbsp;댓글
 					</div>
-					<div style="border:1px solid black;">
+					<div style="border:1px solid black;" id="replyRelord">
 						<table>
 							<tr>
 								<td align="center" style="width: 500px">
@@ -161,7 +161,9 @@
 					},
 					success: function(data){
 						if(data != 1){
+							$('#replyRelord').load(location.href+" #replyRelord","");
 							alert("댓글작성 완료!");
+							
 						}else{
 							alert("에러 발생");
 						}
@@ -184,7 +186,7 @@
 						if(data != 1){
 							$('#heartAddBtn').html('안좋아요');
 							$('#heartAddBtn').attr('id', 'heartDelBtn');
-							
+							$('#heartsRelord').load(location.href+" #heartsRelord","");
 						}else{
 							alert("에러 발생");
 						}
@@ -206,7 +208,8 @@
 						if(data != 1){
 							$('#heartDelBtn').html('좋아요');
 							$('#heartDelBtn').attr('id', 'heartAddBtn');
-							$('.heartsCount').attr('value', ${heartsCount});
+							$('#heartsRelord').load(location.href+" #heartsRelord","");
+							
 						}else{
 							alert("에러 발생");
 						}
