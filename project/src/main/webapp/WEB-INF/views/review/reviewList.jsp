@@ -10,7 +10,10 @@
 	<div align="center">
 		<br/>
 		<form>
+		
+			<input type="hidden" value="${res_no}" name="res_no" />
 			<table style="width: 500px; white-space: nowrap; border: 1px solid black;">
+				<c:set var="doneLoop" value="false"/>
 				<c:forEach var="reviewVO" items="${reviewList}">
 					<c:if test="${res_no eq 0}">
 					<tbody style="border: 1px solid #444444;">
@@ -18,9 +21,10 @@
 							<td style="background-color: Honeydew;">
 								&nbsp;&nbsp;&nbsp;&nbsp;작성자 : <a href="/Review/ReviewUserList?user_nicname=${reviewVO.user_nicname}" style="text-align:left; border:1px; font-size: large;">${reviewVO.user_nicname}</a>
 							</td>
+							<td align="right"><a href="/content/restaurantView?res_no=${reviewVO.res_no}" style="border:1px solid black;">${restarauntVO.res_name}</a>&nbsp;&nbsp;</td>
 						</tr>
 						<tr>
-							<td>
+							<td colspan="2">
 								<a href="/review/reviewView?re_no=${reviewVO.re_no}">
 									<div>
 									  <img src="/resources/save/${reviewVO.re_img1}" style="width:500px; height:300px;">
@@ -34,16 +38,16 @@
 								</a>
 									<br/>
 								
-									<div>
+									<div id="heartsRelord">
 									<sec:authorize access="isAnonymous()">
-										&nbsp;&nbsp;&nbsp;&nbsp;<button id="heartAddBtn" >좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
+										&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="window.location='/user/login'">좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
 									</sec:authorize>
 									<sec:authorize access="isAuthenticated()">
 										<c:if test="${getHeart == null}">
-											&nbsp;&nbsp;&nbsp;&nbsp;<button id="heartAddBtn" >좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
+											&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="heartAddBtn" data-reno="${reviewVO.re_no}">좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
 										</c:if>
 										<c:if test="${getHeart != null}">
-											&nbsp;&nbsp;&nbsp;&nbsp;<button id="heartDelBtn" >안좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
+											&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="heartDelBtn" data-reno="${reviewVO.re_no}">안좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
 										</c:if>
 									</sec:authorize>
 								</div>
@@ -51,7 +55,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td style="border: 1px solid black">&nbsp;</td>
+							<td style="border: 1px solid black" colspan="2">&nbsp;</td>
 						</tr>
 					</tbody>
 					</c:if>
@@ -77,16 +81,16 @@
 								</a>
 									<br/>
 								
-									<div>
+									<div id="heartsRelord">
 									<sec:authorize access="isAnonymous()">
-										&nbsp;&nbsp;&nbsp;&nbsp;<button id="heartAddBtn" >좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
+										&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="window.location='/user/login'">좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
 									</sec:authorize>
 									<sec:authorize access="isAuthenticated()">
 										<c:if test="${getHeart == null}">
-											&nbsp;&nbsp;&nbsp;&nbsp;<button id="heartAddBtn" >좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
+											&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="heartAddBtn" data-reno="${reviewVO.re_no}">좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
 										</c:if>
 										<c:if test="${getHeart != null}">
-											&nbsp;&nbsp;&nbsp;&nbsp;<button id="heartDelBtn" >안좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
+											&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="heartDelBtn" data-reno="${reviewVO.re_no}">안좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
 										</c:if>
 									</sec:authorize>
 								</div>
@@ -97,7 +101,7 @@
 							<td style="border: 1px solid black">&nbsp;</td>
 						</tr>
 					</tbody>
-					</c:if>	
+					</c:if>
 				</c:forEach>	
 			</table>
 		</form>
@@ -106,3 +110,61 @@
 	<!-- footer 복붙 -->        
 	<%@ include file="../includes/footer.jsp" %>
 	
+	<script>
+		$(document).ready(function(){
+			
+			$(document).on('click','.heartAddBtn', function(){
+				console.log($(this));
+				let clickedBtn = $(this);
+				var hA = clickedBtn.data('reno');
+				console.log(hA);
+				console.log("ajax!!!!!!!");
+				
+				$.ajax({
+					url: "/review/heartAdd.json",
+					type: "POST",
+					data: {
+						user_id: '${user_id}',
+						re_no: hA
+					},
+					success: function(data){
+						console.log("success");
+						console.log(data);
+						if(data == '1'){
+							clickedBtn.html('안좋아요');
+							clickedBtn.attr('class', 'heartDelBtn');
+						}else{
+							alert("에러 발생");
+						}
+					},error: function(e){ 
+						console.log(e); 
+					}
+				});
+			});
+			$(document).on('click','.heartDelBtn', function(){
+				console.log("ajax2!!!!!!!");
+				console.log($(this));
+				let clickedBtn = $(this);
+				let hA = clickedBtn.data('reno');
+				$.ajax({
+					url: "/review/heartDel.json",
+					type: "POST",
+					data: {
+						user_id: '${user_id}',
+						re_no: hA
+					},
+					success: function(data){
+						if(data == 1){
+							clickedBtn.html('좋아요');
+							clickedBtn.attr('class', 'heartAddBtn');
+							
+						}else{
+							alert("에러 발생");
+						}
+					},error: function(e){ 
+						console.log(e); 
+					}
+				});
+			});
+		});
+	</script>

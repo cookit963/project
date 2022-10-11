@@ -13,7 +13,7 @@
 			<tr style="border: 1px solid black;">
 				<td>&nbsp;&nbsp;<a href="#" onclick="history.go(-1)" style="border:1px solid black;">뒤</a>
 				</td>
-				<td align="right"><a href="/content/restaurantView?res_no=${reviewVO.res_no}" style="border:1px solid black;">식당보러가기</a>&nbsp;&nbsp;</td>
+				<td align="right"><a href="/content/restaurantView?res_no=${reviewVO.res_no}" style="border:1px solid black;">${restarauntVO.res_name}</a>&nbsp;&nbsp;</td>
 			</tr>
 			<tr style="border: 1px solid black;">
 				<td colspan="2">

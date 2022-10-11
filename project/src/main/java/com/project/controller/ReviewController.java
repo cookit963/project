@@ -40,9 +40,15 @@ public class ReviewController {
 	private ReviewService service;
 	
 	@GetMapping("reviewList")
-	public void reviewList(Model model, int res_no) {
+	public void reviewList(Model model, int res_no, Authentication auth) {
 		model.addAttribute("reviewList", service.getReviewList());
 		model.addAttribute("res_no", res_no);
+		if(auth != null) {
+			CustomUser cUser = (CustomUser)auth.getPrincipal();
+			String user = cUser.getUsername();
+			model.addAttribute("user", service.addUserGet(user));
+			model.addAttribute("user_id", user);
+		}
 		
 	}
 	
@@ -119,6 +125,7 @@ public class ReviewController {
 		model.addAttribute("addUser", service.addUserGet(reviewVO2.getUser_id()));
 		log.info("!!!!!!!!!!!heartsCount : "+service.heartsCountGet(re_no));
 		model.addAttribute("heartsCount", service.heartsCountGet(re_no));
+		model.addAttribute("restarauntVO", service.getResName(reviewVO2.getRes_no()));
 		if(auth != null) {
 			CustomUser cUser = (CustomUser)auth.getPrincipal();
 			String user = cUser.getUsername();
@@ -138,7 +145,6 @@ public class ReviewController {
 		log.info("asdasda");
 		int result2 = 0;
 		result2 = service.heartAdd(heartVO);
-		
 		log.info("result2 : "+result2);
 		return result2;
 	}
