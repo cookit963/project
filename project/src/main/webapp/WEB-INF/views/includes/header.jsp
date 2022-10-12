@@ -76,6 +76,9 @@
                                 <ul>
                                 	
                                     <li><a href="/content/main" style="color:gold">MAIN</a></li>
+                                    <sec:authorize access="hasRole('ROLE_ADMIN')">
+										<li><a href="/admin/adminMain" style="color:gold">ADMINMAIN</a></li>
+									</sec:authorize>
                                     <li><a href="/user/mypage" style="color:gold">MyPage</a></li>
                                     <li><a href="/content/colkageMap" style="color:gold">CorkageMap</a></li>
                                     <li><a href="/review/reviewList?res_no=0" style="color:gold">Timeline</a></li>
@@ -106,6 +109,7 @@
 		                                </div>
 									</sec:authorize>
 									<sec:authorize access="isAuthenticated()">	
+										
 									</sec:authorize>
 								</div>
                             </div>

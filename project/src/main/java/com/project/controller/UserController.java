@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.domain.UserListVO;
+import com.project.service.ReviewService;
 import com.project.service.UserService;
 import com.project.service.domain.CustomUser;
 
@@ -29,6 +31,7 @@ public class UserController {
 	private UserService service;
 	
 	@RequestMapping("login")
+	@PreAuthorize("isAnonymous()")
 	public void loginPro(String error, HttpServletRequest request) {
 		log.info("************** login!!!! *************");
 		log.info("error : " + error);
@@ -40,11 +43,13 @@ public class UserController {
 	}
 	
 	@GetMapping("signup")
+	@PreAuthorize("isAnonymous()")
 	public void signup() {
 		log.info("************** signup!!!! *************");
 	}
 	// 회원가입 처리 
 	@PostMapping("signup")
+	@PreAuthorize("isAnonymous()")
 	public String signupPro(UserListVO vo, String au, RedirectAttributes rttr) {
 		
 		log.info("*********** signupPro MemberVO : " + vo);
@@ -75,6 +80,7 @@ public class UserController {
 	}
 	
 	@GetMapping("customLogout")
+	
 	public String customLogout() {
 		log.info("로그아웃....");
 		
@@ -83,17 +89,24 @@ public class UserController {
 	}
 	
 	@GetMapping("mypage")
-	public void mypage() {
-		
+	@PreAuthorize("isAuthenticated()")
+	public void mypage(Authentication auth, Model model) {
+		if(auth != null) {
+			CustomUser cUser = (CustomUser)auth.getPrincipal();
+			String user = cUser.getUsername();
+			model.addAttribute("user", service.getUser(user));
+		}
 	}
 	
 	@GetMapping("modify")
+	@PreAuthorize("isAuthenticated()")
 	public void modify(Authentication auth, Model model) {
 		CustomUser cUser = (CustomUser)auth.getPrincipal();
 		UserListVO user = service.getUser(cUser.getUsername());
 		model.addAttribute("user", user);
 	}
 	@PostMapping("modify")
+	@PreAuthorize("isAuthenticated()")
 	public String modifyPro(UserListVO vo, Model model, Authentication auth) {
 		vo.setUser_id(((CustomUser)auth.getPrincipal()).getUsername());
 		int result = service.modifyUser(vo);
@@ -103,6 +116,7 @@ public class UserController {
 	}
 	
 	@GetMapping("delete")
+	@PreAuthorize("isAuthenticated()")
 	public void delete(Authentication auth, Model model) {
 		CustomUser cUser = (CustomUser)auth.getPrincipal();
 		UserListVO user = service.getUser(cUser.getUsername());
@@ -111,6 +125,7 @@ public class UserController {
 	
 	// 회원 삭제 처리 
 	@PostMapping("delete")
+	@PreAuthorize("isAuthenticated()")
 	public String deletePro(UserListVO vo, Authentication auth, Model model, HttpServletRequest request) {
 		vo.setUser_id(((CustomUser)auth.getPrincipal()).getUsername());
 		

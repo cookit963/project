@@ -68,7 +68,7 @@
 					<br/>
 					<div id="heartsRelord">
 						<sec:authorize access="isAnonymous()">
-							&nbsp;&nbsp;&nbsp;&nbsp;<button id="heartAddBtn" >좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
+							&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="window.location='/user/login'" >좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
 						</sec:authorize>
 						<sec:authorize access="isAuthenticated()">
 							<c:if test="${getHeart == null}">

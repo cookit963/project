@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.domain.HeartsVO;
+import com.project.domain.RestaurantVO;
 import com.project.domain.ReviewVO;
 import com.project.domain.WishRestVO;
 import com.project.service.ReviewService;
@@ -157,6 +158,56 @@ public class ReviewController {
 		result2 = service.heartDel(heartVO);
 		log.info("result2 : "+result2);
 		return result2;
+	}
+	
+	@PostMapping("resGet")
+	@ResponseBody
+	public RestaurantVO resGet(int res_no, HttpServletRequest req, HttpServletResponse resp, HttpSession session, Model model) {
+		
+		
+		
+		log.info("resGet!!!!!!!!!!!");
+		return service.getResName(res_no);
+	}
+
+	@PostMapping("heartsCount2")
+	@ResponseBody
+	public int heartsCount2(int re_no, HttpServletRequest req, HttpServletResponse resp, HttpSession session, Model model) {
+		
+		
+		
+		log.info("heartsCount!!!!!!!!!!!");
+		return service.heartsCountGet(re_no);
+	}
+	@PostMapping("heartCheck")
+	@ResponseBody
+	public int heartCheck(HeartsVO heartsVO, HttpServletRequest req, HttpServletResponse resp, HttpSession session, Model model) {
+		int result5 = 0;
+		
+		if(service.getHeart(heartsVO) != null) {
+			result5 = 1;
+		}
+		
+		return result5;
+	}
+	
+	@GetMapping("ReviewUserList")
+	public void reviewUserList(Model model, String user_nicname, Authentication auth) {
+		model.addAttribute("reviewList", service.getReviewList());
+		model.addAttribute("user_nicname", user_nicname);
+		if(auth != null) {
+			CustomUser cUser = (CustomUser)auth.getPrincipal();
+			String user = cUser.getUsername();
+			model.addAttribute("user", service.addUserGet(user));
+			model.addAttribute("user_id", user);
+			
+		}
+		
+	}
+	
+	@GetMapping("reviewHeartList")
+	public void reviewHeartList() {
+		
 	}
 
 }

@@ -25,6 +25,7 @@
 	<security:http>
 		<!-- 특정 URI에 접근 제한 설정 -->
 		<security:intercept-url pattern="/user/*" access="permitAll" />
+		<security:intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')" />
 		<!-- <security:intercept-url pattern="//*" access="hasRole('ROLE_USER')" /> -->
 		
 		<!-- 접근 제한시 403 페이지 대신 보여줄 페이지 세팅 

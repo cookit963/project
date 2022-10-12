@@ -32,4 +32,6 @@ public interface ReviewService {
 	public int heartDel(HeartsVO heart);
 	
 	public int heartsCountGet(int re_no);
+	
+	
 }

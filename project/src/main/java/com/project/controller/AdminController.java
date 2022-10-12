@@ -30,6 +30,12 @@ public class AdminController {
 	public void restaurantAdd() {
 		
 	}
+	@GetMapping("adminMain")
+	@PreAuthorize("isAuthenticated()")
+	public void adminMain() {
+		
+		
+	}
 	@PostMapping("restaurantAdd")
 	@PreAuthorize("isAuthenticated()")
 	public String restaurantAddPro(RestaurantVO rest, RedirectAttributes rttr,
@@ -86,9 +92,6 @@ public class AdminController {
 			e.printStackTrace();
 		}
 		
-		
-		
-		
 		service.restaurantAdd(rest);
 		
 		rttr.addFlashAttribute("result", rest.getRes_no());
@@ -96,8 +99,10 @@ public class AdminController {
 		return "redirect:/admin/restaurantAdd";
 	}
 	
-	@GetMapping("main")
-	public void main() {
+	@GetMapping("userManagement")
+	@PreAuthorize("isAuthenticated()")
+	public void userManagement() {
 		
 	}
+	
 }

@@ -39,17 +39,20 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 	        log.info("CustomLoginSuccessHandler");
 	        log.info("Role Names : " + roleNames);
 	 	
-	 	/* 권한에 따른 페이지 이동 처리
+	 	/* 권한에 따른 페이지 이동 처리*/
 	 	if(roleNames.contains("ROLE_ADMIN")) { // 어드민 권한이 있으면 
-	 		response.sendRedirect("/admin/main"); // 어드민 메인페이지로 이동 
+	 		response.sendRedirect("/admin/adminMain"); // 어드민 메인페이지로 이동 
+	 	}else {
+	 		response.sendRedirect("/content/main");
 	 	}
+	 	/*
 	 	if(roleNames.contains("ROLE_SALES")) { // 어드민 권한이 있으면 
 	 		response.sendRedirect("/sales/main"); // 어드민 메인페이지로 이동 
 	 	}
 	 	*/
 	 	
 	 	// 로그인폼으로 강제 이동되어, 로그인처리 성공후 보던곳으로 가기위한 처리 
-	    	response.sendRedirect("/content/main");
+	    	
 	 	
 	}
 

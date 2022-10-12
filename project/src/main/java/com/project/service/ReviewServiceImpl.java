@@ -89,5 +89,8 @@ public class ReviewServiceImpl implements ReviewService{
 
 		return mapper.replyCountGet(re_no);
 	}
+
+	
+
 	
 }

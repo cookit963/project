@@ -93,4 +93,9 @@ public class ContentController {
 	public void colkageMap(Model model, String res_ca, Criteria cri) {
 		model.addAttribute("restaurantList", service.getResList(cri));
 	}
+	
+	@GetMapping("restaurantHeartList")
+	public void restaurantHeartList() {
+		
+	}
 }
