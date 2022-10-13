@@ -12,7 +12,9 @@
 	<select id="stars" resultType="com.project.domain.ReviewVO">
 		select re_stars from Review where res_no=#{res_no}
 	</select>
-	
+	<select id="starsCount" resultType="int">
+		select count(*) from Review where res_no=#{res_no}
+	</select>
 	<select id="getTotalCount" resultType="int">
 		select count(*) from Restaurant where
 
@@ -26,5 +28,11 @@
 	</delete>
 	<select id="getWishRest" resultType="com.project.domain.WishRestVO">
 		select * from WishRest where user_id=#{user_id} and res_no=#{res_no}
+	</select>
+	<select id="addUserGet" resultType="com.project.domain.UserListVO">
+		select * from UserList where user_id=#{user_id}
+	</select>
+	<select id="wishRestList" resultType="com.project.domain.WishRestVO">
+		select * from WishRest where user_id=#{user_id}
 	</select>
 </mapper>

@@ -1,8 +1,26 @@
 package com.project.service;
 
+import java.util.List;
+
+import com.project.domain.AuthVO;
 import com.project.domain.RestaurantVO;
+import com.project.domain.UserListVO;
 
 public interface AdminService {
 	
 	public int restaurantAdd(RestaurantVO rest);
+	
+	public List<UserListVO> userListGet();
+	
+	public List<AuthVO> authListGet();
+	
+	public List<AuthVO> authListGet2(String user_id);
+	
+	public int reviewControl(String user_id);
+	
+	public int reviewControl2(String user_id);
+	
+	public int roleControl(String user_id);
+	
+	public int roleControl2(String user_id);
 }

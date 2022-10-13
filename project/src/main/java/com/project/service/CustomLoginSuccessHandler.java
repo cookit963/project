@@ -2,7 +2,7 @@ package com.project.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
+
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
+
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import lombok.extern.log4j.Log4j;
 
@@ -29,12 +31,10 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 	        log.info("CustomLoginSuccessHandler. Login Success");
 
 	        List<String> roleNames = new ArrayList<String>();
-
 	        //collection 타입 리턴
 	        //CustomUser 보면 collection타입을 볼 수 있음
 	        //로그인한 사람의 권한 목록 얻어오기
 	        authentication.getAuthorities().forEach(authority -> roleNames.add(authority.getAuthority()));
-
 	        log.info("======================================");
 	        log.info("CustomLoginSuccessHandler");
 	        log.info("Role Names : " + roleNames);

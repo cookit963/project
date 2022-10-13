@@ -34,5 +34,8 @@ public interface ReviewMapper {
 	
 	public int heartsCountGet(int re_no);
 	
+	public UserListVO userGet(String user_nicname);
+	
+	public List<HeartsVO> heartsList(String user_id);
 	
 }

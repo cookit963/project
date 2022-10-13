@@ -1,5 +1,9 @@
 package com.project.controller;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -20,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.project.domain.Criteria;
 import com.project.domain.PageDTO;
 import com.project.domain.RestaurantVO;
+import com.project.domain.ReviewVO;
 import com.project.domain.UserListVO;
 import com.project.domain.WishRestVO;
 import com.project.service.ContentService;
@@ -51,10 +56,20 @@ public class ContentController {
 	@GetMapping("restaurantView")
 	public void restaruantView(Model model,@RequestParam int res_no, RedirectAttributes rttr, Authentication auth) {
 		model.addAttribute("restaurantVO", service.getResView(res_no));
+		DecimalFormat form = new DecimalFormat("#.##");
 		
 		log.info("stars : "+service.stars(res_no));
 		if(!(service.stars(res_no).isEmpty())) {
-			model.addAttribute("stars", service.stars(res_no));
+			List<ReviewVO> starsList = service.stars(res_no);
+			int starsCount = service.starsCount(res_no);
+			int tmp = 0;
+			for(int i=0; i<starsList.size(); i++) {
+				tmp += starsList.get(i).getRe_stars();	
+			}
+			log.info("tmp!!!!!!!!!!!! : "+tmp);
+			log.info("stars!!!!!!!!!!!!! : "+starsCount);
+			double result3 = (double)tmp / starsCount;
+			model.addAttribute("starsCount", form.format(result3));
 		}
 		if(auth != null) {
 			CustomUser cUser = (CustomUser)auth.getPrincipal();
@@ -94,8 +109,42 @@ public class ContentController {
 		model.addAttribute("restaurantList", service.getResList(cri));
 	}
 	
-	@GetMapping("restaurantHeartList")
-	public void restaurantHeartList() {
-		
+	@GetMapping("restaurantWishList")
+	public void restaurantWishList(Model model, Authentication auth, Criteria cri) {
+		if(auth != null) {
+			CustomUser cUser = (CustomUser)auth.getPrincipal();
+			String user = cUser.getUsername();
+			model.addAttribute("user", service.addUserGet(user));
+			model.addAttribute("user_id", user);
+			List<WishRestVO> wishRestList = service.wishRestList(user);
+			List<RestaurantVO> restaurantList = new ArrayList<RestaurantVO>();
+			List<RestaurantVO> restaurantModul = service.getResList(cri);
+			for(int i=0; i<wishRestList.size(); i++) {
+				for(int j=0; j<restaurantModul.size(); j++) {
+					if(wishRestList.get(i).getRes_no() == restaurantModul.get(j).getRes_no()) {
+						restaurantList.add(restaurantModul.get(j));
+					}
+				}
+			}
+			model.addAttribute("restaurantList", restaurantList);
+		}
+	}
+	
+	@PostMapping("heartCountGet")
+	@ResponseBody
+	public String heartCountGet(int res_no, HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
+		DecimalFormat form = new DecimalFormat("#.##");
+		double result4 = 0;
+		if(!(service.stars(res_no).isEmpty())) {
+			List<ReviewVO> starsList = service.stars(res_no);
+			int starsCount = service.starsCount(res_no);
+			int tmp = 0;
+			for(int i=0; i<starsList.size(); i++) {
+				tmp += starsList.get(i).getRe_stars();	
+			}
+			result4 = (double)tmp / starsCount;
+		}
+		String starsNum = form.format(result4);
+		return starsNum;
 	}
 }

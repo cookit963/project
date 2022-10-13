@@ -18,7 +18,6 @@
 	
 						<div class="mySlides fade2">
 						  <img src="/resources/save/${restaurantVO.res_img1}" style="width:500px; height:300px;">
-						  <div class="text">Caption Text</div>
 						</div>
 						<c:if test="${restaurantVO.res_img2 != 'default'}">
 							<div class="mySlides fade2">
@@ -50,7 +49,12 @@
 					
 					
 						식당 이름 : <input type="text" value="${restaurantVO.res_name}" readonly="readonly" style="border:none"/>
-						별점 : <input type="number" value="0.0" id="rest_stars" readonly="readonly" style="border:none"/><br/>
+						<c:if test="${starsCount != null}">
+							별점 : <input type="text" value="${starsCount} 점" id="rest_stars" readonly="readonly" style="border:none"/><br/>
+						</c:if>
+						<c:if test="${starsCount == null}">
+							별점 : <input type="text" value="아직 별점이 없습니다!" id="rest_stars" readonly="readonly" style="border:none"/><br/>
+						</c:if>
 						식당 주소 : <input type="text" value="${restaurantVO.res_address}" readonly="readonly" style="border:none"/>
 						<button onclick="window.location='/review/reviewList?res_no=${restaurantVO.res_no}'">리뷰 보러 가기</button>
 						<sec:authorize access="isAnonymous()">
@@ -227,6 +231,7 @@
 					}
 				});
 			});
+			
 		});
 	</script>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=df9e60b431f3252a1346451beb0f0b5e&libraries=services"></script>

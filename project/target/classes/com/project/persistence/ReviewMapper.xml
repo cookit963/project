@@ -41,4 +41,10 @@
 	<select id="heartsCountGet" resultType="int">
 		select count(*) from Hearts where re_no=#{re_no}
 	</select>
+	<select id="userGet" resultType="com.project.domain.UserListVO">
+		select * from UserList where user_nicname=#{user_nicname}
+	</select>
+	<select id="heartsList" resultType="com.project.domain.HeartsVO">
+		select * from Hearts where user_id=#{user_id}
+	</select>
 </mapper>

@@ -35,7 +35,7 @@
 						</tr>
 						<tr>
 							<td><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
-							별점 : <input type="number" value="0.0" id="rest_stars" readonly="readonly" style="border:none"/></a></td>
+							별점 : <input type="text" value="아직 별점이 없습니다!" class="rest_stars" readonly="readonly" style="border:none" data-resno="${restaurant.res_no}"/></a></td>
 						</tr>
 						<tr>
 							<td><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
@@ -61,7 +61,7 @@
 						</tr>
 						<tr>
 							<td><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
-							별점 : <input type="number" value="0.0" id="rest_stars" readonly="readonly" style="border:none"/></a></td>
+							별점 : <input type="number" value="0.0" class="rest_stars" readonly="readonly" style="border:none"/></a></td>
 						</tr>
 						<tr>
 							<td><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
@@ -83,4 +83,27 @@
 	
 	<!-- footer 복붙 -->        
 	<%@ include file="../includes/footer.jsp" %>
+	<script>
+		$(document).ready(function(){
+			$('.rest_stars').each(function(i,e){
+				let rest = $(this);
+				let res_noCon = rest.data('resno');
+				$.ajax({
+					url: '/content/heartCountGet.json',
+					type: 'POST',
+					data:{
+						res_no: res_noCon
+					},
+					success: function(data){
+						if(data != "0"){
+							rest.attr('value', data+ ' 점');
+						}
+					},
+					error: function(e){
+						console.log(e);
+					}
+				});
+			});
+		});
+	</script>
 	

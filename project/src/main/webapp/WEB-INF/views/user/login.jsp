@@ -5,7 +5,7 @@
 
 	<!-- header 복붙 -->
 	<%@ include file="../includes/header.jsp" %>
-	
+	<sec:authorize access="isAnonymous()">
 	<h1 align="center">login</h1>
 	<div align="center">
 		<form action="/login" method="post">
@@ -24,5 +24,12 @@
 		</form>
 	
 	</div>
+	</sec:authorize>
+	<sec:authorize access="isAuthenticated()">
+		<script>
+			alert('이미 로그인 상태입니다!');
+			window.location="/content/main";
+		</script>
+	</sec:authorize>
 	<!-- footer 복붙 -->        
 	<%@ include file="../includes/footer.jsp" %>

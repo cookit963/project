@@ -3,6 +3,8 @@ package com.project.controller;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +28,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.project.domain.HeartsVO;
 import com.project.domain.RestaurantVO;
 import com.project.domain.ReviewVO;
+import com.project.domain.UserListVO;
 import com.project.domain.WishRestVO;
 import com.project.service.ReviewService;
 import com.project.service.domain.CustomUser;
@@ -206,8 +209,27 @@ public class ReviewController {
 	}
 	
 	@GetMapping("reviewHeartList")
-	public void reviewHeartList() {
+	public void reviewHeartList(Model model, Authentication auth) {
 		
+		if(auth != null) {
+			CustomUser cUser = (CustomUser)auth.getPrincipal();
+			String user = cUser.getUsername();
+			model.addAttribute("user", service.addUserGet(user));
+			model.addAttribute("user_id", user);
+			List<HeartsVO> heartsList = service.heartsList(user);
+			List<ReviewVO> reviewList = new ArrayList<ReviewVO>();
+			List<ReviewVO> reviewModul = service.getReviewList();
+			for(int i=0; i<heartsList.size(); i++) {
+				for(int j=0; j<reviewModul.size(); j++) {
+					if(heartsList.get(i).getRe_no() == reviewModul.get(j).getRe_no()) {
+						reviewList.add(reviewModul.get(j));
+					}
+				}
+			}
+			model.addAttribute("reviewList", reviewList);
+			
+		}
 	}
+
 
 }

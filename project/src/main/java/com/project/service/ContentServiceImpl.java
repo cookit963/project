@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.project.domain.Criteria;
 import com.project.domain.RestaurantVO;
 import com.project.domain.ReviewVO;
+import com.project.domain.UserListVO;
 import com.project.domain.WishRestVO;
 import com.project.persistence.ContentMapper;
 
@@ -57,6 +58,24 @@ public class ContentServiceImpl implements ContentService{
 	public WishRestVO getWishRest(WishRestVO restVO) {
 		
 		return mapper.getWishRest(restVO);
+	}
+
+	@Override
+	public UserListVO addUserGet(String user_id) {
+
+		return mapper.addUserGet(user_id);
+	}
+
+	@Override
+	public List<WishRestVO> wishRestList(String user_id) {
+
+		return mapper.wishRestList(user_id);
+	}
+
+	@Override
+	public int starsCount(int res_no) {
+		
+		return mapper.starsCount(res_no);
 	}
 
 }

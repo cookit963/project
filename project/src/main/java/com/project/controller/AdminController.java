@@ -1,19 +1,30 @@
 package com.project.controller;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.project.domain.AuthVO;
 import com.project.domain.RestaurantVO;
+import com.project.domain.UserListVO;
 import com.project.service.AdminService;
 
 import lombok.extern.log4j.Log4j;
@@ -26,18 +37,18 @@ public class AdminController {
 	private AdminService service;
 	
 	@GetMapping("restaurantAdd")
-	@PreAuthorize("isAuthenticated()")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public void restaurantAdd() {
 		
 	}
 	@GetMapping("adminMain")
-	@PreAuthorize("isAuthenticated()")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public void adminMain() {
 		
 		
 	}
 	@PostMapping("restaurantAdd")
-	@PreAuthorize("isAuthenticated()")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String restaurantAddPro(RestaurantVO rest, RedirectAttributes rttr,
 			MultipartHttpServletRequest request) {
 		
@@ -100,9 +111,56 @@ public class AdminController {
 	}
 	
 	@GetMapping("userManagement")
-	@PreAuthorize("isAuthenticated()")
-	public void userManagement() {
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	public void userManagement(Model model, Authentication auth) {
+			
+		List<UserListVO> userList = service.userListGet();
+		List<AuthVO> authList = service.authListGet();
+		model.addAttribute("userList", userList);
+		model.addAttribute("authList", authList);
 		
+	}
+	
+	@PostMapping("reviewControl")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@ResponseBody
+	public int reviewControl(String user_id, HttpServletRequest req, HttpServletResponse resp, HttpSession session, Model model) {
+		int result2 = 0;
+		log.info("user_id!!!!!!!!!"+user_id);
+		result2 = service.reviewControl(user_id);
+		
+		return result2;
+	}
+	@PostMapping("reviewControl2")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@ResponseBody
+	public int reviewControl2(String user_id, HttpServletRequest req, HttpServletResponse resp, HttpSession session, Model model) {
+		int result2 = 0;
+		
+		result2 = service.reviewControl2(user_id);
+		
+		return result2;
+	}
+	
+	@PostMapping("roleControl")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@ResponseBody
+	public int roleControl(String user_id, HttpServletRequest req, HttpServletResponse resp, HttpSession session, Model model) {
+		int result3 = 0;
+		log.info("user_id!!!!!!!!!"+user_id);
+		result3 = service.roleControl(user_id);
+		
+		return result3;
+	}
+	@PostMapping("roleControl2")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@ResponseBody
+	public int roleControl2(String user_id, HttpServletRequest req, HttpServletResponse resp, HttpSession session, Model model) {
+		int result3 = 0;
+		log.info("user_id!!!!!!!!!"+user_id);
+		result3 = service.roleControl2(user_id);
+		
+		return result3;
 	}
 	
 }

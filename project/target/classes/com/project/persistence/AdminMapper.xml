@@ -13,4 +13,25 @@
 		#{res_colCon}, #{res_colGlass}, #{res_colSer}, #{res_colOpen}, #{res_amenPrivate},
 		#{res_amenPaking}, #{res_amenParty}, #{res_amenValet}, #{res_amenRental}, #{res_amenSoml}) 
 	</insert>
+	<select id="userListGet" resultType="com.project.domain.UserListVO">
+		select * from UserList
+	</select>
+	<select id="authListGet" resultType="com.project.domain.AuthVO">
+		select * from UserListAuth
+	</select>
+	<select id="authListGet2" resultType="com.project.domain.AuthVO">
+		select * from UserListAuth where user_id=#{user_id}
+	</select>
+	<update id="reviewControl">
+		update UserList set user_reviewOn=0 where user_id=#{user_id}
+	</update>
+	<update id="reviewControl2">
+		update UserList set user_reviewOn=1 where user_id=#{user_id}
+	</update>
+	<update id="roleControl">
+		update UserListAuth set auth='ROLE_ADMIN' where user_id=#{user_id}
+	</update>
+	<update id="roleControl2">
+		update UserListAuth set auth='ROLE_USER' where user_id=#{user_id}
+	</update>
 </mapper>

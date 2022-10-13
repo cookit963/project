@@ -90,6 +90,18 @@ public class ReviewServiceImpl implements ReviewService{
 		return mapper.replyCountGet(re_no);
 	}
 
+	@Override
+	public UserListVO userGet(String user_nicname) {
+
+		return mapper.userGet(user_nicname);
+	}
+
+	@Override
+	public List<HeartsVO> heartsList(String user_id) {
+
+		return mapper.heartsList(user_id);
+	}
+
 	
 
 	

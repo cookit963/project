@@ -31,7 +31,6 @@ public class UserController {
 	private UserService service;
 	
 	@RequestMapping("login")
-	@PreAuthorize("isAnonymous()")
 	public void loginPro(String error, HttpServletRequest request) {
 		log.info("************** login!!!! *************");
 		log.info("error : " + error);

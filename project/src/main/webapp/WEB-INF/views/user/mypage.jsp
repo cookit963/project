@@ -19,9 +19,9 @@
 			<table style="border: 1px solid black;">
 				<tr>
 					<td>
-					<button onclick="/review/ReviewUserList?user_nicname=${user.user_nicname}">내가쓴 리뷰</button>
-					<button onclick="/review/reviewHeartList?user_id=${user.user_id}">가고싶은 식당</button>
-					<button onclick="/review/restaurantHeartList?user_id=${user.user_id}">좋아요 누른 리뷰</button>
+						<button onclick="/review/ReviewUserList?user_nicname=${user.user_nicname}">내가쓴 리뷰</button>
+						<button onclick="window.location='/content/restaurantWishList'">가고싶은 식당</button>
+						<button onclick="window.location='/review/reviewHeartList'">좋아요 누른 리뷰</button>
 					</td>
 				</tr>
 			</table>

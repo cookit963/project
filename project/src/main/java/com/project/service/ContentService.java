@@ -5,6 +5,7 @@ import java.util.List;
 import com.project.domain.Criteria;
 import com.project.domain.RestaurantVO;
 import com.project.domain.ReviewVO;
+import com.project.domain.UserListVO;
 import com.project.domain.WishRestVO;
 
 public interface ContentService {
@@ -22,4 +23,10 @@ public interface ContentService {
 	public int wishRestDel(WishRestVO restVO);
 	
 	public WishRestVO getWishRest(WishRestVO restVO);
+	
+	public UserListVO addUserGet(String user_id);
+	
+	public List<WishRestVO> wishRestList(String user_id);
+	
+	public int starsCount(int res_no);
 }
