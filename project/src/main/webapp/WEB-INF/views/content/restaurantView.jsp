@@ -10,7 +10,7 @@
 	<DIV align="center">
 		<table border="1">
 			<tr>
-				<td align="laft">&nbsp;&nbsp;<a href="#" onclick="history.go(-1)">뒤</a></td>
+				<td align="laft">&nbsp;&nbsp;<a href="#" onclick="history.go(-1)">뒤로가기</a></td>
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 				<td align="right" style="border: none;">
 					<a href="/content/restaurantDel?res_no=${restaurantVO.res_no}">삭제</a>&nbsp;&nbsp;

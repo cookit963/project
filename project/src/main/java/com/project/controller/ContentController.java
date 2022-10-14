@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.project.domain.AlcoholVO;
 import com.project.domain.Criteria;
 import com.project.domain.PageDTO;
 import com.project.domain.RestaurantVO;
@@ -44,8 +45,12 @@ public class ContentController {
 	public void main(Model model, Authentication auth) {
 		log.info("main");
 		List<ReviewVO> reviewList = service.reviewGet();
-		for(int i=1; i<5; i++) {
-			model.addAttribute("review"+i, reviewList.get(i));
+		List<AlcoholVO> alcoholList = service.alcoholListGet();
+		for(int i=0; i<4; i++) {
+			model.addAttribute("review"+(i+1), reviewList.get(i));
+		}
+		for(int i=0; i<2; i++) {
+			model.addAttribute("alcohol"+(i+1), alcoholList.get(i));
 		}
 		if(auth != null) {
 			CustomUser cUser = (CustomUser)auth.getPrincipal();
@@ -168,4 +173,13 @@ public class ContentController {
 			return "redirect:/content/restaurantView?res_no="+res_no;
 		}
 	}
+	@GetMapping("alcoholView")
+	public void alcoholView(int alcol_no, Model model) {
+		model.addAttribute("alcoholVO", service.alcoholGet(alcol_no));
+	}
+	@GetMapping("alcoholList")
+	public void alcoholList(Model model) {
+		model.addAttribute("alcoholList", service.alcoholListGet());
+	}
+	
 }

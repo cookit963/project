@@ -273,7 +273,7 @@
                         <!-- Content -->
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
-                                <a href="기타" class="post-title">Different Order</a>
+                                <a href="/content/restaurantList?res_ca=기타" class="post-title">Different Order</a>
                             </div>
                         </div>
                     </div>
@@ -290,19 +290,15 @@
             <div class="row align-items-center">
                 <div class="col-12 col-md-6">
                     <div class="big-post-thumbnail mb-50">
-                        <img src="/resources/bueno-master/img/bg-img/7.jpg" alt="">
+                        <img src="/resources/save/${alcohol1.alcol_img}" alt="" style="width: 500px; height: 500px;">
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="big-post-content text-center mb-50">
-                        <a href="#" class="post-tag">Healthy</a>
-                        <a href="#" class="post-title">Friend eggs with ham</a>
-                        <div class="post-meta">
-                            <a href="#" class="post-date">July 11, 2018</a>
-                            <a href="#" class="post-author">By Julia Stiles</a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt augue pellentesque. Suspendisse vestibulum sem in eros maximus, pretium commodo turpis convallis. Aenean scelerisque orci quis urna tempus, vitae interdum velit aliquet.</p>
-                        <a href="#" class="btn bueno-btn">Read More</a>
+                        <a href="#" class="post-tag">Alcohol</a>
+                        <a href="#" class="post-title">${alcohol1.alcol_title}</a>
+                        <p>${alcohol1.alcol_content}</p>
+                        <a href="/content/alcoholView?alcol_no=${alcohol1.alcol_no}" class="btn bueno-btn">Read more</a>
                     </div>
                 </div>
             </div>
@@ -311,19 +307,15 @@
             <div class="row align-items-center">
                 <div class="col-12 col-md-6">
                     <div class="big-post-content text-center mb-50">
-                        <a href="#" class="post-tag">The Best</a>
-                        <a href="#" class="post-title">Steak with boiled vegetables</a>
-                        <div class="post-meta">
-                            <a href="#" class="post-date">July 11, 2018</a>
-                            <a href="#" class="post-author">By Julia Stiles</a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt augue pellentesque. Suspendisse vestibulum sem in eros maximus, pretium commodo turpis convallis. Aenean scelerisque orci quis urna tempus, vitae interdum velit aliquet.</p>
-                        <a href="#" class="btn bueno-btn">Read More</a>
+                        <a href="#" class="post-tag">Alcohol</a>
+                        <a href="#" class="post-title">${alcohol2.alcol_title}</a>
+                        <p>${alcohol2.alcol_content}</p>
+                        <a href="/content/alcoholView?alcol_no=${alcohol2.alcol_no}" class="btn bueno-btn">Read more</a>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="big-post-thumbnail mb-50">
-                        <img src="/resources/bueno-master/img/bg-img/8.jpg" alt="">
+                        <img src="/resources/save/${alcohol2.alcol_img}" alt="" style="width: 500px; height: 500px;">
                     </div>
                 </div>
             </div>

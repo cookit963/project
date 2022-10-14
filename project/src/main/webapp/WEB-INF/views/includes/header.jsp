@@ -82,6 +82,7 @@
                                     <li><a href="/user/mypage" style="color:gold">MyPage</a></li>
                                     <li><a href="/content/colkageMap" style="color:gold">CorkageMap</a></li>
                                     <li><a href="/review/reviewList?res_no=0" style="color:gold">Timeline</a></li>
+                                    <li><a href="/content/alcoholList" style="color:gold">Alcohol</a></li>
                                     <li><a href="#" style="color:gold">Category</a>
                                         <ul class="dropdown" style="color:gold">
                                             <li><a href="/content/restaurantList?res_ca=all">All Dining</a></li>

@@ -44,4 +44,10 @@
 	<select id="reviewGet" resultType="com.project.domain.ReviewVO">
 		select * from Review order by re_reg desc
 	</select>
+	<select id="alcoholListGet" resultType="com.project.domain.AlcoholVO">
+		select * from Alcohol order by alcol_no desc
+	</select>
+	<select id="alcoholGet" resultType="com.project.domain.AlcoholVO">
+		select * from Alcohol where alcol_no=#{alcol_no}
+	</select>
 </mapper>

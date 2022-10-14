@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.project.domain.AlcoholVO;
 import com.project.domain.AuthVO;
 import com.project.domain.RestaurantVO;
 import com.project.domain.UserListVO;
@@ -161,6 +162,44 @@ public class AdminController {
 		result3 = service.roleControl2(user_id);
 		
 		return result3;
+	}
+	@GetMapping("alcoholAdd")
+	public void alcoholAdd() {
+		
+	}
+	@PostMapping("alcoholAdd")
+	public String alcoholAddPro(AlcoholVO alcol, RedirectAttributes rttr, MultipartHttpServletRequest request) {
+		try {
+			MultipartFile mf = request.getFile("alcol_img1");
+			request.getFiles("alcol_img1");
+			String path = request.getRealPath("/resources/save");
+			String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+			String orgName = mf.getOriginalFilename();
+			String ext = orgName.substring(orgName.lastIndexOf("."));
+			String newFileName = uuid + ext;
+			String imgPath = path + "\\" + newFileName;
+			
+			File copyFile = new File(imgPath);
+			mf.transferTo(copyFile);
+			alcol.setAlcol_img(newFileName);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		service.alcoholAdd(alcol);
+		rttr.addFlashAttribute("result", service.alcoholCheck(alcol.getAlcol_img()));
+		return "redirect:/admin/alcoholAdd";
+	}
+	@GetMapping("alcoholDel")
+	public String alcoholDel(int alcol_no, Model model) {
+		int result = service.alcoholDel(alcol_no);
+		if(result == 1) {
+			model.addAttribute("alcoholDel", 1);
+			return "redirect:/content/main";
+		}else {
+			model.addAttribute("alcoholDel", 1);
+			return "redirect:/content/alcoholView?alcol_no="+alcol_no;
+		}
 	}
 	
 }

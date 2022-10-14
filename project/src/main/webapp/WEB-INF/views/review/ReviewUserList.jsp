@@ -61,7 +61,12 @@
 	
 	<!-- footer 복붙 -->        
 	<%@ include file="../includes/footer.jsp" %>
-	
+	<script>
+		if(${reviewList} == ""){
+			alert('내가쓴 리뷰가 없습니다! 리뷰를 작성해 주세요!!');
+			window.location="/user/mypage";
+		}
+	</script>
 	<script>
 		$(document).ready(function(){
 			

@@ -34,4 +34,14 @@
 	<update id="roleControl2">
 		update UserListAuth set auth='ROLE_USER' where user_id=#{user_id}
 	</update>
+	<insert id="alcoholAdd">
+		insert into Alcohol(alcol_no, alcol_title, alcol_img, alcol_content, alcol_etc)
+		values(Alcohol_seq.nextval, #{alcol_title}, #{alcol_img}, #{alcol_content}, #{alcol_etc})
+	</insert>
+	<select id="alcoholCheck" resultType="int">
+		select alcol_no from Alcohol where alcol_img=#{key}
+	</select>
+	<delete id="alcoholDel">
+		delete from Alcohol where alcol_no=#{alcol_no}
+	</delete>
 </mapper>

@@ -18,7 +18,7 @@
 				<tr>
 					<td>
 						<div>
-							&nbsp;&nbsp;<a id="back1">뒤</a>&nbsp;&nbsp;
+							&nbsp;&nbsp;<a id="back1">뒤로가기</a>&nbsp;&nbsp;
 							내가 갔던 식당 : <input type="text" value="${restarauntVO.res_name}" readonly="readonly" style="border:none"/>
 						</div>
 					</td>

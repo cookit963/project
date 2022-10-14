@@ -2,6 +2,7 @@ package com.project.service;
 
 import java.util.List;
 
+import com.project.domain.AlcoholVO;
 import com.project.domain.Criteria;
 import com.project.domain.RestaurantVO;
 import com.project.domain.ReviewVO;
@@ -33,4 +34,8 @@ public interface ContentService {
 	public int restaurantDel(int res_no);
 	
 	public List<ReviewVO> reviewGet();
+	
+	public List<AlcoholVO> alcoholListGet();
+	
+	public AlcoholVO alcoholGet(int alcol_no);
 }

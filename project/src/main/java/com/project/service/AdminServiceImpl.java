@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.domain.AlcoholVO;
 import com.project.domain.AuthVO;
 import com.project.domain.RestaurantVO;
 import com.project.domain.UserListVO;
@@ -62,6 +63,24 @@ public class AdminServiceImpl implements AdminService {
 	public int roleControl2(String user_id) {
 
 		return mapper.roleControl2(user_id);
+	}
+
+	@Override
+	public int alcoholAdd(AlcoholVO alcohol) {
+
+		return mapper.alcoholAdd(alcohol);
+	}
+
+	@Override
+	public int alcoholCheck(String key) {
+
+		return mapper.alcoholCheck(key);
+	}
+
+	@Override
+	public int alcoholDel(int alcol_no) {
+
+		return mapper.alcoholDel(alcol_no);
 	}
 
 	

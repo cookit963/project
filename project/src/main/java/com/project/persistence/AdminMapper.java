@@ -2,6 +2,7 @@ package com.project.persistence;
 
 import java.util.List;
 
+import com.project.domain.AlcoholVO;
 import com.project.domain.AuthVO;
 import com.project.domain.RestaurantVO;
 import com.project.domain.UserListVO;
@@ -23,4 +24,10 @@ public interface AdminMapper {
 	public int roleControl(String user_id);
 	
 	public int roleControl2(String user_id);
+	
+	public int alcoholAdd(AlcoholVO alcohol);
+	
+	public int alcoholCheck(String key);
+	
+	public int alcoholDel(int alcol_no);
 }

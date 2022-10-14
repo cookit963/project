@@ -11,7 +11,7 @@
 	<DIV align="center">
 		<table style="width: 500px; white-space: nowrap; border: 1px solid black;">
 			<tr style="border: 1px solid black;">
-				<td>&nbsp;&nbsp;<a href="#" onclick="history.go(-1)" style="border:1px solid black;">뒤</a>
+				<td>&nbsp;&nbsp;<a href="#" onclick="history.go(-1)" style="border:1px solid black;">뒤로가기</a>
 				</td>
 				<td align="right"><a href="/content/restaurantView?res_no=${reviewVO.res_no}" style="border:1px solid black;">${restarauntVO.res_name}</a>&nbsp;&nbsp;</td>
 			</tr>

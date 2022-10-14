@@ -6,21 +6,91 @@
 
 	<!-- header 복붙 -->
 	<%@ include file="../includes/header.jsp" %>
-	<br/><br/><br/>
 	<div align="center">
-		<table border="1">
-			<tr>
-				<td><div align="center"><a href="/content/restaurantList?res_ca=고기">Beef</a></div></td>
-				<td><div align="center"><a href="/content/restaurantList?res_ca=오마카세">Omakase</a></div></td>
-				<td><div align="center"><a href="/content/restaurantList?res_ca=회">Sushi</a></div></td>
-			</tr>
-			<tr>
-				<td><div align="center"><a href="/content/restaurantList?res_ca=레스토랑">Restaurant</a></div></td>
-				<td><div align="center"><a href="/content/restaurantList?res_ca=뷔페">Buffet</a></div></td>
-				<td><div align="center"><a href="/content/restaurantList?res_ca=기타">Different Order</a></div></td>
-			</tr>
-		</table>
-		<br/>
+		<div class="post-catagory section-padding-100-0 mb-70">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Single Post Catagory -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post-catagory mb-30">
+                        <img src="/resources/bueno-master/img/bg-img/Beef.jpg" alt="" style="write: 200px; height: 160px;">
+                        <!-- Content -->
+                        <div class="catagory-content-bg">
+                            <div class="catagory-content">
+                                <a href="/content/restaurantList?res_ca=고기" class="post-title">Beef</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Post Catagory -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post-catagory mb-30">
+                        <img src="/resources/bueno-master/img/bg-img/Omakase.jpg" alt="" style="write: 200px; height: 160px;">
+                        <!-- Content -->
+                        <div class="catagory-content-bg">
+                            <div class="catagory-content">
+                                <a href="/content/restaurantList?res_ca=오마카세" class="post-title">Omakase</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Post Catagory -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post-catagory mb-30">
+                        <img src="/resources/bueno-master/img/bg-img/Sushi.jpg" alt="" style="write: 200px; height: 160px;">
+                        <!-- Content -->
+                        <div class="catagory-content-bg">
+                            <div class="catagory-content">
+                                <a href="/content/restaurantList?res_ca=회" class="post-title">Sushi</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <!-- Single Post Catagory -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post-catagory mb-30">
+                        <img src="/resources/bueno-master/img/bg-img/Restaurant.jpg" alt="" style="write: 200px; height: 160px;">
+                        <!-- Content -->
+                        <div class="catagory-content-bg">
+                            <div class="catagory-content">
+                                <a href="/content/restaurantList?res_ca=레스토랑" class="post-title">Restaurant</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Post Catagory -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post-catagory mb-30">
+                        <img src="/resources/bueno-master/img/bg-img/Buffet.jpg" alt="" style="write: 200px; height: 160px;">
+                        <!-- Content -->
+                        <div class="catagory-content-bg">
+                            <div class="catagory-content">
+                                <a href="/content/restaurantList?res_ca=뷔페" class="post-title">Buffet</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Post Catagory -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post-catagory mb-30">
+                        <img src="/resources/bueno-master/img/bg-img/DifferentOrder.jpg" alt="" style="write: 200px; height: 160px;">
+                        <!-- Content -->
+                        <div class="catagory-content-bg">
+                            <div class="catagory-content">
+                                <a href="/content/restaurantList?res_ca=기타" class="post-title">Different Order</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 		<form>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<table style="border: 1px solid #444444;">

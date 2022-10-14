@@ -16,6 +16,9 @@
 					<a href="/admin/restaurantAdd">식당 추가</a>
 				</td>
 				<td>
+					<a href="/admin/alcoholAdd">주류 소개 추가</a>
+				</td>
+				<td>
 					<a href="/admin/userManagement">회원 관련 정보</a>
 				</td>
 			</tr>

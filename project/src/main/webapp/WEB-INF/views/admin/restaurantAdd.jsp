@@ -6,7 +6,7 @@
 
 	<!-- header 복붙 -->
 	<%@ include file="../includes/header.jsp" %>
-
+	<br/><br/><br/>
 	<div align="center">
 		
 		<form action="/admin/restaurantAdd" method="post" enctype="multipart/form-data">
@@ -15,7 +15,7 @@
 				<tr>
 					<td>
 						<div>
-							&nbsp;&nbsp;<a id="back1">뒤</a>
+							&nbsp;&nbsp;<a id="back1">뒤로가기</a>
 						</div>
 					</td>
 				</tr>

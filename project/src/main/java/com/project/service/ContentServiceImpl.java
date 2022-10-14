@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.domain.AlcoholVO;
 import com.project.domain.Criteria;
 import com.project.domain.RestaurantVO;
 import com.project.domain.ReviewVO;
@@ -95,6 +96,18 @@ public class ContentServiceImpl implements ContentService{
 	public List<ReviewVO> reviewGet() {
 
 		return mapper.reviewGet();
+	}
+
+	@Override
+	public List<AlcoholVO> alcoholListGet() {
+		
+		return mapper.alcoholListGet();
+	}
+
+	@Override
+	public AlcoholVO alcoholGet(int alcol_no) {
+
+		return mapper.alcoholGet(alcol_no);
 	}
 
 }
