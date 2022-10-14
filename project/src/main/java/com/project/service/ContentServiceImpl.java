@@ -78,4 +78,23 @@ public class ContentServiceImpl implements ContentService{
 		return mapper.starsCount(res_no);
 	}
 
+	@Override
+	public int restaurantDel(int res_no) {
+		int result = 0;
+		
+		int result2 = mapper.restaurantDel(res_no);
+		if(result2 == 1) {
+			mapper.reviewDel(res_no);
+			result = 1;
+		}
+		
+		return result;
+	}
+
+	@Override
+	public List<ReviewVO> reviewGet() {
+
+		return mapper.reviewGet();
+	}
+
 }

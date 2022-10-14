@@ -47,4 +47,10 @@
 	<select id="heartsList" resultType="com.project.domain.HeartsVO">
 		select * from Hearts where user_id=#{user_id}
 	</select>
+	<delete id="reviewDel">
+		delete from Review where re_no=#{re_no}
+	</delete>
+	<delete id="heartDel2">
+		delete from Hearts where re_no=#{re_no}
+	</delete>
 </mapper>

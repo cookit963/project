@@ -16,8 +16,18 @@
 				<td align="right"><a href="/content/restaurantView?res_no=${reviewVO.res_no}" style="border:1px solid black;">${restarauntVO.res_name}</a>&nbsp;&nbsp;</td>
 			</tr>
 			<tr style="border: 1px solid black;">
-				<td colspan="2">
-					&nbsp;&nbsp;&nbsp;&nbsp;작성자 : <a href="/Review/ReviewUserList?user_nicname=${reviewVO.user_nicname}" style="text-align:left; border:1px;">${addUser.user_nicname}</a>
+				<td>
+					&nbsp;&nbsp;&nbsp;&nbsp;작성자 : <a href="/review/ReviewUserList?user_nicname=${reviewVO.user_nicname}" style="text-align:left; border:1px;">${addUser.user_nicname}</a>
+				</td>
+				<td>
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<a style="text-align:right; border:1px;" href="/review/reviewDel?re_no=${reviewVO.re_no}">삭제!</a>
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+					<c:if test="${user_id eq reviewVO.user_id}">
+						<a style="text-align:right; border:1px;" href="/review/reviewDel?re_no=${reviewVO.re_no}">삭제!</a>
+					</c:if>
+				</sec:authorize>
 				</td>
 			</tr>
 			<tr>
@@ -86,7 +96,12 @@
 								<td align="center" style="width: 500px">
 									댓글 작성<br/>
 									<textarea rows="3" cols="50" id="r_content2"  placeholder="댓글을 입력하세요!"></textarea>
-									<button id="r_comBtn">작성 완료!</button>
+									<sec:authorize access="isAnonymous()">
+										<button onclick="window.location='/user/login'">작성 완료!</button>
+									</sec:authorize>
+									<sec:authorize access="isAuthenticated()">
+										<button id="r_comBtn">작성 완료!</button>
+									</sec:authorize>
 								</td>
 							</tr>
 							<c:if test="${replyCount != 0}">

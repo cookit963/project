@@ -10,7 +10,7 @@
 	<div align="center">
 		<br/>
 		<form>
-		
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<input type="hidden" value="${res_no}" name="res_no" />
 			<table style="width: 500px; white-space: nowrap; border: 1px solid black;">
 				<c:set var="doneLoop" value="false"/>

@@ -14,30 +14,25 @@
 		<input type="hidden" name="au" value="user" />
 		<table>
 			<tr>
-				<td>권한 *</td>
-				<td>
-				</td>
-			</tr>
-			<tr>
 				<td>아이디 *</td>
-				<td><input type="text" name="user_id" id="user_id" /><div id="checkResult"></div></td>
+				<td><input type="text" name="user_id" id="user_id" required="required"/><div id="checkResult"></div></td>
 			</tr>
 			<tr>
 				<td>비밀번호 *</td>
-				<td><input type="password" name="user_pw" /></td>
+				<td><input type="password" name="user_pw" required="required"/></td>
 			</tr>
 			<tr>
 				<td>비밀번호 확인 *</td>
-				<td><input type="password" name="pwch" /></td>
+				<td><input type="password" name="pwch" required="required"/></td>
 			</tr>
 			<tr>
-				<td>닉네임</td>
-				<td><input type="text" name="user_nicname" /></td>
+				<td>닉네임 *</td>
+				<td><input type="text" name="user_nicname" required="required"/></td>
 			</tr>
 			<tr>
-				<td>email</td>
+				<td>email *</td>
 				<td>
-					<input type="text" name="user_email" />
+					<input type="text" name="user_email" required="required"/>
 				</td>
 			</tr>
 			<tr>

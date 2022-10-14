@@ -11,9 +11,14 @@
 		<table border="1">
 			<tr>
 				<td align="laft">&nbsp;&nbsp;<a href="#" onclick="history.go(-1)">뒤</a></td>
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+				<td align="right" style="border: none;">
+					<a href="/content/restaurantDel?res_no=${restaurantVO.res_no}">삭제</a>&nbsp;&nbsp;
+				</td>
+				</sec:authorize>
 			</tr>
 			<tr>
-				<td>		
+				<td colspan="2">		
 					<div class="slideshow-container">
 	
 						<div class="mySlides fade2">
@@ -68,12 +73,17 @@
 							</c:if>
 						</sec:authorize>
 						<br/>
-						식당 기본 정보<br/>
-						<input type="text" value="${restaurantVO.res_content}" readonly="readonly" width="10" />
+						<input type="text" value="식당 기본 정보" readonly="readonly" style="border:none"/>
+						<sec:authorize access="isAuthenticated()">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button onclick="window.location='/review/reviewAdd?res_no=${restaurantVO.res_no}'">리뷰 쓰러 가기!</button>
+						</sec:authorize>
+						<br/>
+						<textarea rows="5" cols="50" readonly="readonly" >${restaurantVO.res_content}</textarea><br/>
 					
 					<div style="border:1px solid black;">
 						<h6 align="center">콜키지 정보</h6>
-						<input type="text" value="${restaurantVO.res_colCon}" readonly="readonly" /><br/>
+						<textarea rows="3" cols="50" readonly="readonly" >${restaurantVO.res_colCon}</textarea><br/>
 						<table>
 							<tr><td>
 									<c:if test="${restaurantVO.res_colGlass == 1}">
@@ -153,7 +163,13 @@
 	
 	<!-- footer 복붙 -->        
 	<%@ include file="../includes/footer.jsp" %>
-	
+	<script>
+		if(${restaurantDel} != null){
+			if(${restaurantDel} == 1){
+				alert("에러 발생");
+			}
+		}
+	</script>
 	<script>
 		
 	        var slideIndex = 1;showSlides(slideIndex);

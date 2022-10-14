@@ -10,116 +10,7 @@
         <a href="/content/main"><img src="/resources/bueno-master/img/core-img/logo.png" alt=""></a>
     </div>
 	    <!-- ##### Treading Post Area Start ##### -->
-    <div class="treading-post-area" id="treadingPost">
-        <div class="close-icon">
-            <i class="fa fa-times"></i>
-        </div>
-
-        <h4>Treading Post</h4>
-       
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="/resources/bueno-master/img/bg-img/9.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Friend eggs with ham</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="/resources/bueno-master/img/bg-img/10.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Mushrooms with pork chop</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="/resources/bueno-master/img/bg-img/11.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Birthday cake with chocolate</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="/resources/bueno-master/img/bg-img/9.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Friend eggs with ham</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="/resources/bueno-master/img/bg-img/10.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Mushrooms with pork chop</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Single Blog Post -->
-        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-                <img src="/resources/bueno-master/img/bg-img/11.jpg" alt="">
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-                <a href="#" class="post-tag">The Best</a>
-                <a href="#" class="post-title">Birthday cake with chocolate</a>
-                <div class="post-meta">
-                    <a href="#" class="post-date">July 11, 2018</a>
-                    <a href="#" class="post-author">By Julia Stiles</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Treading Post Area End ##### -->
+    
 
     <!-- ##### Hero Area Start ##### -->
     <div class="hero-area">
@@ -129,79 +20,176 @@
             <div class="single-slide">
                 <!-- Blog Thumbnail -->
                 <div class="blog-thumbnail">
-                    <a href="#"><img src="/resources/bueno-master/img/bg-img/1.jpg" alt=""></a>
-                </div>
-
-                <!-- Blog Content -->
-                <div class="blog-content-bg">
-                    <div class="blog-content">
-                        <a href="#" class="post-tag">Healthy Food</a>
-                        <a href="#" class="post-title">Chicken Salad</a>
-                        <div class="post-meta">
-                            <a href="#" class="post-date">July 11, 2018</a>
-                            <a href="#" class="post-author">By Julia Stiles</a>
-                        </div>
-                    </div>
+                   	<div align="center">
+						<table style="width: 500px; white-space: nowrap; border: 1px solid black;">
+							<tbody style="border: 1px solid #444444;">
+								<tr>
+									<td style="background-color: Honeydew;">
+										&nbsp;&nbsp;&nbsp;&nbsp;작성자 : <a href="/review/ReviewUserList?user_nicname=${review1.user_nicname}" style="text-align:left; border:1px; font-size: large;">${review1.user_nicname}</a>
+									</td>
+									<td align="right" style="background-color: Honeydew;"><a class="resNameGet" href="/content/restaurantView?res_no=${review1.res_no}" style="border:1px solid black;" type="a" data-resno="${review1.res_no}"></a>&nbsp;&nbsp;</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<a href="/review/reviewView?re_no=${review1.re_no}">
+											<div>
+											  <img src="/resources/save/${review1.re_img1}" style="width:500px; height:300px;">
+											</div>
+											<div>
+												&nbsp;&nbsp;&nbsp;&nbsp;별점 : <input type="number" value="${review1.re_stars}" readonly="readonly" style="border:none;"/>
+											</div>
+											<div>
+												&nbsp;&nbsp;&nbsp;&nbsp;<textarea rows="3" cols="50" style="border:none; background-color:Snow;" readonly="readonly" >${review1.re_content}</textarea>
+											</div>
+										</a>
+											<br/>
+										
+											<div class="heartsRelord">
+												<sec:authorize access="isAnonymous()">
+													&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="window.location='/user/login'">좋아요</button>&nbsp;<input type="number" class="heartsCount" value="0" data-reno="${review1.re_no}" readonly="readonly" style="border: none; width: 30px" />
+												</sec:authorize>
+												<sec:authorize access="isAuthenticated()">
+														&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="heartAddBtn" data-reno="${review1.re_no}">좋아요</button>&nbsp;<input type="number" class="heartsCount" value="0" data-reno="${review1.re_no}" readonly="readonly" style="border: none; width: 30px" />
+												</sec:authorize>
+											</div>
+										<br/>
+									</td>
+								</tr>
+							</tbody>	
+						</table>
+					</div>
                 </div>
             </div>
-
             <!-- Single Slide -->
             <div class="single-slide">
                 <!-- Blog Thumbnail -->
                 <div class="blog-thumbnail">
-                    <a href="#"><img src="/resources/bueno-master/img/bg-img/2.jpg" alt=""></a>
-                </div>
-
-                <!-- Blog Content -->
-                <div class="blog-content-bg">
-                    <div class="blog-content">
-                        <a href="#" class="post-tag">Healthy Food</a>
-                        <a href="#" class="post-title">Chicken Salad</a>
-                        <div class="post-meta">
-                            <a href="#" class="post-date">July 11, 2018</a>
-                            <a href="#" class="post-author">By Julia Stiles</a>
-                        </div>
-                    </div>
+                    <div align="center">
+						<table style="width: 500px; white-space: nowrap; border: 1px solid black;">
+							<tbody style="border: 1px solid #444444;">
+								<tr>
+									<td style="background-color: Honeydew;">
+										&nbsp;&nbsp;&nbsp;&nbsp;작성자 : <a href="/review/ReviewUserList?user_nicname=${review2.user_nicname}" style="text-align:left; border:1px; font-size: large;">${review2.user_nicname}</a>
+									</td>
+									<td align="right" style="background-color: Honeydew;"><a class="resNameGet" href="/content/restaurantView?res_no=${review2.res_no}" style="border:1px solid black;" type="a" data-resno="${review2.res_no}"></a>&nbsp;&nbsp;</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<a href="/review/reviewView?re_no=${review2.re_no}">
+											<div>
+											  <img src="/resources/save/${review2.re_img1}" style="width:500px; height:300px;">
+											</div>
+											<div>
+												&nbsp;&nbsp;&nbsp;&nbsp;별점 : <input type="number" value="${review2.re_stars}" readonly="readonly" style="border:none;"/>
+											</div>
+											<div>
+												&nbsp;&nbsp;&nbsp;&nbsp;<textarea rows="3" cols="50" style="border:none; background-color:Snow;" readonly="readonly" >${review2.re_content}</textarea>
+											</div>
+										</a>
+											<br/>
+										
+											<div class="heartsRelord">
+												<sec:authorize access="isAnonymous()">
+													&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="window.location='/user/login'">좋아요</button>&nbsp;<input type="number" class="heartsCount" value="0" data-reno="${review2.re_no}" readonly="readonly" style="border: none; width: 30px" />
+												</sec:authorize>
+												<sec:authorize access="isAuthenticated()">
+														&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="heartAddBtn" data-reno="${review2.re_no}">좋아요</button>&nbsp;<input type="number" class="heartsCount" value="0" data-reno="${review2.re_no}" readonly="readonly" style="border: none; width: 30px" />
+												</sec:authorize>
+											</div>
+										<br/>
+									</td>
+								</tr>
+							</tbody>	
+						</table>
+					</div>
                 </div>
             </div>
-
             <!-- Single Slide -->
             <div class="single-slide">
                 <!-- Blog Thumbnail -->
                 <div class="blog-thumbnail">
-                    <a href="#"><img src="/resources/bueno-master/img/bg-img/3.jpg" alt=""></a>
-                </div>
-
-                <!-- Blog Content -->
-                <div class="blog-content-bg">
-                    <div class="blog-content">
-                        <a href="#" class="post-tag">Healthy Food</a>
-                        <a href="#" class="post-title">Chicken Salad</a>
-                        <div class="post-meta">
-                            <a href="#" class="post-date">July 11, 2018</a>
-                            <a href="#" class="post-author">By Julia Stiles</a>
-                        </div>
-                    </div>
-                </div>
+                    <div align="center">
+						<table style="width: 500px; white-space: nowrap; border: 1px solid black;">
+							<tbody style="border: 1px solid #444444;">
+								<tr>
+									<td style="background-color: Honeydew;">
+										&nbsp;&nbsp;&nbsp;&nbsp;작성자 : <a href="/review/ReviewUserList?user_nicname=${review3.user_nicname}" style="text-align:left; border:1px; font-size: large;">${review3.user_nicname}</a>
+									</td>
+									<td align="right" style="background-color: Honeydew;"><a class="resNameGet" href="/content/restaurantView?res_no=${review3.res_no}" style="border:1px solid black;" type="a" data-resno="${review3.res_no}"></a>&nbsp;&nbsp;</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<a href="/review/reviewView?re_no=${review3.re_no}">
+											<div>
+											  <img src="/resources/save/${review3.re_img1}" style="width:500px; height:300px;">
+											</div>
+											<div>
+												&nbsp;&nbsp;&nbsp;&nbsp;별점 : <input type="number" value="${review3.re_stars}" readonly="readonly" style="border:none;"/>
+											</div>
+											<div>
+												&nbsp;&nbsp;&nbsp;&nbsp;<textarea rows="3" cols="50" style="border:none; background-color:Snow;" readonly="readonly" >${review3.re_content}</textarea>
+											</div>
+										</a>
+											<br/>
+										
+											<div class="heartsRelord">
+												<sec:authorize access="isAnonymous()">
+													&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="window.location='/user/login'">좋아요</button>&nbsp;<input type="number" class="heartsCount" value="0" data-reno="${review3.re_no}" readonly="readonly" style="border: none; width: 30px" />
+												</sec:authorize>
+												<sec:authorize access="isAuthenticated()">
+														&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="heartAddBtn" data-reno="${review3.re_no}">좋아요</button>&nbsp;<input type="number" class="heartsCount" value="0" data-reno="${review3.re_no}" readonly="readonly" style="border: none; width: 30px" />
+												</sec:authorize>
+											</div>
+										<br/>
+									</td>
+								</tr>
+							</tbody>	
+						</table>
+					</div>
+                </div>  
             </div>
-
             <!-- Single Slide -->
             <div class="single-slide">
                 <!-- Blog Thumbnail -->
                 <div class="blog-thumbnail">
-                    <a href="#"><img src="/resources/bueno-master/img/bg-img/3.jpg" alt=""></a>
-                </div>
-
-                <!-- Blog Content -->
-                <div class="blog-content-bg">
-                    <div class="blog-content">
-                        <a href="#" class="post-tag">Healthy Food</a>
-                        <a href="#" class="post-title">Chicken Salad</a>
-                        <div class="post-meta">
-                            <a href="#" class="post-date">July 11, 2018</a>
-                            <a href="#" class="post-author">By Julia Stiles</a>
-                        </div>
-                    </div>
+                    <div align="center">
+						<table style="width: 500px; white-space: nowrap; border: 1px solid black;">
+							<tbody style="border: 1px solid #444444;">
+								<tr>
+									<td style="background-color: Honeydew;">
+										&nbsp;&nbsp;&nbsp;&nbsp;작성자 : <a href="/review/ReviewUserList?user_nicname=${review4.user_nicname}" style="text-align:left; border:1px; font-size: large;">${review4.user_nicname}</a>
+									</td>
+									<td align="right" style="background-color: Honeydew;"><a class="resNameGet" href="/content/restaurantView?res_no=${review4.res_no}" style="border:1px solid black;" type="a" data-resno="${review4.res_no}"></a>&nbsp;&nbsp;</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<a href="/review/reviewView?re_no=${review4.re_no}">
+											<div>
+											  <img src="/resources/save/${review4.re_img1}" style="width:500px; height:300px;">
+											</div>
+											<div>
+												&nbsp;&nbsp;&nbsp;&nbsp;별점 : <input type="number" value="${review4.re_stars}" readonly="readonly" style="border:none;"/>
+											</div>
+											<div>
+												&nbsp;&nbsp;&nbsp;&nbsp;<textarea rows="3" cols="50" style="border:none; background-color:Snow;" readonly="readonly" >${review4.re_content}</textarea>
+											</div>
+										</a>
+											<br/>
+										
+											<div class="heartsRelord">
+												<sec:authorize access="isAnonymous()">
+													&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="window.location='/user/login'">좋아요</button>&nbsp;<input type="number" class="heartsCount" value="0" data-reno="${review4.re_no}" readonly="readonly" style="border: none; width: 30px" />
+												</sec:authorize>
+												<sec:authorize access="isAuthenticated()">
+														&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="heartAddBtn" data-reno="${review4.re_no}">좋아요</button>&nbsp;<input type="number" class="heartsCount" value="0" data-reno="${review4.re_no}" readonly="readonly" style="border: none; width: 30px" />
+												</sec:authorize>
+											</div>
+										<br/>
+									</td>
+								</tr>
+							</tbody>	
+						</table>
+					</div>
                 </div>
             </div>
         </div>
@@ -215,12 +203,11 @@
                 <!-- Single Post Catagory -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-catagory mb-30">
-                        <img src="/resources/bueno-master/img/bg-img/4.jpg" alt="">
+                        <img src="/resources/bueno-master/img/bg-img/Beef.jpg" alt="">
                         <!-- Content -->
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">Healthy Food</a>
+                                <a href="/content/restaurantList?res_ca=고기" class="post-title">Beef</a>
                             </div>
                         </div>
                     </div>
@@ -229,12 +216,11 @@
                 <!-- Single Post Catagory -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-catagory mb-30">
-                        <img src="/resources/bueno-master/img/bg-img/5.jpg" alt="">
+                        <img src="/resources/bueno-master/img/bg-img/Omakase.jpg" alt="">
                         <!-- Content -->
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">Organic Cuisine</a>
+                                <a href="/content/restaurantList?res_ca=오마카세" class="post-title">Omakase</a>
                             </div>
                         </div>
                     </div>
@@ -243,12 +229,51 @@
                 <!-- Single Post Catagory -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-catagory mb-30">
-                        <img src="/resources/bueno-master/img/bg-img/6.jpg" alt="">
+                        <img src="/resources/bueno-master/img/bg-img/Sushi.jpg" alt="">
                         <!-- Content -->
                         <div class="catagory-content-bg">
                             <div class="catagory-content">
-                                <a href="#" class="post-tag">The Best</a>
-                                <a href="#" class="post-title">Vegetarian Food</a>
+                                <a href="/content/restaurantList?res_ca=회" class="post-title">Sushi</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <!-- Single Post Catagory -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post-catagory mb-30">
+                        <img src="/resources/bueno-master/img/bg-img/Restaurant.jpg" alt="">
+                        <!-- Content -->
+                        <div class="catagory-content-bg">
+                            <div class="catagory-content">
+                                <a href="/content/restaurantList?res_ca=레스토랑" class="post-title">Restaurant</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Post Catagory -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post-catagory mb-30">
+                        <img src="/resources/bueno-master/img/bg-img/Buffet.jpg" alt="">
+                        <!-- Content -->
+                        <div class="catagory-content-bg">
+                            <div class="catagory-content">
+                                <a href="/content/restaurantList?res_ca=뷔페" class="post-title">Buffet</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Post Catagory -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post-catagory mb-30">
+                        <img src="/resources/bueno-master/img/bg-img/DifferentOrder.jpg" alt="">
+                        <!-- Content -->
+                        <div class="catagory-content-bg">
+                            <div class="catagory-content">
+                                <a href="기타" class="post-title">Different Order</a>
                             </div>
                         </div>
                     </div>
@@ -304,169 +329,177 @@
             </div>
         </div>
     </div>
-    <!-- ##### Big Posts Area End ##### -->
-
-    <!-- ##### Posts Area End ##### -->
-    <div class="bueno-post-area mb-70">
-        <div class="container">
-            <div class="row justify-content-center">
-                <!-- Post Area -->
-                <div class="col-12 col-lg-8 col-xl-9">
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-                        <!-- Blog Thumbnail -->
-                        <div class="blog-thumbnail">
-                            <img src="/resources/bueno-master/img/bg-img/9.jpg" alt="">
-                        </div>
-                        <!-- Blog Content -->
-                        <div class="blog-content">
-                            <a href="#" class="post-tag">The Best</a>
-                            <a href="#" class="post-title">Friend eggs with ham</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-date">July 11, 2018</a>
-                                <a href="#" class="post-author">By Julia Stiles</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus.</p>
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-                        <!-- Blog Thumbnail -->
-                        <div class="blog-thumbnail">
-                            <img src="/resources/bueno-master/img/bg-img/10.jpg" alt="">
-                        </div>
-                        <!-- Blog Content -->
-                        <div class="blog-content">
-                            <a href="#" class="post-tag">The Best</a>
-                            <a href="#" class="post-title">Mushrooms with pork chop</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-date">July 11, 2018</a>
-                                <a href="#" class="post-author">By Julia Stiles</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus.</p>
-                             
-                        </div>
-                    </div>
-
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
-                        <!-- Blog Thumbnail -->
-                        <div class="blog-thumbnail">
-                            <img src="/resources/bueno-master/img/bg-img/11.jpg" alt="">
-                        </div>
-                        <!-- Blog Content -->
-                        <div class="blog-content">
-                            <a href="#" class="post-tag">The Best</a>
-                            <a href="#" class="post-title">Birthday cake with chocolate</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-date">July 11, 2018</a>
-                                <a href="#" class="post-author">By Julia Stiles</a>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sidebar Area -->
-                <div class="col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3">
-                    <div class="sidebar-area">
-
-                        <!-- Single Widget Area -->
-                        <div class="single-widget-area add-widget mb-30">
-                            <img src="/resources/bueno-master/img/bg-img/add.png" alt="">
-                        </div>
-
-                        <!-- Single Widget Area -->
-                        <div class="single-widget-area post-widget">
-
-                            <!-- Single Post Area -->
-                            <div class="single-post-area d-flex">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <img src="/resources/bueno-master/img/bg-img/12.jpg" alt="">
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <a href="#" class="post-title">Friend eggs with ham</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-date">July 11, 2018</a>
-                                        <a href="#" class="post-author">By Julia Stiles</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Post Area -->
-                            <div class="single-post-area d-flex mb-30">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <img src="/resources/bueno-master/img/bg-img/13.jpg" alt="">
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <a href="#" class="post-title">Burger with fries</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-date">July 11, 2018</a>
-                                        <a href="#" class="post-author">By Julia Stiles</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Post Area -->
-                            <div class="single-post-area d-flex">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <img src="/resources/bueno-master/img/bg-img/14.jpg" alt="">
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <a href="#" class="post-title">Avocado &amp; Oisters</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-date">July 11, 2018</a>
-                                        <a href="#" class="post-author">By Julia Stiles</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Post Area -->
-                            <div class="single-post-area d-flex">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <img src="/resources/bueno-master/img/bg-img/15.jpg" alt="">
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <a href="#" class="post-title">Tortilla prawns</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-date">July 11, 2018</a>
-                                        <a href="#" class="post-author">By Julia Stiles</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Post Area -->
-                            <div class="single-post-area d-flex">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <img src="/resources/bueno-master/img/bg-img/16.jpg" alt="">
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <a href="#" class="post-title">Burger with fries</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-date">July 11, 2018</a>
-                                        <a href="#" class="post-author">By Julia Stiles</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Posts Area End ##### -->
 
 		<!-- footer 복붙 -->        
 	<%@ include file="../includes/footer.jsp" %>
+	<script>
+		$(document).ready(function(){
+			
+			$(document).on('click','.heartAddBtn', function(){
+				console.log($(this));
+				let clickedBtn = $(this);
+				var hA = clickedBtn.data('reno');
+				console.log(hA);
+				console.log("ajax!!!!!!!");
+				
+				$.ajax({
+					url: "/review/heartAdd.json",
+					type: "POST",
+					data: {
+						user_id: '${user_id}',
+						re_no: hA
+					},
+					success: function(data){
+						console.log("success");
+						console.log(data);
+						if(data == '1'){
+							clickedBtn.html('안좋아요');
+							clickedBtn.attr('class', 'heartDelBtn');
+							$('.heartsCount').each(function(i,e){
+								
+								let hearts = $(this);
+								let hC = hearts.data('reno');
+								
+								$.ajax({
+									url: "/review/heartsCount2.json",
+									type: "POST",
+									data: {re_no: hC},
+									success: function(data){
+										if(data != -1){
+											hearts.attr('value', data);
+										}else{
+											alert("에러 발생");
+										}
+									},error: function(e){ 
+										console.log(e); 
+									}
+								});
+							});
+							$('.heartsCount').load(location.href+" .heartsCount","");
+						}else{
+							alert("에러 발생");
+						}
+					},error: function(e){ 
+						console.log(e); 
+					}
+				});
+				
+			});
+			$(document).on('click','.heartDelBtn', function(){
+				console.log("ajax2!!!!!!!");
+				console.log($(this));
+				let clickedBtn = $(this);
+				let hA = clickedBtn.data('reno');
+				$.ajax({
+					url: "/review/heartDel.json",
+					type: "POST",
+					data: {
+						user_id: '${user_id}',
+						re_no: hA
+					},
+					success: function(data){
+						if(data == 1){
+							clickedBtn.html('좋아요');
+							clickedBtn.attr('class', 'heartAddBtn');
+							$('.heartsCount').each(function(i,e){
+								
+								let hearts = $(this);
+								let hC = hearts.data('reno');
+								
+								$.ajax({
+									url: "/review/heartsCount2.json",
+									type: "POST",
+									data: {re_no: hC},
+									success: function(data){
+										if(data != -1){
+											hearts.attr('value', data);
+										}else{
+											alert("에러 발생");
+										}
+									},error: function(e){ 
+										console.log(e); 
+									}
+								});
+							});
+							$('.heartsCount').load(location.href+" .heartsCount","");
+							
+						}else{
+							alert("에러 발생");
+						}
+					},error: function(e){ 
+						console.log(e); 
+					}
+				});
+			});
+			console.log("ajax6!!!!!!!");
+			$('.resNameGet').each(function(i,e){
+				
+				let resNam = $(this);
+				let resNo = resNam.data('resno');
+				
+				$.ajax({
+					url: "/review/resGet.json",
+					type: "POST",
+					data: {res_no: resNo},
+					success: function(data){
+						if(data != null){
+							resNam.html(data.res_name);
+						}else{
+							alert("에러 발생");
+						}
+					},error: function(e){ 
+						console.log(e); 
+					}
+				});
+			});
+			
+			console.log("ajax9!!!!!!!");
+			$('.heartsCount').each(function(i,e){
+				
+				let hearts = $(this);
+				let hC = hearts.data('reno');
+				
+				$.ajax({
+					url: "/review/heartsCount2.json",
+					type: "POST",
+					data: {
+						re_no: hC
+					},
+					success: function(data){
+						if(data != -1){
+							hearts.attr('value', data);
+						}else{
+							alert("에러 발생");
+						}
+					},error: function(e){ 
+						console.log(e); 
+					}
+				});
+			});
+			$('.heartAddBtn').each(function(i,e){
+				
+				let hearts = $(this);
+				let hC = hearts.data('reno');
+				
+				$.ajax({
+					url: "/review/heartCheck.json",
+					type: "POST",
+					data: {
+						re_no: hC,
+						user_id: '${user_id}'	
+					},
+					success: function(data){
+						if(data == '1'){
+							hearts.html('안좋아요');
+							hearts.attr('class', 'heartDelBtn');
+						}else{
+							
+						}
+					},error: function(e){ 
+						console.log(e); 
+					}
+				});
+			});
+			
+		});
+	</script>

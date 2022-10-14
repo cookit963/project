@@ -230,6 +230,16 @@ public class ReviewController {
 			
 		}
 	}
-
+	@GetMapping("reviewDel")
+	public String reviewDel(int re_no, Model model) {
+		int result = service.reviewDel(re_no);
+		if(result == 1) {
+			model.addAttribute("reviewDel", 1);
+			return "redirect:/content/main";
+		}else {
+			model.addAttribute("reviewDel", 1);
+			return "redirect:/content/reviewView?re_no="+re_no;
+		}
+	}
 
 }

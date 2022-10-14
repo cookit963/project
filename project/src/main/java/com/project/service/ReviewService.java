@@ -36,4 +36,6 @@ public interface ReviewService {
 	public UserListVO userGet(String user_nicname);
 	
 	public List<HeartsVO> heartsList(String user_id);
+	
+	public int reviewDel(int re_no);
 }

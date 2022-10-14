@@ -38,4 +38,8 @@ public interface ReviewMapper {
 	
 	public List<HeartsVO> heartsList(String user_id);
 	
+	public int reviewDel(int re_no);
+	
+	public int heartDel2(int re_no);
+	
 }

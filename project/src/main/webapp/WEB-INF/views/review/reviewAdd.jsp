@@ -13,6 +13,7 @@
 			<input type="hidden" name="res_no" value="${res_no}" />
 			<input type="hidden" name="user_id" value="${user.user_id}" />
 			<input type="hidden" name="user_nicname" value="${user.user_nicname}" />
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<table style="border: 1px solid #444444;">
 				<tr>
 					<td>
@@ -25,21 +26,21 @@
 				<tr>
 					<td>
 						<div align="right">
-							<input type="number" name="re_stars" placeholder="별점" min="1" max="5" />
+							<input type="number" name="re_stars" placeholder="별점" min="1" max="5" required="required"/>
 						</div>
 					</td>
 				</tr>
 				<div>
 					<tr>
 						<td>
-							메인사진<input type="file" name="re_img01"/><br/>
+							메인사진<input type="file" name="re_img01" required="required"/><br/>
 							사진2<input type="file" name="re_img02"/><br/>
 							사진3<input type="file" name="re_img03"/><br/><br/>
 					<table>
 						<tr>
 							<td>
 								<div>
-									<textarea rows="15" cols="60" name="re_content" placeholder="내용"></textarea>
+									<textarea rows="15" cols="60" name="re_content" placeholder="내용" required="required"></textarea>
 								</div>
 							</td>
 						</tr>

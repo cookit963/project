@@ -35,4 +35,13 @@
 	<select id="wishRestList" resultType="com.project.domain.WishRestVO">
 		select * from WishRest where user_id=#{user_id}
 	</select>
+	<delete id="restaurantDel">
+		delete from Restaurant where res_no=#{res_no}
+	</delete>
+	<delete id="reviewDel">
+		delete from Review where res_no=#{res_no}
+	</delete>
+	<select id="reviewGet" resultType="com.project.domain.ReviewVO">
+		select * from Review order by re_reg desc
+	</select>
 </mapper>

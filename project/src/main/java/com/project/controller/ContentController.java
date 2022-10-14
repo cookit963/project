@@ -41,8 +41,17 @@ public class ContentController {
 	private ContentService service;
 	
 	@GetMapping("main")
-	public void main() {
+	public void main(Model model, Authentication auth) {
 		log.info("main");
+		List<ReviewVO> reviewList = service.reviewGet();
+		for(int i=1; i<5; i++) {
+			model.addAttribute("review"+i, reviewList.get(i));
+		}
+		if(auth != null) {
+			CustomUser cUser = (CustomUser)auth.getPrincipal();
+			String user = cUser.getUsername();
+			model.addAttribute("user_id", user);
+		}
 	}
 	
 	@GetMapping("restaurantList")
@@ -146,5 +155,17 @@ public class ContentController {
 		}
 		String starsNum = form.format(result4);
 		return starsNum;
+	}
+	
+	@GetMapping("restaurantDel")
+	public String restaurantDel(int res_no, Model model) {
+		int result = service.restaurantDel(res_no);
+		if(result == 1) {
+			model.addAttribute("restaurantDel", 1);
+			return "redirect:/content/main";
+		}else {
+			model.addAttribute("restaurantDel", 1);
+			return "redirect:/content/restaurantView?res_no="+res_no;
+		}
 	}
 }

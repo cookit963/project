@@ -9,6 +9,7 @@
 	<br/><br/><br/>
 	<div align="center">
 		<form>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<table style="border: 1px solid #444444;">
 				<c:forEach var="restaurant" items="${restaurantList}">
 					<tbody style="border: 1px solid #444444;">

@@ -29,4 +29,8 @@ public interface ContentService {
 	public List<WishRestVO> wishRestList(String user_id);
 	
 	public int starsCount(int res_no);
+	
+	public int restaurantDel(int res_no);
+	
+	public List<ReviewVO> reviewGet();
 }

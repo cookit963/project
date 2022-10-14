@@ -102,6 +102,17 @@ public class ReviewServiceImpl implements ReviewService{
 		return mapper.heartsList(user_id);
 	}
 
+	@Override
+	public int reviewDel(int re_no) {
+		int result = 0;
+		int result2 = mapper.reviewDel(re_no);
+		if(result2 == 1) {
+			mapper.heartDel2(re_no);
+			result = 1;
+		}
+		return result;
+	}
+
 	
 
 	

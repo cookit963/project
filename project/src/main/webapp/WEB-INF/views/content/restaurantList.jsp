@@ -22,6 +22,7 @@
 		</table>
 		<br/>
 		<form>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<table style="border: 1px solid #444444;">
 				<c:forEach var="restaurant" items="${restaurantList}">
 					<c:if test="${res_ca eq 'all'}">

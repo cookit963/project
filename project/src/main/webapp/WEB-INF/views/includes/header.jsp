@@ -93,12 +93,6 @@
                                             <li><a href="/content/restaurantList?res_ca=기타">Different Order</a></li>
                                         </ul>
                                     </li>
-                                    <li class="top-search-area">
-			                            <form action="#" method="post">
-			                                <input type="search" name="top-search" id="topSearch" placeholder="Search">
-			                                <button type="submit" class="btn"><i class="fa fa-search"></i></button>
-			                            </form>
-			                        </li>
                                 </ul>
 
                                 <!-- Login/Register -->

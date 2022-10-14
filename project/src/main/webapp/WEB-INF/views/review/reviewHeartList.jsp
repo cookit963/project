@@ -11,6 +11,7 @@
 	<div align="center">
 		<br/>
 		<form>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<table style="width: 500px; white-space: nowrap; border: 1px solid black;">
 				<c:forEach var="reviewVO" items="${reviewList}">
 					<tbody style="border: 1px solid #444444;">
