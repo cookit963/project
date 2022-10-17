@@ -8,7 +8,7 @@
 	<%@ include file="../includes/header.jsp" %>
 	<br/><br/><br/>
 	<DIV align="center">
-		<table border="1">
+		<table border="1" style="width: 500px; white-space: nowrap;  background-color: white;" class="borderColor">
 			<tr>
 				<td align="laft">&nbsp;&nbsp;<a href="#" onclick="history.go(-1)">뒤로가기</a></td>
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
@@ -21,17 +21,17 @@
 				<td colspan="2">		
 					<div class="slideshow-container">
 	
-						<div class="mySlides fade2">
-						  <img src="/resources/save/${restaurantVO.res_img1}" style="width:500px; height:300px;">
+						<div class="mySlides fade2" align="center">
+						  <img src="/resources/save/${restaurantVO.res_img1}" style="height:300px;">
 						</div>
 						<c:if test="${restaurantVO.res_img2 != 'default'}">
-							<div class="mySlides fade2">
-							  <img src="/resources/save/${restaurantVO.res_img2}" style="width:500px; height:300px;">
+							<div class="mySlides fade2" align="center">
+							  <img src="/resources/save/${restaurantVO.res_img2}" style="height:300px;">
 							</div>
 						
 							<c:if test="${restaurantVO.res_img3 != 'default'}">
-								<div class="mySlides fade2">
-								  <img src="/resources/save/${restaurantVO.res_img3}" style="width:500px; height:300px;">
+								<div class="mySlides fade2" align="center">
+								  <img src="/resources/save/${restaurantVO.res_img3}" style="height:300px;">
 								</div>
 							</c:if>
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -79,12 +79,12 @@
 						<button onclick="window.location='/review/reviewAdd?res_no=${restaurantVO.res_no}'">리뷰 쓰러 가기!</button>
 						</sec:authorize>
 						<br/>
-						<textarea rows="5" cols="50" readonly="readonly" >${restaurantVO.res_content}</textarea><br/>
+						<textarea rows="5" cols="50" readonly="readonly" class="borderColor">${restaurantVO.res_content}</textarea><br/>
 					
-					<div style="border:1px solid black;">
+					<div>
 						<h6 align="center">콜키지 정보</h6>
-						<textarea rows="3" cols="50" readonly="readonly" >${restaurantVO.res_colCon}</textarea><br/>
-						<table>
+						<textarea rows="3" cols="50" readonly="readonly" class="borderColor">${restaurantVO.res_colCon}</textarea><br/>
+						<table align="center">
 							<tr><td>
 									<c:if test="${restaurantVO.res_colGlass == 1}">
 										전용잔 제공
@@ -103,7 +103,7 @@
 							</tr>
 						</table>
 					</div>	
-					<div style="border:1px solid black;">
+					<div>
 						<h6 align="center">편의 시설</h6>
 						<div align="center">
 							<table>
@@ -143,7 +143,7 @@
 								</tr>
 							</table>
 						</div>
-						<div style="border:1px solid black;">
+						<div>
 							<h6 align="center">메뉴판 및 가격정보</h6>
 							<div align="center">
 								<img src="/resources/save/${restaurantVO.res_menu}" width="400px" height="200px"/>
@@ -152,7 +152,7 @@
 						</div>
 						<br/>
 						<h6 align="center">주소및 지도 정보</h6>
-						<div id="map" style="width:500px;height:300px; border:1px solid black;"></div>
+						<div id="map" style="width:500px;height:300px;"></div>
 					</div>	
 					
 				</td>

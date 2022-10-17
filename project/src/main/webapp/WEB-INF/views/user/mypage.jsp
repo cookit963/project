@@ -16,7 +16,7 @@
 		<sec:authorize access="isAuthenticated()">
 			<div align="center">
 			<h1>MyPage</h1>
-			<table style="border: 1px solid black;">
+			<table style="border: 1px solid black;  background-color: white;">
 				<tr>
 					<td>
 						<button onclick="window.location='/review/ReviewUserList?user_nicname=${user.user_nicname}'">내가쓴 리뷰</button>
@@ -26,7 +26,7 @@
 				</tr>
 			</table>
 			<br/>
-				<table style="border: 1px solid black;">
+				<table style="border: 1px solid black;  background-color: white;">
 					<tr>
 						<td>
 							

@@ -9,15 +9,15 @@
 	
 	<br/><br/><br/>
 	<DIV align="center">
-		<table style="width: 500px; white-space: nowrap; border: 1px solid black;">
-			<tr style="border: 1px solid black;">
-				<td>&nbsp;&nbsp;<a href="#" onclick="history.go(-1)" style="border:1px solid black;">뒤로가기</a>
+		<table style="width: 500px; white-space: nowrap; background-color: white;" class="borderColor">
+			<tr style="background-color: Honeydew;">
+				<td>&nbsp;&nbsp;<a href="#" onclick="history.go(-1)">뒤로가기</a>
 				</td>
-				<td align="right"><a href="/content/restaurantView?res_no=${reviewVO.res_no}" style="border:1px solid black;">${restarauntVO.res_name}</a>&nbsp;&nbsp;</td>
+				<td align="right"><a href="/content/restaurantView?res_no=${reviewVO.res_no}">${restarauntVO.res_name}</a>&nbsp;&nbsp;</td>
 			</tr>
-			<tr style="border: 1px solid black;">
+			<tr style="border-top: 2px solid #fadef7; background-color: Honeydew;">
 				<td>
-					&nbsp;&nbsp;&nbsp;&nbsp;작성자 : <a href="/review/ReviewUserList?user_nicname=${reviewVO.user_nicname}" style="text-align:left; border:1px;">${addUser.user_nicname}</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;작성자 : <a href="/review/ReviewUserList?user_nicname=${reviewVO.user_nicname}" style="text-align:left;">${addUser.user_nicname}</a>
 				</td>
 				<td>
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
@@ -34,17 +34,17 @@
 				<td colspan="2">		
 					<div class="slideshow-container">
 	
-						<div class="mySlides fade2">
-						  <img src="/resources/save/${reviewVO.re_img1}" style="width:500px; height:300px;">
+						<div class="mySlides fade2" align="center">
+						  <img src="/resources/save/${reviewVO.re_img1}" style="height:300px;">
 						</div>
 						<c:if test="${reviewVO.re_img2 != 'default'}">
-							<div class="mySlides fade2">
-							  <img src="/resources/save/${reviewVO.re_img2}" style="width:500px; height:300px;">
+							<div class="mySlides fade2" align="center">
+							  <img src="/resources/save/${reviewVO.re_img2}" style="height:300px;">
 							</div>
 						
 							<c:if test="${reviewVO.re_img3 != 'default'}">
-								<div class="mySlides fade2">
-								  <img src="/resources/save/${reviewVO.re_img3}" style="width:500px; height:300px;">
+								<div class="mySlides fade2" align="center">
+								  <img src="/resources/save/${reviewVO.re_img3}" style="height:300px;">
 								</div>
 							</c:if>
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -78,39 +78,42 @@
 					<br/>
 					<div id="heartsRelord">
 						<sec:authorize access="isAnonymous()">
-							&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="window.location='/user/login'" >좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
+							&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="window.location='/user/login'" style="border: none; background-color: white;">🤍</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
 						</sec:authorize>
 						<sec:authorize access="isAuthenticated()">
 							<c:if test="${getHeart == null}">
-								&nbsp;&nbsp;&nbsp;&nbsp;<button id="heartAddBtn" >좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
+								&nbsp;&nbsp;&nbsp;&nbsp;<button id="heartAddBtn" style="border: none; background-color: white;">🤍</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
 							</c:if>
 							<c:if test="${getHeart != null}">
-								&nbsp;&nbsp;&nbsp;&nbsp;<button id="heartDelBtn" >안좋아요</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
+								&nbsp;&nbsp;&nbsp;&nbsp;<button id="heartDelBtn" style="border: none; background-color: white;">❤</button>&nbsp;<input type="number" class="heartsCount" value="${heartsCount}" readonly="readonly" style="border: none; width: 30px" />
 							</c:if>
 						</sec:authorize>
 						&nbsp;&nbsp;&nbsp;댓글
 					</div>
-					<div style="border:1px solid black;" id="replyRelord">
+					<div id="replyRelord" style="border-top: 2px solid #fadef7">
 						<table>
 							<tr>
 								<td align="center" style="width: 500px">
 									댓글 작성<br/>
-									<textarea rows="3" cols="50" id="r_content2"  placeholder="댓글을 입력하세요!"></textarea>
+									<textarea rows="3" cols="50" id="r_content2"  placeholder="댓글을 입력하세요!" class="borderColor"></textarea>
 									<sec:authorize access="isAnonymous()">
-										<button onclick="window.location='/user/login'">작성 완료!</button>
+										<button onclick="window.location='/user/login'" class="borderColor" style="background-color: white">작성 완료!</button>
 									</sec:authorize>
 									<sec:authorize access="isAuthenticated()">
-										<button id="r_comBtn">작성 완료!</button>
+										<button id="r_comBtn" class="borderColor" style="background-color: white">작성 완료!</button>
 									</sec:authorize>
 								</td>
 							</tr>
+							<tr>
+								<td>&nbsp;</td>
+							</tr>
 							<c:if test="${replyCount != 0}">
 								<c:forEach var="replyVO" items="${replyList}">
-									<tbody style="border:1px solid black; width: 500px; white-space: nowrap;">
+									<tbody style="width: 500px; white-space: nowrap; border-top: 2px solid #fadef7" >
 										<tr>
 											<td>
 												${replyVO.user_nicname}<br/>
-												<textarea rows="2" cols="40" readonly="readonly">${replyVO.r_content}</textarea><br/>
+												<textarea rows="2" cols="40" readonly="readonly" class="borderColor">${replyVO.r_content}</textarea><br/>
 												<input type="text" readonly="readonly" style="border: none;" value="${replyVO.r_reg}"/>
 											</td>
 										</tr>
@@ -118,7 +121,7 @@
 								</c:forEach>
 							</c:if>
 							<c:if test="${replyCount == 0}">
-								<tr style="border:1px solid black;">
+								<tr class="borderColor">
 									<td align="center" style="width: 500px">댓글이 없습니다!</td>
 								</tr>
 							</c:if>
@@ -199,7 +202,7 @@
 					},
 					success: function(data){
 						if(data != 1){
-							$('#heartAddBtn').html('안좋아요');
+							$('#heartAddBtn').html('❤');
 							$('#heartAddBtn').attr('id', 'heartDelBtn');
 							$('#heartsRelord').load(location.href+" #heartsRelord","");
 						}else{
@@ -221,7 +224,7 @@
 					},
 					success: function(data){
 						if(data != 1){
-							$('#heartDelBtn').html('좋아요');
+							$('#heartDelBtn').html('🤍');
 							$('#heartDelBtn').attr('id', 'heartAddBtn');
 							$('#heartsRelord').load(location.href+" #heartsRelord","");
 							

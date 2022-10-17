@@ -6,7 +6,7 @@
 
 	<!-- header 복붙 -->
 	<%@ include file="../includes/header.jsp" %>
-	
+	<br/><br/><br/>
 	<div align="center">
 		
 		<form action="/review/reviewAdd" method="post" enctype="multipart/form-data">
@@ -14,7 +14,7 @@
 			<input type="hidden" name="user_id" value="${user.user_id}" />
 			<input type="hidden" name="user_nicname" value="${user.user_nicname}" />
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			<table style="border: 1px solid #444444;">
+			<table style="background-color: white;" class="borderColor">
 				<tr>
 					<td>
 						<div>
@@ -26,7 +26,7 @@
 				<tr>
 					<td>
 						<div align="right">
-							<input type="number" name="re_stars" placeholder="별점" min="1" max="5" required="required"/>
+							<input type="number" name="re_stars" placeholder="별점" min="1" max="5" required="required" class="borderColor"/>
 						</div>
 					</td>
 				</tr>
@@ -40,7 +40,7 @@
 						<tr>
 							<td>
 								<div>
-									<textarea rows="15" cols="60" name="re_content" placeholder="내용" required="required"></textarea>
+									<textarea rows="15" cols="60" name="re_content" placeholder="내용" required="required" class="borderColor"></textarea>
 								</div>
 							</td>
 						</tr>
@@ -48,7 +48,7 @@
 							<td>
 								<div>
 									
-									<textarea rows="1" cols="60" name="re_hashtag" placeholder="해시태그들"></textarea>
+									<textarea rows="1" cols="60" name="re_hashtag" placeholder="해시태그들" class="borderColor"></textarea>
 								</div>
 							</td>
 						</tr>

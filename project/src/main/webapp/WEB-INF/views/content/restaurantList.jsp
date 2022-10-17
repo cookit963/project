@@ -13,9 +13,9 @@
                 <!-- Single Post Catagory -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-catagory mb-30">
-                        <img src="/resources/bueno-master/img/bg-img/Beef.jpg" alt="" style="write: 200px; height: 160px;">
+                        <img src="/resources/bueno-master/img/bg-img/Beef.jpg" alt="" style="write: 200px; height: 160px; border-radius: 10px">
                         <!-- Content -->
-                        <div class="catagory-content-bg">
+                        <div class="catagory-content-bg" style="border-radius: 10px">
                             <div class="catagory-content">
                                 <a href="/content/restaurantList?res_ca=고기" class="post-title">Beef</a>
                             </div>
@@ -26,9 +26,9 @@
                 <!-- Single Post Catagory -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-catagory mb-30">
-                        <img src="/resources/bueno-master/img/bg-img/Omakase.jpg" alt="" style="write: 200px; height: 160px;">
+                        <img src="/resources/bueno-master/img/bg-img/Omakase.jpg" alt="" style="write: 200px; height: 160px; border-radius: 10px">
                         <!-- Content -->
-                        <div class="catagory-content-bg">
+                        <div class="catagory-content-bg" style="border-radius: 10px">
                             <div class="catagory-content">
                                 <a href="/content/restaurantList?res_ca=오마카세" class="post-title">Omakase</a>
                             </div>
@@ -39,9 +39,9 @@
                 <!-- Single Post Catagory -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-catagory mb-30">
-                        <img src="/resources/bueno-master/img/bg-img/Sushi.jpg" alt="" style="write: 200px; height: 160px;">
+                        <img src="/resources/bueno-master/img/bg-img/Sushi.jpg" alt="" style="write: 200px; height: 160px; border-radius: 10px">
                         <!-- Content -->
-                        <div class="catagory-content-bg">
+                        <div class="catagory-content-bg" style="border-radius: 10px">
                             <div class="catagory-content">
                                 <a href="/content/restaurantList?res_ca=회" class="post-title">Sushi</a>
                             </div>
@@ -53,9 +53,9 @@
                 <!-- Single Post Catagory -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-catagory mb-30">
-                        <img src="/resources/bueno-master/img/bg-img/Restaurant.jpg" alt="" style="write: 200px; height: 160px;">
+                        <img src="/resources/bueno-master/img/bg-img/Restaurant.jpg" alt="" style="write: 200px; height: 160px; border-radius: 10px">
                         <!-- Content -->
-                        <div class="catagory-content-bg">
+                        <div class="catagory-content-bg" style="border-radius: 10px">
                             <div class="catagory-content">
                                 <a href="/content/restaurantList?res_ca=레스토랑" class="post-title">Restaurant</a>
                             </div>
@@ -66,9 +66,9 @@
                 <!-- Single Post Catagory -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-catagory mb-30">
-                        <img src="/resources/bueno-master/img/bg-img/Buffet.jpg" alt="" style="write: 200px; height: 160px;">
+                        <img src="/resources/bueno-master/img/bg-img/Buffet.jpg" alt="" style="write: 200px; height: 160px; border-radius: 10px">
                         <!-- Content -->
-                        <div class="catagory-content-bg">
+                        <div class="catagory-content-bg" style="border-radius: 10px">
                             <div class="catagory-content">
                                 <a href="/content/restaurantList?res_ca=뷔페" class="post-title">Buffet</a>
                             </div>
@@ -79,9 +79,9 @@
                 <!-- Single Post Catagory -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post-catagory mb-30">
-                        <img src="/resources/bueno-master/img/bg-img/DifferentOrder.jpg" alt="" style="write: 200px; height: 160px;">
+                        <img src="/resources/bueno-master/img/bg-img/DifferentOrder.jpg" alt="" style="write: 200px; height: 160px; border-radius: 10px">
                         <!-- Content -->
-                        <div class="catagory-content-bg">
+                        <div class="catagory-content-bg" style="border-radius: 10px">
                             <div class="catagory-content">
                                 <a href="/content/restaurantList?res_ca=기타" class="post-title">Different Order</a>
                             </div>
@@ -93,14 +93,14 @@
     </div>
 		<form>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			<table style="border: 1px solid #444444;">
+			<table style="background-color: white;">
 				<c:forEach var="restaurant" items="${restaurantList}">
 					<c:if test="${res_ca eq 'all'}">
-					<tbody style="border: 1px solid #444444;">
+					<tbody class="borderColor">
 						<tr>
-							<td rowspan="5"><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
+							<td rowspan="4" align="center"><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
 							<img src="/resources/save/${restaurant.res_img1}" 
-							style="width:200px; height:180px;" /></a></td>
+							style="height:180px;"/></a></td>
 							<td><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
 							${restaurant.res_name}</a></td>
 						</tr>
@@ -116,15 +116,12 @@
 							<td><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
 							${restaurant.res_address}</a></td>
 						</tr>
-						<tr>
-							<td>리뷰 개수 추가 예정</td>
-						</tr>	
 					</tbody>
 					</c:if>
 					<c:if test="${restaurant.res_genre eq res_ca}">
-					<tbody style="border: 1px solid #444444;">
+					<tbody class="borderColor">
 						<tr>
-							<td rowspan="5"><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
+							<td rowspan="4"><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
 							<img src="/resources/save/${restaurant.res_img1}" 
 							style="width:200px; height:180px;" /></a></td>
 							<td><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
@@ -142,9 +139,6 @@
 							<td><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
 							${restaurant.res_address}</a></td>
 						</tr>
-						<tr>
-							<td>리뷰 개수 추가 예정</td>
-						</tr>	
 					</tbody>
 					</c:if>	
 				</c:forEach>	

@@ -8,17 +8,17 @@
 	<%@ include file="../includes/header.jsp" %>
 	<br/><br/><br/>
 	<DIV align="center">
-		<table style="width: 500px; white-space: nowrap; border: 1px solid black;">
-			<tr style="border: 1px solid black;">
-				<td>&nbsp;&nbsp;<a href="#" onclick="history.go(-1)" style="border:1px solid black;">뒤로가기</a>
+		<table style="width: 500px; white-space: nowrap; background-color: white;">
+			<tr class="borderColor">
+				<td>&nbsp;&nbsp;<a href="#" onclick="history.go(-1)">뒤로가기</a>
 				</td>
 				<td>
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
-					<a style="text-align:right; border:1px;" href="/admin/alcoholDel?alcol_no=${alcoholVO.alcol_no}">삭제!</a>
+					<a style="text-align:right;" href="/admin/alcoholDel?alcol_no=${alcoholVO.alcol_no}">삭제!</a>
 				</sec:authorize>
 				</td>
 			</tr>
-			<tr style="border: 1px solid black;">
+			<tr class="borderColor">
 				<td>
 					&nbsp;&nbsp;&nbsp;&nbsp;<a style="text-align:left; border:1px;">${alcoholVO.alcol_title}</a>
 				</td>

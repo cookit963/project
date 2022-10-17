@@ -14,7 +14,7 @@
 		<c:forEach var="userVO" items="${userList}">
 			<c:forEach var="authVO" items="${authList}">
 				<c:if test="${userVO.user_id eq authVO.user_id}">
-					<table border="1" style="width: 500px; white-space: nowrap;">
+					<table border="1" style="width: 500px; white-space: nowrap;  background-color: white;">
 						<tbody>
 							<tr>
 								<td>

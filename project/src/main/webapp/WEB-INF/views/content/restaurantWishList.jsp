@@ -10,9 +10,9 @@
 	<div align="center">
 		<form>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			<table style="border: 1px solid #444444;">
+			<table style="  background-color: white;" class="borderColor">
 				<c:forEach var="restaurant" items="${restaurantList}">
-					<tbody style="border: 1px solid #444444;">
+					<tbody class="borderColor">
 						<tr>
 							<td rowspan="5"><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
 							<img src="/resources/save/${restaurant.res_img1}" 

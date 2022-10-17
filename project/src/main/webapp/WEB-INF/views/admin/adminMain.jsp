@@ -10,7 +10,7 @@
 	<div align="center">
 		<h2>관리자 페이지</h2>
 		<br/>
-		<table border="1">
+		<table border="1" style=" background-color: white;">
 			<tr>
 				<td>
 					<a href="/admin/restaurantAdd">식당 추가</a>

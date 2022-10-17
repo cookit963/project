@@ -11,9 +11,9 @@
 		<h2>주류 소개란!</h2>
 		<form>
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			<table style="border: 1px solid #444444;">
+			<table style="border: 1px solid #444444;  background-color: white;">
 				<c:forEach var="alcoholVO" items="${alcoholList}">
-					<tbody style="border: 1px solid #444444;">
+					<tbody class="borderColor">
 						<tr>
 							<td rowspan="5"><a href="#" onclick="window.location='/content/alcoholView?alcol_no=${alcoholVO.alcol_no}'">
 								<img src="/resources/save/${alcoholVO.alcol_img}" 

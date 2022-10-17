@@ -84,4 +84,16 @@ public class UserServiceImpl implements UserService{
 			return -1;
 		}
 	}
+
+	@Override
+	public int emailCheck(String user_email) {
+
+		return mapper.emailCheck(user_email);
+	}
+
+	@Override
+	public int nicnameCheck(String user_nicname) {
+
+		return mapper.nicnameCheck(user_nicname);
+	}
 }

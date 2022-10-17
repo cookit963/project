@@ -10,7 +10,7 @@
 	<div align="center">
 	<form action="/admin/alcoholAdd" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			<table style="border: 1px solid black;">
+			<table style="border: 1px solid black;  background-color: white;">
 				<tr>
 					<td>
 						<div>

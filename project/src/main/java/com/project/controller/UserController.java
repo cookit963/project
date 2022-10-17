@@ -49,19 +49,27 @@ public class UserController {
 	// 회원가입 처리 
 	@PostMapping("signup")
 	@PreAuthorize("isAnonymous()")
-	public String signupPro(UserListVO vo, String au, RedirectAttributes rttr) {
+	public String signupPro(UserListVO vo, String au, String check1, String check2, String check3, String check4, RedirectAttributes rttr) {
 		
 		log.info("*********** signupPro MemberVO : " + vo);
 		log.info("*********** signupPro au : " + au);
-		
-		int result = service.addUser(vo);  // 회원 추가 
-		service.addAuth(au, vo.getUser_id());	// 권한 추가 
-		
-		if(result == 1) {
-			rttr.addFlashAttribute("msg", "success");
+		log.info("!!!!!!!!!!! check1 : "+check1);
+		log.info("!!!!!!!!!!! check2 : "+check2);
+		log.info("!!!!!!!!!!! check3 : "+check3);
+		log.info("!!!!!!!!!!! check4 : "+check4);
+		if(check1.equals("yes") && check2.equals("yes") && check3.equals("yes") && check4.equals("yes")) {
+			int result = service.addUser(vo);  // 회원 추가 
+			service.addAuth(au, vo.getUser_id());	// 권한 추가 
+			
+			if(result == 1) {
+				rttr.addFlashAttribute("msg", "success");
+			}
+			rttr.addFlashAttribute("signResult", 1);
+			return "redirect:/content/main";
+		}else {
+			rttr.addFlashAttribute("signResult", 1);
+			return "redirect:/user/signup";
 		}
-		
-		return "redirect:/content/main";
 	}
 	
 	@PostMapping("idAvail")
@@ -134,6 +142,33 @@ public class UserController {
 		int result = service.deleteUser(vo, userPass);
 		model.addAttribute("result", result);
 		return "user/deletePro"; 
+	}
+	
+	@PostMapping("emailAvail")
+	@ResponseBody
+	public int emailAvail(String user_email, HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
+		int result = 0;
+		
+		if(service.emailCheck(user_email) != 0) {
+			result = 0;
+		}else {
+			result = 1;
+		}
+		
+		return result;
+	}
+	@PostMapping("nicnameAvail")
+	@ResponseBody
+	public int nicnameAvail(String user_nicname, HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
+		int result = 0;
+		
+		if(service.nicnameCheck(user_nicname) != 0) {
+			result = 0;
+		}else {
+			result = 1;
+		}
+		
+		return result;
 	}
 	
 }

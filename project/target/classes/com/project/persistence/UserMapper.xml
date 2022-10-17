@@ -69,4 +69,10 @@
 	<delete id="deleteWishRest">
 		delete from WishRest where user_id=#{user_id}
 	</delete>
+	<select id="emailCheck" resultType="int">
+		select count(*) from UserList where user_email=#{email}
+	</select>
+	<select id="nicnameCheck" resultType="int">
+		select count(*) from UserList where user_nicname=#{nicname}
+	</select>
 </mapper>

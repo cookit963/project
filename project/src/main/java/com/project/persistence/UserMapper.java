@@ -24,4 +24,7 @@ public interface UserMapper {
 	
 	// 아이디 비번 확인 
 	public int idPwCheck(UserListVO user);
+	
+	public int emailCheck(String email);
+	public int nicnameCheck(String nicname);
 }

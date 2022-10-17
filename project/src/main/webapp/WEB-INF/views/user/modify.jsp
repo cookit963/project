@@ -9,7 +9,7 @@
 		<h1>회원정보수정</h1>
 		<form action="/user/modify" method="post">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-		<table>
+		<table style=" background-color: white;">
 			<tr>
 				<td>유저 아이디</td>
 				<td>${user.user_id}</td>

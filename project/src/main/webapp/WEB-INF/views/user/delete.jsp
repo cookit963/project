@@ -10,7 +10,7 @@
 		<form action="/user/delete" method="post">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<input type="hidden" name="user_pw" value="${user.user_pw}" />
-			<table>
+			<table style=" background-color: white;">
 				<tr>
 					<td> 탈퇴를 원하시면 비밀번호를 입력하세요 <br />
 						<input type="password" name="user_pawd" />

@@ -9,7 +9,7 @@
 	<br/><br/><br/>
 	<div align="center">
 		<h4>ColkageMap</h4>
-		<div id="map" style="width:1000px;height:600px; border:1px solid black;"></div>
+		<div id="map" style="width:1000px;height:600px; border-radius: 30px;" class="borderColor"></div>
 	</div>
 		
 	<!-- footer 복붙 -->        

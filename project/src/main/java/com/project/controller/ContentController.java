@@ -181,5 +181,10 @@ public class ContentController {
 	public void alcoholList(Model model) {
 		model.addAttribute("alcoholList", service.alcoholListGet());
 	}
+	//샘플
+	@GetMapping("sample")
+	public void sample(){
+		
+	}
 	
 }

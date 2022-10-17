@@ -16,4 +16,8 @@ public interface UserService {
 		
 		// 회원 탈퇴 처리
 		public int deleteUser(UserListVO user, String userPass);
+		
+		public int emailCheck(String user_email);
+		
+		public int nicnameCheck(String user_nicname);
 }

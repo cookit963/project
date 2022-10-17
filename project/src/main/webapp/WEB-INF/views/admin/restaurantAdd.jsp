@@ -11,7 +11,7 @@
 		
 		<form action="/admin/restaurantAdd" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			<table border="1">
+			<table border="1" style=" background-color: white;">
 				<tr>
 					<td>
 						<div>
