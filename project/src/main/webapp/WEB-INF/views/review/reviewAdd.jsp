@@ -8,7 +8,6 @@
 	<%@ include file="../includes/header.jsp" %>
 	<br/><br/><br/>
 	<div align="center">
-		
 		<form action="/review/reviewAdd" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="res_no" value="${res_no}" />
 			<input type="hidden" name="user_id" value="${user.user_id}" />
@@ -79,4 +78,8 @@
 				window.location="/review/reviewView?re_no=${reviewReturn.re_no}";
 	        }
 		});	
+		if(${user.user_reviewon} == 0){
+			alert("권한이 없습니다!");
+			window.location="/content/main";
+		};
 	</script>

@@ -112,9 +112,9 @@
 									<tbody style="width: 500px; white-space: nowrap; border-top: 2px solid #fadef7" >
 										<tr>
 											<td>
-												${replyVO.user_nicname}<br/>
-												<textarea rows="2" cols="40" readonly="readonly" class="borderColor">${replyVO.r_content}</textarea><br/>
-												<input type="text" readonly="readonly" style="border: none;" value="${replyVO.r_reg}"/>
+												&nbsp;&nbsp;${replyVO.user_nicname}<br/>
+												&nbsp;&nbsp;<textarea rows="2" cols="40" readonly="readonly" class="borderColor">${replyVO.r_content}</textarea><br/>
+												&nbsp;&nbsp;<input type="text" readonly="readonly" style="border: none;" value="${replyVO.r_reg}"/>
 											</td>
 										</tr>
 									</tbody>

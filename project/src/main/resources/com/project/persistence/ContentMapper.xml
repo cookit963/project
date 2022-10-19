@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.persistence.ContentMapper">
 	<select id="getResList" resultType="com.project.domain.RestaurantVO">
-		select * from Restaurant
+		select * from Restaurant order by res_no desc
 	</select>
 	<select id="getResView" resultType="com.project.domain.RestaurantVO">
 		select * from Restaurant where res_no=#{res_no} 

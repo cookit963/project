@@ -44,25 +44,26 @@
         </div>
     </div>
     <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
+    <header class="header-area" style="align-items: center;">
 
         <!-- Top Header Area -->
         <div class="bueno-main-menu" id="sticker">
             <div class="classy-nav-container breakpoint-off bg-img bg-overlay" style="background-image: url(/resources/bueno-master/img/bg-img/header.jpg);">
                 <div class="container">
+                	<div>
                     <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="buenoNav" >
+                    <nav class="classy-navbar" id="buenoNav">
 
-                        <!-- Toggler -->
-                        <div id="toggler"><img src="/resources/bueno-master/img/core-img/toggler.png" alt=""></div>
+                        <!-- Toggler 
+                        <div id="toggler"><img src="/resources/bueno-master/img/core-img/toggler.png" alt=""></div> -->
 
-                        <!-- Navbar Toggler -->
+                        <!-- Navbar Toggler 
                         <div class="classy-navbar-toggler">
                             <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
+                        </div> -->
 
                         <!-- Menu -->
-                        <div class="classy-menu">
+                        <div class="classy-menu" align="center">
 
                             <!-- Close Button -->
                             <div class="classycloseIcon">
@@ -74,7 +75,6 @@
                             <div class="classynav">
                             <a href="/content/main"><img src="/resources/bueno-master/img/core-img/logo3.png" alt=""></a>
                                 <ul>
-                                	
                                     <li><a href="/content/main" style="color:gold">MAIN</a></li>
                                     <sec:authorize access="hasRole('ROLE_ADMIN')">
 										<li><a href="/admin/adminMain" style="color:gold">ADMINMAIN</a></li>
@@ -108,10 +108,12 @@
 									</sec:authorize>
 								</div>
                             </div>
+                           
                             <!-- Nav End -->
 
                         </div>
                     </nav>
+                    </div>
                 </div>
             </div>
         </div>

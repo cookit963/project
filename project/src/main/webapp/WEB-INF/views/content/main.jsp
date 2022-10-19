@@ -7,8 +7,34 @@
 	<style>
 		textarea.y{
 			position: relative;
-  			top: 165px;
+  			top: 150px;
 		}
+		div.wrapper {
+			margin: 0 auto;
+			padding: 1rem 30px;
+			width: 100%
+		}
+		
+		div.main-container {
+			display: flex; 
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+		}
+		
+		span.main-item-title {
+			font-size: 1.4rem;
+			font-weight: bold;
+			color: #b0c364;
+		}
+		div.main-item-text {
+			font-weight: semi-bold;
+			width: 500px;	
+			margin: 0 1.2rem;
+			font-size: 1.1rem;
+		}
+		
+		
 	</style>
 	<!-- header 복붙 -->
 	<%@ include file="../includes/header.jsp" %>
@@ -17,18 +43,25 @@
         <a href="/content/main"><img src="/resources/bueno-master/img/core-img/logo.png" alt=""></a>
     </div>
     <br/>
-    <div align="center" >
-    	<table>
-    		<tr>
-		    	<td>
-			    	<a href="/content/colkageMap">
-			    		<img src="/resources/bueno-master/img/bg-img/colkage.png" style="height: 340px; border-radius: 10px;"/>
-			    	</a>
-			    	<textarea rows="6" cols="50" readonly="readonly" style="border: none; border-radius: 10px;  background-color:transparent; font-size: 1.4em; color: #949494;" class="y">콜키지란?  레스토랑이나 바 등에서 판매하지 않는 주류를 고객이 직접 가져왔을 경우 업장에서 병을 개봉하고 글라스를 제공하며 주류 서빙, 디켄팅(포도주의 찌꺼기를 걸러내고 약간 산화시켜서 맛을 끌어올리는 작업), 칠링(얼음 등으로 주류를 차갑게 만드는 작업) 등을 하는 서비스를 제공하는 형태를 말합니다.</textarea>
-		    	</td>
-	    	</tr>
-    	</table>
+    
+    
+    <div class="wrapper" align="center">
+    <div class="main-container" >
+    	<div class="main-item-img">
+    		<a href="/content/colkageMap">
+	    		<img src="/resources/bueno-master/img/bg-img/colkage.png" style="height: 390px; width:1200px; border-radius: 10px;"/>
+	    	</a>
+    	</div>
+    	<div class="main-item-text">
+    		<span class="main-item-title">콜키지란?</span> <br /> 레스토랑이나 바 등에서 판매하지 않는 주류를 고객이 직접 가져왔을 경우 업장에서 병을 개봉하고 글라스를 제공하며 주류 서빙, 디켄팅(포도주의 찌꺼기를 걸러내고 약간 산화시켜서 맛을 끌어올리는 작업), 칠링(얼음 등으로 주류를 차갑게 만드는 작업) 등을 하는 서비스를 제공하는 형태를 말합니다.
+    	</div>
+    
+    	
     </div>
+    </div>
+    
+    
+    
     <br/><br/><br/>
 	    <!-- ##### Treading Post Area Start ##### -->
     

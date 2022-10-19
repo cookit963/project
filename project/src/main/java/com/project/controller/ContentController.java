@@ -99,7 +99,7 @@ public class ContentController {
 		}
 		
 		int result = 1;
-		rttr.addAttribute("result", result);
+		rttr.addFlashAttribute("result", result);
 		
 	}
 	@RequestMapping(value = "wishRestAdd", method = RequestMethod.POST)

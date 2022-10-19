@@ -22,13 +22,14 @@
 				<tr>
 					<td>
 						<div>
-							<input type="text" name="res_name" placeholder="식당 이름 입력" required="required"/>
+							
 						</div>
 					</td>
 				</tr>
 				<div>
 					<tr>
 						<td>
+							<input type="text" name="res_name" placeholder="식당 이름 입력" required="required"/><br/>
 							메인사진<input type="file" name="res_img01" required="required"/><br/>
 							사진2<input type="file" name="res_img02"/><br/>
 							사진3<input type="file" name="res_img03"/><br/><br/>
@@ -52,7 +53,7 @@
 								<tr>
 									<td>
 										<div>
-											<input type="text" name="res_content" placeholder="식당 설명 입력" required="required"/>
+											<textarea rows="5" cols="50" name="res_content" placeholder="식당 설명 입력" required="required"></textarea>
 										</div>
 									</td>
 								</tr>
@@ -89,7 +90,7 @@
 						<td>
 							<div>
 								<h6 align="center">콜키지 정보</h6>
-								<input type="text" name="res_colCon" placeholder="콜키지 가격 정보 입력" required="required"/><br/>
+								<textarea rows="3" cols="50" name="res_colCon" placeholder="콜키지 가격 정보 입력" required="required"></textarea><br/>
 								전용잔<input type="checkbox" name="res_colGlass" value="1"/>&nbsp;&nbsp;&nbsp;
 								서버<input type="checkbox" name="res_colSer" value="1"/>&nbsp;&nbsp;&nbsp;
 								오프너<input type="checkbox" name="res_colOpen" value="1"/>
@@ -130,7 +131,7 @@
 			var result = '<c:out value="${result}"/>';
 	        if(!(result=='')){
 	            alert("게시물이 등록되었습니다!");
-				window.location="/admin/main";
+				window.location="/admin/adminMain";
 	        }
 		});	
 	</script>

@@ -53,14 +53,14 @@
 					</div>
 					
 					
-						식당 이름 : <input type="text" value="${restaurantVO.res_name}" readonly="readonly" style="border:none"/>
+						&nbsp;&nbsp;식당 이름 : <input type="text" value="${restaurantVO.res_name}" readonly="readonly" style="border:none"/>
 						<c:if test="${starsCount != null}">
 							별점 : <input type="text" value="${starsCount} 점" id="rest_stars" readonly="readonly" style="border:none"/><br/>
 						</c:if>
 						<c:if test="${starsCount == null}">
 							별점 : <input type="text" value="아직 별점이 없습니다!" id="rest_stars" readonly="readonly" style="border:none"/><br/>
 						</c:if>
-						식당 주소 : <input type="text" value="${restaurantVO.res_address}" readonly="readonly" style="border:none"/>
+						&nbsp;&nbsp;식당 주소 : <input type="text" value="${restaurantVO.res_address}" readonly="readonly" style="border:none"/>
 						<button onclick="window.location='/review/reviewList?res_no=${restaurantVO.res_no}'">리뷰 보러 가기</button>
 						<sec:authorize access="isAnonymous()">
 						</sec:authorize>
@@ -73,80 +73,95 @@
 							</c:if>
 						</sec:authorize>
 						<br/>
-						<input type="text" value="식당 기본 정보" readonly="readonly" style="border:none"/>
+						&nbsp;&nbsp;<input type="text" value="식당 기본 정보" readonly="readonly" style="border:none"/>
 						<sec:authorize access="isAuthenticated()">
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<button onclick="window.location='/review/reviewAdd?res_no=${restaurantVO.res_no}'">리뷰 쓰러 가기!</button>
 						</sec:authorize>
 						<br/>
-						<textarea rows="5" cols="50" readonly="readonly" class="borderColor">${restaurantVO.res_content}</textarea><br/>
+						&nbsp;&nbsp;<textarea rows="5" cols="50" readonly="readonly" class="borderColor">${restaurantVO.res_content}</textarea><br/>
 					
 					<div>
+						<br/>
 						<h6 align="center">콜키지 정보</h6>
-						<textarea rows="3" cols="50" readonly="readonly" class="borderColor">${restaurantVO.res_colCon}</textarea><br/>
-						<table align="center">
-							<tr><td>
+						&nbsp;&nbsp;<textarea rows="3" cols="50" readonly="readonly" class="borderColor">${restaurantVO.res_colCon}</textarea><br/>
+					</div>
+					<div align="center">
+						<table>
+							<tr>
+								<td align="center" width="100px">
 									<c:if test="${restaurantVO.res_colGlass == 1}">
+										<img src="/resources/bueno-master/img/bg-img/c1.png" style="height: 50px"/><br/>
 										전용잔 제공
 									</c:if>
 								</td>
-								<td>
+								<td align="center" width="100px">
 									<c:if test="${restaurantVO.res_colSer == 1}">
+										<img src="/resources/bueno-master/img/bg-img/c2.jpg" style="height: 50px"/><br/>
 										서버 있음
 									</c:if>
 								</td>
-								<td>
+								<td align="center" width="100px">
 									<c:if test="${restaurantVO.res_colOpen == 1}">
+										<img src="/resources/bueno-master/img/bg-img/c3.jpg" style="height: 50px"/><br/>
 										오프너 제공
 									</c:if>
 								</td>
 							</tr>
 						</table>
+						<br/>
 					</div>	
 					<div>
 						<h6 align="center">편의 시설</h6>
 						<div align="center">
 							<table>
 								<tr>
-									<td>
+									<td align="center" width="100px">
 										<c:if test="${restaurantVO.res_amenPrivate == 1}">
+											<img src="/resources/bueno-master/img/bg-img/a1.png" style="height: 50px"/><br/>
 											개인 룸
 										</c:if>
 									</td>
-									<td>
+									<td align="center" width="100px">
 										<c:if test="${restaurantVO.res_amenPaking == 1}">
+											<img src="/resources/bueno-master/img/bg-img/a2.png" style="height: 50px"/><br/>
 											주차장
 										</c:if>
 									</td>
-									<td>
+									<td align="center" width="100px">
 										<c:if test="${restaurantVO.res_amenParty == 1}">
+											<img src="/resources/bueno-master/img/bg-img/a3.png" style="height: 50px"/><br/>
 											단체석
 										</c:if>
 									</td>
 								</tr>
 								<tr>
-									<td>
+									<td align="center" width="100px">
 										<c:if test="${restaurantVO.res_amenValet == 1}">
+											<img src="/resources/bueno-master/img/bg-img/a4.png" style="height: 50px"/><br/>
 											발렛파킹
 										</c:if>
 									</td>
-									<td>
+									<td align="center" width="100px">
 										<c:if test="${restaurantVO.res_amenRental == 1}">
+											<img src="/resources/bueno-master/img/bg-img/a5.png" style="height: 50px"/><br/>
 											대관
 										</c:if>
 									</td>
-									<td>
+									<td align="center">
 										<c:if test="${restaurantVO.res_amenSoml == 1}">
+											<img src="/resources/bueno-master/img/bg-img/a6.png" style="height: 50px"/><br/>
 											전문 소믈리에
 										</c:if>
 									</td>
 								</tr>
 							</table>
+							<br/>
 						</div>
 						<div>
 							<h6 align="center">메뉴판 및 가격정보</h6>
 							<div align="center">
-								<img src="/resources/save/${restaurantVO.res_menu}" width="400px" height="200px"/>
+								<img src="/resources/save/${restaurantVO.res_menu}" width="400px" height="200px" class="borderColor"/>
 							</div>
 							<br/>
 						</div>
@@ -163,13 +178,6 @@
 	
 	<!-- footer 복붙 -->        
 	<%@ include file="../includes/footer.jsp" %>
-	<script>
-		if(${restaurantDel} != null){
-			if(${restaurantDel} == 1){
-				alert("에러 발생");
-			}
-		}
-	</script>
 	<script>
 		
 	        var slideIndex = 1;showSlides(slideIndex);
@@ -203,7 +211,6 @@
 	</script>
 	<script>
 		$(document).ready(function(){
-			
 			
 			$(document).on('click','#wishRestAddBtn', function(){
 				console.log("ajax!!!!!!!");
@@ -272,7 +279,7 @@
 		            position: coords
 		        });
 		        var infowindow = new kakao.maps.InfoWindow({
-		            content: '<div style="width:200px;text-align:center;padding:6px 0;">식당이름 : ${restaurantVO.res_name}<br/>전화번호 : ${restaurantVO.res_call}<br/>식당 주소 : ${restaurantVO.res_address}</div>'
+		            content: '<div style="width:200px;text-align:left;padding:6px 0;">식당이름 : ${restaurantVO.res_name}<br/>전화번호 : ${restaurantVO.res_call}<br/>식당 주소 : ${restaurantVO.res_address}</div>'
 		        });
 		        infowindow.open(map, marker);
 		        map.setCenter(coords);

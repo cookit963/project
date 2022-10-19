@@ -14,8 +14,10 @@
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<input type="hidden" value="${user_nicname}" name="user_nicname" />
 			<table style="width: 500px; white-space: nowrap; background-color: white;" class="borderColor">
+				<c:set var="i" value="1"/>
 				<c:forEach var="reviewVO" items="${reviewList}">
 					<c:if test="${reviewVO.user_nicname eq user_nicname}">
+					<c:set var="i" value="${i+1}"/>
 					<tbody class="borderColor">
 						<tr>
 							<td style="background-color: Honeydew;">
@@ -57,6 +59,7 @@
 				</c:forEach>	
 			</table>
 		</form>
+		<br/><br/><br/><br/><br/><br/><br/>
 	</div>
 	
 	<!-- footer 복붙 -->        
@@ -235,6 +238,12 @@
 					}
 				});
 			});
+			let nullCheck = '<c:out value="${i}"/>';
+			console.log("asd"+nullCheck);
+			if(nullCheck == 1){
+				alert("작성한 리뷰가 없습니다!");
+				history.go(-1);
+			};
 			
 		});
 	</script>

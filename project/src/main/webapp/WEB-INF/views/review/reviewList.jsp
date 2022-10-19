@@ -13,9 +13,12 @@
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<input type="hidden" value="${res_no}" name="res_no" />
 			<table style="width: 500px; white-space: nowrap; background-color: white;" class="borderColor">
-				<c:set var="doneLoop" value="false"/>
+				<c:set var="i" value="1"/>
+				
 				<c:forEach var="reviewVO" items="${reviewList}">
+				
 					<c:if test="${res_no eq 0}">
+					<c:set var="i" value="${i+1}"/>
 					<tbody class="borderColor">
 						<tr>
 							<td style="background-color: Honeydew;">
@@ -54,7 +57,9 @@
 						</tr>
 					</tbody>
 					</c:if>
+					
 					<c:if test="${reviewVO.res_no eq res_no}">
+					<c:set var="i" value="${i+1}"/>
 					<tbody class="borderColor">
 						<tr>
 							<td style="background-color: Honeydew;">
@@ -93,9 +98,11 @@
 						</tr>
 					</tbody>
 					</c:if>
+					
 				</c:forEach>	
 			</table>
 		</form>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	</div>
 	
 	<!-- footer 복붙 -->        
@@ -269,6 +276,11 @@
 					}
 				});
 			});
-			
+			let nullCheck = '<c:out value="${i}"/>';
+			console.log("asd"+nullCheck);
+			if(nullCheck == 1){
+				alert("해당 식당에 리뷰가 없습니다!");
+				history.go(-1);
+			};
 		});
 	</script>

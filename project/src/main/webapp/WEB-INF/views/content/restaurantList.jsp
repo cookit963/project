@@ -98,7 +98,7 @@
 					<c:if test="${res_ca eq 'all'}">
 					<tbody class="borderColor">
 						<tr>
-							<td rowspan="4" align="center"><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
+							<td rowspan="4" align="center" width="200px"><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
 							<img src="/resources/save/${restaurant.res_img1}" 
 							style="height:180px;"/></a></td>
 							<td><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
@@ -121,15 +121,15 @@
 					<c:if test="${restaurant.res_genre eq res_ca}">
 					<tbody class="borderColor">
 						<tr>
-							<td rowspan="4"><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
+							<td rowspan="4" align="center" width="200px"><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
 							<img src="/resources/save/${restaurant.res_img1}" 
-							style="width:200px; height:180px;" /></a></td>
+							style="height:180px;" /></a></td>
 							<td><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
 							${restaurant.res_name}</a></td>
 						</tr>
 						<tr>
 							<td><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
-							별점 : <input type="number" value="0.0" class="rest_stars" readonly="readonly" style="border:none"/></a></td>
+							별점 : <input type="text" value="아직 별점이 없습니다!" class="rest_stars" readonly="readonly" style="border:none" data-resno="${restaurant.res_no}"/></a></td>
 						</tr>
 						<tr>
 							<td><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">

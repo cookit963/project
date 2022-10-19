@@ -5,54 +5,70 @@
 
 	<!-- header 복붙 -->
 	<%@ include file="../includes/header.jsp" %>
-	
+	<br/>
+	<div align="center" >
+        <a href="/content/main"><img src="/resources/bueno-master/img/core-img/logo.png" alt=""></a>
+    </div>
+	<sec:authorize access="isAnonymous()">
+		<script type="text/javascript">
+			alert("로그인 후 이용해 주세요");
+			window.location = "/user/login";
+		</script>
+	</sec:authorize>
 	<div>
-		<sec:authorize access="isAnonymous()">
-			<script type="text/javascript">
-				alert("로그인 후 이용해 주세요");
-				window.location = "/user/login";
-			</script>
-		</sec:authorize>
 		<sec:authorize access="isAuthenticated()">
 			<div align="center">
 			<h1>MyPage</h1>
-			<table style="border: 1px solid black;  background-color: white;">
+			<table>
 				<tr>
 					<td>
-						<button onclick="window.location='/review/ReviewUserList?user_nicname=${user.user_nicname}'">내가쓴 리뷰</button>
-						<button onclick="window.location='/content/restaurantWishList'">가고싶은 식당</button>
-						<button onclick="window.location='/review/reviewHeartList'">좋아요 누른 리뷰</button>
+						<a href="/review/ReviewUserList?user_nicname=${user.user_nicname}"><img src="/resources/bueno-master/img/bg-img/r1.png" style="height:125px; width: 125px;" class="aIn"/></a>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="/content/restaurantWishList"><img src="/resources/bueno-master/img/bg-img/r2.png" style="height:125px; width: 125px;" class="aIn"/></a>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="/review/reviewHeartList"><img src="/resources/bueno-master/img/bg-img/r3.png" style="height:125px; width: 125px;" class="aIn"/></a>
 					</td>
 				</tr>
 			</table>
 			<br/>
-				<table style="border: 1px solid black;  background-color: white;">
+				<table>
 					<tr>
 						<td>
-							
 							<form action="/logout" method="post">
 								<input type="hidden" name="${_csrf.parameterName}"
 									value="${_csrf.token}">
-								<button>로그아웃</button>
+								<button style="border: none; background-color:transparent;"><img src="/resources/bueno-master/img/bg-img/i1.png" style="height:125px; width: 125px;" class="aIn"/></button>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="/user/modify"><img src="/resources/bueno-master/img/bg-img/i2.png" style="height:125px; width: 125px;" class="aIn"/></a>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="/user/delete"><img src="/resources/bueno-master/img/bg-img/i3.png" style="height:125px; width: 125px;" class="aIn"/></a>
 							</form>	
 							
 						</td>
 					</tr>
-					<tr>
-						<td><br/>
-							<button onclick="window.location='/user/modify'">회원정보수정</button>
-						</td>
-					</tr>
-					<tr>
-						<td><br/>
-							<button onclick="window.location='/user/delete'">회원 탈퇴</button>
-						</td>
-					</tr>
 				</table>
 			</div>
-			
+			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 		</sec:authorize>
 	</div>
 	
 	<!-- footer 복붙 -->        
 	<%@ include file="../includes/footer.jsp" %>
+	
+	<script>
+		$(document).ready(function(){
+		
+			$(".aIn").mouseover(function(){
+			
+				$(this).css("transform", "scale(1.4)");
+				$(this).css("transition", "all 0.2s linear");
+			});
+				
+			$(".aIn").mouseout(function(){
+				
+				$(this).css("transform", "scale(1)");
+			
+			});
+		
+		});
+	</script>

@@ -14,11 +14,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     <!-- Footer Nav -->
                     <div class="footer-nav">
                         <ul>
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#">Recipes</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li class="active"><a href="/content/main">Main</a></li>
+                            <li><a href="/user/mypage">Mypage</a></li>
+                            <li><a href="/content/colkageMap">ColkageMap</a></li>
+                            <li><a href="/review/reviewList?res_no=0">TimeLine</a></li>
+                            <li><a href="/content/alcoholList">Alcohol</a></li>
                         </ul>
                     </div>
                 </div>
