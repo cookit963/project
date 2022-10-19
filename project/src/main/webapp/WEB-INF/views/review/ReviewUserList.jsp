@@ -28,8 +28,8 @@
 						<tr>
 							<td colspan="2">
 								<a href="/review/reviewView?re_no=${reviewVO.re_no}">
-									<div>
-									  <img src="/resources/save/${reviewVO.re_img1}" style="width:500px; height:300px;">
+									<div align="center">
+									  <img src="/resources/save/${reviewVO.re_img1}" style="height:300px;">
 									</div>
 									<div>
 										&nbsp;&nbsp;&nbsp;&nbsp;별점 : <input type="number" value="${reviewVO.re_stars}" readonly="readonly" style="border:none;"/>

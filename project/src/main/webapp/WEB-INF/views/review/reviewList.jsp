@@ -63,7 +63,7 @@
 					<tbody class="borderColor">
 						<tr>
 							<td style="background-color: Honeydew;">
-								&nbsp;&nbsp;&nbsp;&nbsp;작성자 : <a href="/Review/ReviewUserList?user_nicname=${reviewVO.user_nicname}" style="text-align:left; border:1px; font-size: large;">${reviewVO.user_nicname}</a>
+								&nbsp;&nbsp;&nbsp;&nbsp;작성자 : <a href="/review/ReviewUserList?user_nicname=${reviewVO.user_nicname}" style="text-align:left; border:1px; font-size: large;">${reviewVO.user_nicname}</a>
 							</td>
 							<td align="right" style="background-color: Honeydew;"><a class="resNameGet" href="/content/restaurantView?res_no=${reviewVO.res_no}" type="a" data-resno="${reviewVO.res_no}"></a>&nbsp;&nbsp;</td>
 						</tr>

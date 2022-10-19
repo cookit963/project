@@ -14,9 +14,9 @@
 				<c:forEach var="restaurant" items="${restaurantList}">
 					<tbody class="borderColor">
 						<tr>
-							<td rowspan="5"><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
+							<td rowspan="5" align="center"><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
 							<img src="/resources/save/${restaurant.res_img1}" 
-							style="width:200px; height:180px;" /></a></td>
+							style="height:180px;" /></a></td>
 							<td><a href="#" onclick="window.location='/content/restaurantView?res_no=${restaurant.res_no}'">
 							${restaurant.res_name}</a></td>
 						</tr>
