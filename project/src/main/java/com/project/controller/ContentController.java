@@ -186,5 +186,9 @@ public class ContentController {
 	public void sample(){
 		
 	}
+	@GetMapping("note")
+	public void note(){
+		
+	}
 	
 }

@@ -8,7 +8,7 @@
 	<%@ include file="../includes/header.jsp" %>
 	<br/><br/><br/>
 	<div align="center">
-		<form action="/review/reviewAdd" method="post" enctype="multipart/form-data">
+		<form action="/review/reviewAdd" method="post" enctype="multipart/form-data" id="myform">
 			<input type="hidden" name="res_no" value="${res_no}" />
 			<input type="hidden" name="user_id" value="${user.user_id}" />
 			<input type="hidden" name="user_nicname" value="${user.user_nicname}" />
@@ -25,7 +25,17 @@
 				<tr>
 					<td>
 						<div align="right">
-							<input type="number" name="re_stars" placeholder="별점" min="1" max="5" required="required" class="borderColor"/>
+							<div>
+						      <fieldset>
+						         <span class="text-bold">별점을 선택해주세요</span> 
+						         <input type="radio" name="re_stars" value="5" id="rate1"><label for="rate1">★</label>
+						         <input type="radio" name="re_stars" value="4" id="rate2"><label for="rate2">★</label>
+						         <input type="radio" name="re_stars" value="3" id="rate3"><label for="rate3">★</label> 
+						         <input type="radio" name="re_stars" value="2" id="rate4"><label for="rate4">★</label> 
+						         <input type="radio" name="re_stars" value="1" id="rate5"><label for="rate5">★</label>
+						      </fieldset>
+							</div>
+							
 						</div>
 					</td>
 				</tr>
@@ -64,6 +74,43 @@
 		</form>
 	</div>
 	
+<style>
+#myform fieldset{
+    display: inline-block;
+    direction: rtl;
+    border:0;
+}
+#myform fieldset legend{
+    text-align: right;
+}
+#myform input[type=radio]{
+    display: none;
+}
+#myform label{
+    font-size: 3em;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
+}
+#myform label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#myform label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#myform input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#reviewContents {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 1.5px #D3D3D3;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none;
+}
+</style>
 	<!-- footer 복붙 -->        
 	<%@ include file="../includes/footer.jsp" %>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

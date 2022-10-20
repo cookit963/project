@@ -10,7 +10,7 @@
 	<div align="center">
 	<form action="/admin/alcoholAdd" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			<table style="border: 1px solid black;  background-color: white;">
+			<table style=" background-color: white;" class="borderColor">
 				<tr>
 					<td>
 						<div>
@@ -21,7 +21,7 @@
 				<tr>
 					<td>
 						<div align="center">
-							<input type="text" name="alcol_title" placeholder="주류 이름 입력" required="required"/>
+							<input type="text" name="alcol_title" placeholder="주류 이름 입력" required="required" class="borderColor"/>
 						</div>
 					</td>
 				</tr>
@@ -35,14 +35,14 @@
 								<tr>
 									<td>
 										<div>
-											<textarea rows="15" cols="60" name="alcol_content" placeholder="내용 입력" required="required"></textarea>
+											<textarea rows="15" cols="60" name="alcol_content" placeholder="내용 입력" required="required" class="borderColor" ></textarea>
 										</div>
 									</td>
 								</tr>
 								<tr>
 									<td>
 										<div>
-											<br/><textarea rows="3" cols="60" name="alcol_etc" placeholder="판매처 및 가격정보 입력" required="required"></textarea>
+											<br/><textarea rows="3" cols="60" name="alcol_etc" placeholder="판매처 및 가격정보 입력" required="required" class="borderColor"></textarea>
 										</div>
 									</td>
 								</tr>

@@ -11,7 +11,7 @@
 		
 		<form action="/admin/restaurantAdd" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			<table border="1" style=" background-color: white;">
+			<table class="borderColor" style=" background-color: white;">
 				<tr>
 					<td>
 						<div>
@@ -29,7 +29,7 @@
 				<div>
 					<tr>
 						<td>
-							<input type="text" name="res_name" placeholder="식당 이름 입력" required="required"/><br/>
+							<input type="text" name="res_name" placeholder="식당 이름 입력" required="required" class="borderColor"/><br/>
 							메인사진<input type="file" name="res_img01" required="required"/><br/>
 							사진2<input type="file" name="res_img02"/><br/>
 							사진3<input type="file" name="res_img03"/><br/><br/>
@@ -37,7 +37,7 @@
 								<tr>
 									<td>
 										<div>
-											<input type="text" name="res_call" placeholder="식당 전화번호 입력" required="required"/>
+											<input type="text" name="res_call" placeholder="식당 전화번호 입력" required="required" class="borderColor"/>
 										</div>
 									</td>
 								</tr>
@@ -45,7 +45,7 @@
 									<td>
 										<div>
 											
-											<input type="text" name="res_address" id="res_address" placeholder="식당 주소 입력" required="required"/>
+											<input type="text" name="res_address" id="res_address" placeholder="식당 주소 입력" required="required" class="borderColor"/>
 											<input type="button" onclick="address_ser()" value="식당주소찾기" />
 										</div>
 									</td>
@@ -53,14 +53,14 @@
 								<tr>
 									<td>
 										<div>
-											<textarea rows="5" cols="50" name="res_content" placeholder="식당 설명 입력" required="required"></textarea>
+											<textarea rows="5" cols="50" name="res_content" placeholder="식당 설명 입력" required="required" class="borderColor"></textarea>
 										</div>
 									</td>
 								</tr>
 								<tr>
 									<td>
 										<div>
-											<table border="1">
+											<table class="borderColor">
 												<tr>
 													<td>
 														식당 종류 선택<br/>
@@ -90,7 +90,7 @@
 						<td>
 							<div>
 								<h6 align="center">콜키지 정보</h6>
-								<textarea rows="3" cols="50" name="res_colCon" placeholder="콜키지 가격 정보 입력" required="required"></textarea><br/>
+								<textarea rows="3" cols="50" name="res_colCon" placeholder="콜키지 가격 정보 입력" required="required" class="borderColor"></textarea><br/>
 								전용잔<input type="checkbox" name="res_colGlass" value="1"/>&nbsp;&nbsp;&nbsp;
 								서버<input type="checkbox" name="res_colSer" value="1"/>&nbsp;&nbsp;&nbsp;
 								오프너<input type="checkbox" name="res_colOpen" value="1"/>
@@ -107,12 +107,13 @@
 								발렛파킹<input type="checkbox" name="res_amenValet" value="1"/>&nbsp;&nbsp;&nbsp;
 								대관<input type="checkbox" name="res_amenRental" value="1"/>&nbsp;&nbsp;&nbsp;
 								소믈리에<input type="checkbox" name="res_amenSoml" value="1"/>
+								<br/><br/>
 							</div>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="submit" value="작성 완료" />
+							<input type="submit" value="작성 완료" /><br/><br/>
 						</td>
 					</tr>
 				</div>
