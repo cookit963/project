@@ -78,6 +78,10 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<button onclick="window.location='/review/reviewAdd?res_no=${restaurantVO.res_no}'">리뷰 쓰러 가기!</button>
 						</sec:authorize>
+						<sec:authorize access="isAnonymous()">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button onclick="window.location='/user/login'">리뷰 쓰러 가기!</button>
+						</sec:authorize>
 						<br/>
 						&nbsp;&nbsp;<textarea rows="5" cols="50" readonly="readonly" class="borderColor">${restaurantVO.res_content}</textarea><br/>
 					

@@ -8,6 +8,10 @@
 	<%@ include file="../includes/header.jsp" %>
 	<br/><br/><br/>
 	<div align="center">
+		<c:if test="${res_no != 0}">
+			<a href="/review/reviewAdd?res_no=${res_no}" class="btn bueno-btn">리뷰쓰러가기!</a><br/><br/>
+		</c:if>
+		
 		<br/>
 		<form>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
